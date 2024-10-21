@@ -1,0 +1,15 @@
+{
+  "name": "lowcode-manage-center",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.smartsteps.com:delivery/developer/dms/demo/lowcode-manage-center.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
