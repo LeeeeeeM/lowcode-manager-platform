@@ -1,10 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import { registrantReducer } from './Reducer/registrantReducer'
+import { registrantReducer } from './Reducer/Registrant/registrantReducer'
+import { countReducer } from './Reducer/Count/countReducer';
 
 const store = configureStore({
-  reducer: { registrantReducer },
-})
+  reducer: { registrantReducer, countReducer },
+});
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(window as any).__store__ = store;
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 type RootState = ReturnType<typeof store.getState>

@@ -9,6 +9,8 @@ const watermarkConfig: WatermarkProps = {
 export const Main = () => {
   const navigation = useNavigation()
 
+  return <Outlet />;
+
   return (
     <Watermark
       className="h-[calc(100vh_-_50px)] w-full overflow-y-auto overflow-x-hidden px-3 pt-2"

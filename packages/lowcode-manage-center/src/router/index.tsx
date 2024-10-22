@@ -1,19 +1,20 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { RouterProvider, createHashRouter, createBrowserRouter } from "react-router-dom";
 import { Spin } from "antd";
-import { routes } from "./routes";
+import { allRoutes, otherRoutes, routes } from "./routes";
 
-console.log(routes)
+console.log(routes, otherRoutes)
 
 const router = createBrowserRouter([
   {
     path: "/",
     lazy: () =>
       import("/@/layout").then(({ BodyLayout }) => ({ Component: BodyLayout })),
-    children: routes.map((route) => ({
+    children: allRoutes.map((route) => ({
       path: route.path,
-      lazy: () => route.element.then((Component) => ({ Component })),
+      lazy: () => route.lazy().then((Component) => ({ Component })),
     })),
-  },
+  }
 ]);
 
 export const Router = () => {

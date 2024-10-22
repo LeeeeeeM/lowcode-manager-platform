@@ -22,6 +22,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { Nav } from "./components/Nav";
 import { Header } from "/@/layout/components/Header";
 import { Main } from "/@/layout/components/Main";
+import { routes } from "../router/routes";
 
 export const BodyLayout: FC = () => {
   const location = useLocation();
@@ -39,7 +40,7 @@ export const BodyLayout: FC = () => {
   // }
 
   if (location.pathname === "/") {
-    return <Navigate replace to={"/home"} />;
+    return <Navigate replace to={routes[0].path} />;
   }
 
   // return (
