@@ -1,26 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './pages/Home';
-import About from './pages/About';
-import Product from './pages/Product';
-import Download from './pages/Download';
-import PageNotFound from './pages/PageNotFound';
-import "./App.css";
+import { Provider } from 'react-redux'
+import { ConfigProvider } from 'antd'
 
-function App() {
+import { store } from '/@/store'
+import { Router } from '/@/router'
 
+import '/@/styles/global.css'
+
+const App = () => {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/product" element={<Product />}></Route>
-          <Route path="/download" element={<Download />}></Route>
-          <Route path="*" element={<PageNotFound />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+    <ConfigProvider>
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    </ConfigProvider>
+  )
 }
 
-export default App;
+export default App
