@@ -1,9 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { RouterProvider, createHashRouter, createBrowserRouter } from "react-router-dom";
 import { Spin } from "antd";
-import { allRoutes, otherRoutes, routes } from "./routes";
-
-console.log(routes, otherRoutes)
+import { allRoutes } from "./routes";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +11,7 @@ const router = createBrowserRouter([
     children: allRoutes.map((route) => ({
       path: route.path,
       lazy: () => route.lazy().then((Component) => ({ Component })),
+      loader: route.loader
     })),
   }
 ]);

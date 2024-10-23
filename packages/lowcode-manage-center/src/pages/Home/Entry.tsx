@@ -1,15 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Home from "./index";
+import { Spin } from "antd";
 
 
 export const Entry = () => {
-  // const [inited, setInited] = useState(false);
+  const [inited, setInited] = useState(false);
   useEffect(() => {
+    setTimeout(() => {
+      setInited(true);
+    }, 1000);
     return () => {
-
+      console.log(122);
     }
   }, []);
 
   // return inited ? <Home /> : null
-  return <Home />
+  return <>{
+    !inited ? <Spin/> :<Home />
+  }</>
 };

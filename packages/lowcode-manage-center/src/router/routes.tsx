@@ -7,6 +7,8 @@ type Route = {
   icon?: ReactNode;
   path: string;
   lazy: () => Promise<FC>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  loader?: () => Promise<any>;
 };
 
 export const routes: Route[] = [
@@ -15,6 +17,11 @@ export const routes: Route[] = [
     path: "/project-manage",
     icon: <HomeOutlined />,
     lazy: () => import("../pages/Home/Entry").then(({ Entry }) => Entry),
+    // loader: () =>
+    //   fetch(`api/v2/code/get_license_test`).then((data) => {
+    //     console.log(data);
+    //     return data
+    //   }),
   },
   {
     label: "用户管理",

@@ -1,4 +1,6 @@
-import { Data } from "../store/Reducer/Registrant/types"
+interface Data {
+  name: string;
+}
 
 const keyBefore = 'vite-react-ts-antd-starter-'
 

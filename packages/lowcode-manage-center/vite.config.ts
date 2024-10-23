@@ -17,6 +17,15 @@ export default ({ command, mode }: ConfigEnv) => {
 
   return defineConfig({
     plugins: [react()],
+    server: {
+      proxy: {
+        '/api/v2/code/': {
+          target: 'http://dms.smartsteps.com',
+          changeOrigin: true
+        },
+        
+      }
+    },
     resolve: {
       alias: [{ find: '/@', replacement: resolve(__dirname, './src') }],
     },

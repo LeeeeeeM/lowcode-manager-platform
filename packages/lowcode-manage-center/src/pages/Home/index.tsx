@@ -1,21 +1,14 @@
 import { Button, Flex } from "antd";
+import { useLoaderData } from "react-router-dom";
 import PageNav from "../../components/PageNav";
-import { useAppDispatch, useAppSelector } from "../../store";
-import {
-  addStateCount,
-  reduceStateCount,
-} from "../../store/Reducer/Count/countReducer";
+import { useStore } from "./Model";
 
 export default function Home() {
-  const dispatch = useAppDispatch();
-  const count = useAppSelector((state) => state.countReducer.count);
-  const addCount = () => {
-    dispatch(addStateCount({ countNumber: 1 }));
-  };
-
-  const decreaseCount = () => {
-    dispatch(reduceStateCount({ countNumber: 1 }));
-  };
+  const count = useStore((state) => state.count);
+  const addCount = useStore((state) => state.addStateCount);
+  const decreaseCount = useStore((state) => state.reduceStateCount);
+  const albums = useLoaderData();
+  console.log(albums);
 
   return (
     <>
