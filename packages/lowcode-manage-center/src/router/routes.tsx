@@ -57,6 +57,11 @@ export const otherRoutes: Route[] = [
     lazy: () => import("../pages/ProjectDetail").then(({ Entry }) => Entry),
   },
   {
+    label: "项目详情",
+    path: "/project-create",
+    lazy: () => import("../pages/ProjectCreate").then(({ Entry }) => Entry),
+  },
+  {
     label: ANY_MATCH_NAME,
     path: "*",
     lazy: () =>

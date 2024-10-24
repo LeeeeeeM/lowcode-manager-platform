@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Table } from "antd";
-import type { TableColumnsType } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Button, Flex, Table, type TableColumnsType } from "antd";
 
 export interface DataType {
   key: React.Key;
@@ -8,73 +8,6 @@ export interface DataType {
   age: number;
   address: string;
 }
-
-const columns: TableColumnsType<DataType> = [
-  {
-    title: "Full Name",
-    width: 100,
-    dataIndex: "name",
-    key: "name",
-    fixed: "left",
-  },
-  {
-    title: "Age",
-    width: 100,
-    dataIndex: "age",
-    key: "age",
-    fixed: "left",
-  },
-  {
-    title: "Column 1",
-    dataIndex: "address",
-    key: "1",
-    width: 150,
-  },
-  {
-    title: "Column 2",
-    dataIndex: "address",
-    key: "2",
-    width: 150,
-  },
-  {
-    title: "Column 3",
-    dataIndex: "address",
-    key: "3",
-    width: 150,
-  },
-  {
-    title: "Column 4",
-    dataIndex: "address",
-    key: "4",
-    width: 150,
-  },
-  {
-    title: "Column 5",
-    dataIndex: "address",
-    key: "5",
-    width: 150,
-  },
-  {
-    title: "Column 6",
-    dataIndex: "address",
-    key: "6",
-    width: 150,
-  },
-  {
-    title: "Column 7",
-    dataIndex: "address",
-    key: "7",
-    width: 150,
-  },
-  { title: "Column 8", dataIndex: "address", key: "8" },
-  {
-    title: "Action",
-    key: "operation",
-    fixed: "right",
-    width: 100,
-    render: () => <a>action</a>,
-  },
-];
 
 interface CustomTableProps {
   total?: number;
@@ -85,7 +18,71 @@ interface CustomTableProps {
 }
 
 const CustomTable: FC<CustomTableProps> = (props) => {
+  const navigate = useNavigate();
   const { total, pageSize, data, currentPage, onChangePageSize } = props;
+
+  const previewPage = (item: DataType) => {
+    console.log(item, 'preview');
+  };
+
+  const editPage = (item: DataType) => {
+    console.log(item, 'edit');
+    navigate(`/detail/${item.key}`);
+  };
+
+  const deletePage = (item: DataType) => {
+    console.log(item, 'delete');
+  };
+
+  const renderAction = (item: DataType) => {
+    return (
+      <Flex>
+        <Button type="link" onClick={() => previewPage(item)}>
+          预览
+        </Button>
+        <Button type="link" onClick={() => editPage(item)}>
+          编辑
+        </Button>
+        <Button type="link" onClick={() => deletePage(item)}>
+          删除
+        </Button>
+      </Flex>
+    );
+  };
+
+  const columns: TableColumnsType<DataType> = [
+    {
+      title: "项目名称",
+      width: 100,
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "项目ID",
+      width: 100,
+      dataIndex: "age",
+      key: "age",
+    },
+    {
+      title: "项目备注",
+      dataIndex: "address",
+      key: "1",
+      width: 100,
+    },
+    {
+      title: "其他",
+      dataIndex: "address",
+      key: "2",
+      width: 100,
+    },
+    {
+      title: "操作咧",
+      key: "operation",
+      fixed: "right",
+      width: 150,
+      render: renderAction,
+    }
+  ];
 
   return (
     <Table<DataType>

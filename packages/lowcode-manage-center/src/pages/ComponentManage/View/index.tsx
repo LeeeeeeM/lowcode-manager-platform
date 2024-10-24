@@ -5,7 +5,7 @@ export default function Product() {
   return (
     <>
       <ViewBox>
-        <div>[FEATURE]正在开发中，暂不开放</div>
+        <div>[WIP]正在开发中，暂不开放</div>
       </ViewBox>
     </>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Button, Flex } from "antd";
-// import { useLoaderData } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ViewBox from "/@/components/ViewBox";
 import { DEFAULT_PAGE_SIZE } from "/@/constants";
 import { useStore } from "../Model";
@@ -12,7 +12,13 @@ export default function ProjectManage() {
   const addCount = useStore((state) => state.addStateCount);
   const decreaseCount = useStore((state) => state.reduceStateCount);
 
+  const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1);
+
+  const createNewProject = () => {
+    navigate('/project-create')
+  };
 
   const onChangePageSize = (v: number) => {
     setCurrentPage(v);
@@ -38,8 +44,8 @@ export default function ProjectManage() {
   return (
     <>
       <ViewBox>
-        <Flex align="center" gap={10} className="mb-2 pt-2">
-          <Button>新建项目</Button>
+        <Flex align="center" gap={10} className="mb-2">
+          <Button onClick={createNewProject}>新建项目</Button>
           <Button type="primary" onClick={addCount}>
             增加
           </Button>
