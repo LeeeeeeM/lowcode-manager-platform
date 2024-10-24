@@ -6,8 +6,8 @@ import { useBoolean } from "ahooks";
 import cns from "classnames";
 
 // import { stringCapitalization } from '/@/utils/string'
-import { routes } from "/@/router/routes";
-import styles from "./Nav.module.less";
+import { navRoutes } from "/@/router/routes";
+import styles from "./index.module.less";
 
 export const Nav: FC = () => {
   const { pathname } = useLocation();
@@ -23,7 +23,7 @@ export const Nav: FC = () => {
   );
 
   const menus = useMemo(
-    () => routes.map(({ path, label, icon }) => ({ key: path, label, icon })),
+    () => navRoutes.map(({ path, label, icon }) => ({ key: path, label, icon })),
     []
   );
 

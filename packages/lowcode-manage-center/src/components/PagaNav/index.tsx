@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 export default function PageNav() {
-  return null;
   return <nav>
     <ul>
       <li>

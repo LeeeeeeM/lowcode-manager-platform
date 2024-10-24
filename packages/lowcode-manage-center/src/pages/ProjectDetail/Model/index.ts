@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 
 import { registerStore } from '/@/store/registerStore';
+import { MODEL_NAMESPACE } from '/@/constants/model';
 
 interface CountState {
   count: number;
@@ -22,4 +23,4 @@ export const useStore = create<CountState & CountActions>((set) => ({
 }));
 
 
-registerStore('home', useStore);
+registerStore(MODEL_NAMESPACE.PROJECT_DETAIL, useStore);

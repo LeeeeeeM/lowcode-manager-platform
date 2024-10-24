@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 import { registerStore } from "/@/store/registerStore";
+import { MODEL_NAMESPACE } from "/@/constants/model";
 
 interface BearState {
   bears: number;
@@ -23,4 +24,4 @@ export const useStore = create<BearState & BearActions>((set) => ({
   }
 }));
 
-registerStore("detail", useStore);
+registerStore(MODEL_NAMESPACE.PAGE_DETAIL, useStore);

@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { HomeOutlined, RadarChartOutlined } from "@ant-design/icons";
+import { ProjectOutlined, ShopOutlined, UserOutlined, DownloadOutlined, FileOutlined } from "@ant-design/icons";
 import { ANY_MATCH_NAME } from "../constants/routes";
 
 type Route = {
@@ -7,41 +7,41 @@ type Route = {
   icon?: ReactNode;
   path: string;
   lazy: () => Promise<FC>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  loader?: () => Promise<any>;
+  loader?: () => Promise<unknown>;
 };
 
-export const routes: Route[] = [
+export const navRoutes: Route[] = [
   {
     label: "项目管理",
     path: "/project-manage",
-    icon: <HomeOutlined />,
-    lazy: () => import("../pages/Home/Entry").then(({ Entry }) => Entry),
-    // loader: () =>
-    //   fetch(`api/v2/code/get_license_test`).then((data) => {
-    //     console.log(data);
-    //     return data
-    //   }),
+    icon: <ProjectOutlined />,
+    lazy: () => import("../pages/ProjectManage").then(({ Entry }) => Entry),
   },
   {
     label: "用户管理",
     path: "/user-manage",
-    icon: <RadarChartOutlined />,
-    lazy: () => import("../pages/About").then((About) => About.default),
-  },
-  {
-    label: "下载",
-    path: "/download",
-    icon: <RadarChartOutlined />,
-    lazy: () =>
-      import("../pages/Download").then((Download) => Download.default),
+    icon: <UserOutlined />,
+    lazy: () => import("../pages/UserManage").then(({ Entry }) => Entry),
   },
   {
     label: "组件管理",
     path: "/component-manage",
-    icon: <RadarChartOutlined />,
+    icon: <ShopOutlined />,
     lazy: () =>
-      import("../pages/Product/Product").then((Product) => Product.default),
+      import("../pages/ComponentManage").then(({ Entry }) => Entry),
+  },
+  {
+    label: "页面管理",
+    path: "/page-manage",
+    icon: <FileOutlined />,
+    lazy: () =>
+      import("../pages/PageManage").then(({ Entry }) => Entry),
+  },
+  {
+    label: "下载",
+    path: "/download",
+    icon: <DownloadOutlined />,
+    lazy: () => import("../pages/Download").then(({ Entry }) => Entry),
   },
 ];
 
@@ -49,7 +49,12 @@ export const otherRoutes: Route[] = [
   {
     label: "详情",
     path: "/detail/:id",
-    lazy: () => import("../pages/Detail/Entry").then(({ Entry }) => Entry),
+    lazy: () => import("../pages/Detail").then(({ Entry }) => Entry),
+  },
+  {
+    label: "项目详情",
+    path: "/project-detail/:id",
+    lazy: () => import("../pages/ProjectDetail").then(({ Entry }) => Entry),
   },
   {
     label: ANY_MATCH_NAME,
@@ -61,4 +66,4 @@ export const otherRoutes: Route[] = [
   },
 ];
 
-export const allRoutes: Route[] = [...routes, ...otherRoutes];
+export const allRoutes: Route[] = [...navRoutes, ...otherRoutes];
