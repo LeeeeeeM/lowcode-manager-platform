@@ -88,7 +88,7 @@ const CustomTable: FC<CustomTableProps> = (props) => {
     <Table<DataType>
       columns={columns}
       dataSource={data}
-      scroll={{ x: 1500, y: 600 }}
+      scroll={{ x: 1000, y: 600 }}
       pagination={{
         showSizeChanger: false,
         showQuickJumper: true,

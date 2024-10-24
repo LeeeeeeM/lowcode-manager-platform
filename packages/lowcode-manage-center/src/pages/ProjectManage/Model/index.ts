@@ -2,24 +2,27 @@ import { create } from 'zustand'
 
 import { registerStore } from '/@/store/registerStore';
 import { MODEL_NAMESPACE } from '/@/constants/model';
+import { SimpleProject } from '/@/services/entity/project';
 
 interface CountState {
-  count: number;
+  total: number;
+  projectList: SimpleProject[];
 }
 
 interface CountActions {
-  addStateCount: () => void;
-  reduceStateCount: () => void;
+  setProjectList: (list: SimpleProject[]) => void;
+  setTotal: (total: number) => void;
 }
 
 const initState: CountState = {
-  count: 0
+  total: 0,
+  projectList: []
 };
 
 export const useStore = create<CountState & CountActions>((set) => ({
   ...initState,
-  addStateCount: () => set((state) => ({ count: state.count + 1 })),
-  reduceStateCount: () => set((state) => ({ count: state.count - 1 }))
+  setProjectList: (list) => set(() => ({ projectList: list })),
+  setTotal: (total) => set(() => ({ total }))
 }));
 
 

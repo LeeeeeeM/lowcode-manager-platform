@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { ProjectOutlined, ShopOutlined, UserOutlined, DownloadOutlined, FileOutlined } from "@ant-design/icons";
-import { ANY_MATCH_NAME } from "../constants/routes";
+import { ANY_MATCH_NAME } from "/@/constants";
 
 type Route = {
   label?: string;

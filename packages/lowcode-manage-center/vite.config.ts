@@ -23,7 +23,10 @@ export default ({ command, mode }: ConfigEnv) => {
           target: 'http://dms.smartsteps.com',
           changeOrigin: true
         },
-        
+        '/api/': {
+          target: 'http://k8s.smartsteps.com:32679',
+          changeOrigin: true
+        },
       }
     },
     resolve: {

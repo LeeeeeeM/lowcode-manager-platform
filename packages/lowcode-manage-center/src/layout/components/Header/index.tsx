@@ -4,7 +4,7 @@ import { useLocation, matchPath } from 'react-router-dom'
 // import { UserOutlined } from '@ant-design/icons'
 
 // import { stringCapitalization } from '/@/utils/string'
-import { ANY_MATCH_NAME } from '/@/constants/routes'
+import { ANY_MATCH_NAME } from '/@/constants'
 import { allRoutes } from '/@/router/routes'
 
 // const items: MenuProps['items'] = [

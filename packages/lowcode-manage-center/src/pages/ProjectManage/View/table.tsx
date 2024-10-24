@@ -1,40 +1,35 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Flex, Table, type TableColumnsType } from "antd";
+import { SimpleProject } from "/@/services/entity/project";
 
-export interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-interface CustomTableProps {
+interface CustomTableProps<T> {
   total?: number;
   currentPage?: number;
   pageSize?: number;
-  data?: DataType[];
+  data?: T[];
   onChangePageSize: (v: number) => void;
+  loading?: boolean;
 }
 
-const CustomTable: FC<CustomTableProps> = (props) => {
+const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
   const navigate = useNavigate();
-  const { total, pageSize, data, currentPage, onChangePageSize } = props;
+  const { total, pageSize, data, currentPage, onChangePageSize, loading } = props;
 
-  const jumpToDetail = (item: DataType) => {
+  const jumpToDetail = (item: SimpleProject) => {
     console.log(item, 'jump');
-    navigate(`/project-detail/${item.key}`);
+    navigate(`/project-detail/${item.id}`);
   };
 
-  const downloadProject = (item: DataType) => {
+  const downloadProject = (item: SimpleProject) => {
     console.log(item, 'download');
   };
 
-  const deleteProject = (item: DataType) => {
+  const deleteProject = (item: SimpleProject) => {
     console.log(item, 'delete');
   };
 
-  const renderAction = (item: DataType) => {
+  const renderAction = (item: SimpleProject) => {
     return (
       <Flex>
         <Button type="link" onClick={() => jumpToDetail(item)}>
@@ -50,7 +45,7 @@ const CustomTable: FC<CustomTableProps> = (props) => {
     );
   };
 
-  const columns: TableColumnsType<DataType> = [
+  const columns: TableColumnsType<SimpleProject> = [
     {
       title: "项目名称",
       width: 100,
@@ -60,8 +55,8 @@ const CustomTable: FC<CustomTableProps> = (props) => {
     {
       title: "项目ID",
       width: 100,
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "id",
+      key: "id",
     },
     {
       title: "项目备注",
@@ -70,13 +65,7 @@ const CustomTable: FC<CustomTableProps> = (props) => {
       width: 100,
     },
     {
-      title: "其他",
-      dataIndex: "address",
-      key: "2",
-      width: 100,
-    },
-    {
-      title: "操作咧",
+      title: "操作列",
       key: "operation",
       fixed: "right",
       width: 150,
@@ -85,10 +74,12 @@ const CustomTable: FC<CustomTableProps> = (props) => {
   ];
 
   return (
-    <Table<DataType>
+    <Table<SimpleProject>
       columns={columns}
       dataSource={data}
-      scroll={{ x: 1500, y: 600 }}
+      rowKey="id"
+      loading={loading}
+      scroll={{ x: 1000, y: 600 }}
       pagination={{
         showSizeChanger: false,
         showQuickJumper: true,

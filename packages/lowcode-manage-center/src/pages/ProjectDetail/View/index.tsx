@@ -41,7 +41,6 @@ export default function ProjectManage() {
     <>
       <ViewBox>
         <Flex align="center" gap={10} className="mb-2 pt-2">
-          <Button>新建项目</Button>
           <Button type="primary" onClick={addCount}>
             增加
           </Button>
