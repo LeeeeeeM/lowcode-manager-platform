@@ -1,26 +1,35 @@
-import { create } from 'zustand'
+import { create } from "zustand";
 
-import { registerStore } from '/@/store/registerStore';
-import { MODEL_NAMESPACE } from '/@/constants/model';
+import { registerStore } from "/@/store/registerStore";
+import { MODEL_NAMESPACE } from "/@/constants/model";
+import { ProjectInfo, SimplePage } from "/@/services/entity";
 
-interface CountState {
-  count: number;
+interface ProjectDetailState {
+  total: number;
+  pageList: SimplePage[];
+  projectInfo: ProjectInfo;
 }
 
-interface CountActions {
-  addStateCount: () => void;
-  reduceStateCount: () => void;
+interface ProjectDetailActions {
+  setPageList: (list: SimplePage[]) => void;
+  setPageTotal: (total: number) => void;
 }
 
-const initState: CountState = {
-  count: 0
+const initState: ProjectDetailState = {
+  total: 0,
+  pageList: [],
+  projectInfo: {
+    remark: "",
+    name: "",
+  },
 };
 
-export const useStore = create<CountState & CountActions>((set) => ({
-  ...initState,
-  addStateCount: () => set((state) => ({ count: state.count + 1 })),
-  reduceStateCount: () => set((state) => ({ count: state.count - 1 }))
-}));
-
+export const useStore = create<ProjectDetailState & ProjectDetailActions>(
+  (set) => ({
+    ...initState,
+    setPageList: (list) => set(() => ({ pageList: list })),
+    setPageTotal: (total) => set(() => ({ total })),
+  })
+);
 
 registerStore(MODEL_NAMESPACE.PROJECT_DETAIL, useStore);

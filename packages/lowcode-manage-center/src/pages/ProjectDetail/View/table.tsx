@@ -1,82 +1,71 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Flex, Table, type TableColumnsType } from "antd";
+import { SimplePage } from "/@/services/entity";
 
-export interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-interface CustomTableProps {
+interface CustomTableProps<T> {
   total?: number;
   currentPage?: number;
   pageSize?: number;
-  data?: DataType[];
+  data?: T[];
   onChangePageSize: (v: number) => void;
+  loading?: boolean;
 }
 
-const CustomTable: FC<CustomTableProps> = (props) => {
+const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
   const navigate = useNavigate();
-  const { total, pageSize, data, currentPage, onChangePageSize } = props;
+  const { total, pageSize, data, currentPage, onChangePageSize, loading } = props;
 
-  const previewPage = (item: DataType) => {
-    console.log(item, 'preview');
+  const jumpToDetail = (item: SimplePage) => {
+    console.log(item, 'jump');
+    navigate(`/project-detail/${item.id}`);
   };
 
-  const editPage = (item: DataType) => {
-    console.log(item, 'edit');
-    navigate(`/detail/${item.key}`);
+  const downloadProject = (item: SimplePage) => {
+    console.log(item, 'download');
   };
 
-  const deletePage = (item: DataType) => {
+  const deleteProject = (item: SimplePage) => {
     console.log(item, 'delete');
   };
 
-  const renderAction = (item: DataType) => {
+  const renderAction = (item: SimplePage) => {
     return (
       <Flex>
-        <Button type="link" onClick={() => previewPage(item)}>
-          预览
+        <Button type="link" onClick={() => jumpToDetail(item)}>
+          详情
         </Button>
-        <Button type="link" onClick={() => editPage(item)}>
-          编辑
+        <Button type="link" onClick={() => downloadProject(item)}>
+          下载
         </Button>
-        <Button type="link" onClick={() => deletePage(item)}>
+        <Button type="link" onClick={() => deleteProject(item)}>
           删除
         </Button>
       </Flex>
     );
   };
 
-  const columns: TableColumnsType<DataType> = [
+  const columns: TableColumnsType<SimplePage> = [
     {
-      title: "项目名称",
+      title: "页面名称",
       width: 100,
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "项目ID",
+      title: "页面ID",
       width: 100,
-      dataIndex: "age",
-      key: "age",
+      dataIndex: "id",
+      key: "id",
     },
     {
-      title: "项目备注",
+      title: "页面备注",
       dataIndex: "address",
       key: "1",
       width: 100,
     },
     {
-      title: "其他",
-      dataIndex: "address",
-      key: "2",
-      width: 100,
-    },
-    {
-      title: "操作咧",
+      title: "操作列",
       key: "operation",
       fixed: "right",
       width: 150,
@@ -85,9 +74,11 @@ const CustomTable: FC<CustomTableProps> = (props) => {
   ];
 
   return (
-    <Table<DataType>
+    <Table<SimplePage>
       columns={columns}
       dataSource={data}
+      rowKey="id"
+      loading={loading}
       scroll={{ x: 1000, y: 600 }}
       pagination={{
         showSizeChanger: false,
@@ -96,7 +87,6 @@ const CustomTable: FC<CustomTableProps> = (props) => {
         current: currentPage,
         pageSize: pageSize,
         onChange(v) {
-          console.log(v);
           onChangePageSize(v);
         },
       }}

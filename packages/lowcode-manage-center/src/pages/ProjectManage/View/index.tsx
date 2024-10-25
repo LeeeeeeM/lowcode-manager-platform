@@ -5,7 +5,7 @@ import ViewBox from "/@/components/ViewBox";
 import { useStore } from "../Model";
 import CustomTable from "./table";
 import { GetProjectList } from "/@/services";
-import { CURRENT_USER_NAME, DEFAULT_PAGE_SIZE } from "/@/constants";
+import { CURRENT_USER_NAME, DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
 
 export default function ProjectManage() {
   const navigate = useNavigate();
@@ -15,15 +15,11 @@ export default function ProjectManage() {
 
   const [loading, setLoading] = useState(false);
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE_NUMBER);
 
   const createNewProject = () => {
     navigate("/project-create");
   };
-
-  useEffect(() => {
-    loadData(1);
-  }, []);
 
   const loadData = useCallback(async (v: number) => {
     try {
@@ -45,13 +41,16 @@ export default function ProjectManage() {
     }
   }, []);
 
+  useEffect(() => {
+    loadData(currentPage);
+  }, [loadData, currentPage]);
+
   const onChangePageSize = useCallback(async (v: number) => {
     setCurrentPage(v);
-    loadData(v);
-  }, [loadData]);
+  }, []);
 
   useEffect(() => {
-    setCurrentPage(1);
+    setCurrentPage(DEFAULT_PAGE_NUMBER);
   }, []);
 
   return (

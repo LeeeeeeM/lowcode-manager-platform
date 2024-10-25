@@ -1,4 +1,5 @@
-import { SimpleProject } from "../entity/project";
+import { SimplePage } from "../entity";
+import { Project, SimpleProject } from "../entity/project";
 
 export interface CreateProjectRequest {
   name: string;
@@ -20,10 +21,18 @@ export interface GetProjectRequest {
   projectId: number;
 }
 
+export interface GetProjectResponse {
+  project: Project;
+}
+
 export interface CreatePageRequest {
   projectId: number;
   name: string;
   userName: string;
+}
+
+export interface CreatePageResponse {
+  pageId: number;
 }
 
 export interface DeletePageRequest {
@@ -42,9 +51,14 @@ export interface GetPageRequest {
 }
 
 export interface GetPageListRequest {
-  pageId: number;
+  projectId: number;
   pageNum: number;
   pageSize: number;
+}
+
+export interface GetPageListResponse {
+  pageList: SimplePage[];
+  total: number;
 }
 
 export interface Result {

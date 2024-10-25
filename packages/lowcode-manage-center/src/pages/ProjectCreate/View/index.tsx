@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 import { useCallback, useState } from "react";
 import ViewBox from "/@/components/ViewBox";
-import FormInfo, { type FormData } from "/@/components/FormInfo";
+import FormInfo from "/@/components/FormInfo";
 import { CreateProject } from "/@/services";
 import { CURRENT_USER_NAME } from "/@/constants";
-import { message } from "antd";
+import { ProjectInfo } from "/@/services/entity";
 
 export default function Product() {
   const navigate = useNavigate();
-  const [data, setData] = useState<FormData>({
+  const [data, setData] = useState<ProjectInfo>({
     name: "",
     remark: "",
   });
@@ -34,7 +35,7 @@ export default function Product() {
     } catch (e) {
       message.warning(`${e}`);
     }
-  }, [data]);
+  }, [data, navigate]);
 
   return (
     <>

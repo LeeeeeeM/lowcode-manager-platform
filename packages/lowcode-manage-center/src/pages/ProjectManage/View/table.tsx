@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Flex, Table, type TableColumnsType } from "antd";
-import { SimpleProject } from "/@/services/entity/project";
+import { SimpleProject } from "/@/services/entity";
 
 interface CustomTableProps<T> {
   total?: number;
@@ -86,8 +86,7 @@ const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
         total: total,
         current: currentPage,
         pageSize: pageSize,
-        onChange(v) {
-          console.log(v);
+        onChange(v) {   
           onChangePageSize(v);
         },
       }}

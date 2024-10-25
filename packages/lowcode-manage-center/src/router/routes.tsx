@@ -38,7 +38,7 @@ export const navRoutes: Route[] = [
       import("../pages/PageManage").then(({ Entry }) => Entry),
   },
   {
-    label: "下载",
+    label: "下载【测试页】",
     path: "/download",
     icon: <DownloadOutlined />,
     lazy: () => import("../pages/Download").then(({ Entry }) => Entry),
