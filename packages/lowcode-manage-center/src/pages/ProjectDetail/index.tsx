@@ -1,14 +1,23 @@
 import { useAsyncEffect } from "ahooks";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { GetProjectDetail } from "services";
 import Loading from "/@/components/Loading";
 import View from "./View";
 import { useStore } from "./Model";
-import { GetProjectDetail } from "/@/services";
-import { useState } from "react";
+
 
 export const Entry = () => {
   const { id } = useParams();
   const [loader, setLoader] = useState<Promise<unknown>>();
+
+  const reset = useStore((state) => state.reset);
+
+  useEffect(() => {
+    return () => {
+      reset();
+    }
+  }, [reset]);
 
   useAsyncEffect(async () => {
     const loader = GetProjectDetail({

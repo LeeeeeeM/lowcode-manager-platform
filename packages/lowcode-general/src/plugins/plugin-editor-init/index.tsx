@@ -1,8 +1,10 @@
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
 import { injectAssets } from '@alilc/lowcode-plugin-inject';
+import { getPageSchema } from '../../services';
 import assets from '../../services/assets.json';
+import { PAGE_SIG_ID } from 'common';
 // import assets1 from '../../services/assets.json';
-import { getProjectSchema } from '../../services/mockService';
+// import { getProjectSchema } from '../../services/mockService';
 const EditorInitPlugin = (ctx: IPublicModelPluginContext, options: any) => {
   return {
     async init() {
@@ -15,13 +17,14 @@ const EditorInitPlugin = (ctx: IPublicModelPluginContext, options: any) => {
       config.set('scenarioDisplayName', scenarioDisplayName);
       config.set('scenarioInfo', scenarioInfo);
       const urlParams = new URLSearchParams(location.search.slice(1));
+      const pageId = urlParams.get(PAGE_SIG_ID);
       console.log(urlParams);
       // 设置物料描述
-      console.log(11, assets)
+      // console.log(11, assets)
       await material.setAssets(await injectAssets(assets));
       // await material.setAssets(assets);
-
-      const schema = await getProjectSchema(scenarioName);
+      const schema = await getPageSchema(pageId);
+      // const schema = await getProjectSchema(scenarioName);
       console.log(schema)
       // 加载 schema
       project.importSchema(schema as any);

@@ -1,6 +1,6 @@
 import { Button, Flex, Form, Input } from "antd";
 import { FC, useEffect } from "react";
-import { ProjectInfo } from "/@/services/entity";
+import { ProjectInfo } from "services/entity";
 
 export interface FormInfoProps<T> {
   onChange?: (key: string, value: string) => void;

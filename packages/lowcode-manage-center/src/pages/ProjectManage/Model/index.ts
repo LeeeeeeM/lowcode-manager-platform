@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 import { registerStore } from '/@/store/registerStore';
 import { MODEL_NAMESPACE } from '/@/constants/model';
-import { SimpleProject } from '/@/services/entity/project';
+import { SimpleProject } from 'services/entity';
 
 interface ProjectManageState {
   total: number;

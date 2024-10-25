@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import ViewBox from "/@/components/ViewBox";
 import { useStore } from "../Model";
 import CustomTable from "./table";
-import { GetProjectList } from "/@/services";
-import { CURRENT_USER_NAME, DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
+import { GetProjectList } from "services";
+import { CURRENT_USER_NAME } from "common";
+import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
 
 export default function ProjectManage() {
   const navigate = useNavigate();

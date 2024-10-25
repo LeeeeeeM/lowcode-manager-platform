@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const path = require('path')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -10,6 +11,8 @@ module.exports = ({
   onGetWebpackConfig
 }) => {
   onGetWebpackConfig((config) => {
+    config.output.publicPath('/lowcode');
+    // config.output.path(path.resolve(__dirname, 'dist'));
     config.resolve.plugin('tsconfigpaths').use(TsconfigPathsPlugin, [{
       configFile: './tsconfig.json',
     }, ]);

@@ -1,21 +1,26 @@
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
 import { Button } from '@alifd/next';
-import {
-  saveSchema,
-} from '../../services/mockService';
+import path from 'path-browserify';
+// import { saveSchema } from '../../services/mockService';
+import { savePage } from '../../services';
+import { PAGE_SIG_ID } from 'common';
 
 // 保存功能示例
 const PreviewSamplePlugin = (ctx: IPublicModelPluginContext) => {
   return {
     async init() {
       const { skeleton, config } = ctx;
-      const doPreview = () => {
-        const scenarioName = config.get('scenarioName');
-        console.log(config)
-        saveSchema(scenarioName);
+      const urlParams = new URLSearchParams(location.search.slice(1));
+      const pageId = urlParams.get(PAGE_SIG_ID);
+      // 没有 id 隐藏按钮
+      if (!pageId) return;
+      const doPreview = async () => {
+        // const scenarioName = config.get('scenarioName');
+        await savePage(pageId);
         setTimeout(() => {
-          const search = location.search ? `${location.search}&scenarioName=${scenarioName}` : `?scenarioName=${scenarioName}`;
-          window.open(`./preview.html${search}`);
+          const search = location.search;
+          const newPath = path.join(location.pathname, './preview.html')
+          window.open(`${newPath}${search}`);
         }, 500);
       };
       skeleton.add({
@@ -33,7 +38,7 @@ const PreviewSamplePlugin = (ctx: IPublicModelPluginContext) => {
       });
     },
   };
-}
+};
 PreviewSamplePlugin.pluginName = 'PreviewSamplePlugin';
 PreviewSamplePlugin.meta = {
   dependencies: ['EditorInitPlugin'],

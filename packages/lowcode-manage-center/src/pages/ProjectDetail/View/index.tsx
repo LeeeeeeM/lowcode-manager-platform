@@ -1,33 +1,46 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Button, Flex, message } from "antd";
-import { CreatePage, GetPageList } from "/@/services";
-import { CURRENT_USER_NAME, DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
+import { CreatePage, GetPageList } from "services";
+import { CURRENT_USER_NAME } from "common";
+import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
 import ViewBox from "/@/components/ViewBox";
 import FormInfo from "/@/components/FormInfo";
 import { useStore } from "../Model";
-import CustomTable from "./table";
-import Modal from "./modal";
+import CustomTable from "../components/table";
+import CreateModal from "../components/modal";
+import PreviewModal from "../components/preview";
+import { SimplePage } from "services/entity";
 
 export default function ProjectManage() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const navigate = useNavigate();
   const { id } = useParams();
+
   const projectInfo = useStore((state) => state.projectInfo);
-
   const total = useStore((state) => state.total);
-
   const data = useStore((state) => state.pageList);
 
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [currentPreviewItem, setCurrentPreviewItem] = useState<SimplePage>();
 
   const openModal = () => {
     setVisible(true);
   };
+
   const closeModal = () => {
     setVisible(false);
   };
+
+  const [previewVisible, setPreviewVisible] = useState(false);
+
+  const openPreviewModal = (item: SimplePage) => {
+    setCurrentPreviewItem(item);
+    setPreviewVisible(true);
+  }
+
+  const closePreviewModal = () => {
+    setPreviewVisible(false);
+  }
 
   const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE_NUMBER);
 
@@ -78,8 +91,6 @@ export default function ProjectManage() {
     setCurrentPage(DEFAULT_PAGE_NUMBER);
   }, []);
 
-  console.log(data);
-
   return (
     <>
       <ViewBox>
@@ -94,10 +105,12 @@ export default function ProjectManage() {
             data,
             onChangePageSize,
             loading,
+            onClickAction: openPreviewModal
           }}
         />
       </ViewBox>
-      <Modal visible={visible} closeModal={closeModal} onConfirm={createNewPage}/>
+      <CreateModal visible={visible} closeModal={closeModal} onConfirm={createNewPage}/>
+      <PreviewModal visible={previewVisible} closeModal={closePreviewModal} info={currentPreviewItem}/>
     </>
   );
 }

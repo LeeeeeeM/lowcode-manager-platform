@@ -86,7 +86,7 @@ async function registerPlugins() {
   await plugins.register(CodeEditorPlugin);
 
   // 注册出码插件
-  await plugins.register(CodeGenPlugin);
+  // await plugins.register(CodeGenPlugin);
 
   await plugins.register(SaveSamplePlugin);
 
@@ -95,7 +95,7 @@ async function registerPlugins() {
   await plugins.register(CustomSetterSamplePlugin);
 
   // 设计器区域多语言切换
-  await plugins.register(SimulatorLocalePlugin);
+  // await plugins.register(SimulatorLocalePlugin);
 
   // await plugins.register(lowcodePlugin);
 };

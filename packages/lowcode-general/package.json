@@ -1,13 +1,13 @@
 {
-  "name": "@alilc/lowcode-demo-general",
+  "name": "lowcode-general",
   "version": "1.0.28",
-  "description": "Low-Code Engine 低代码搭建引擎 Demo 项目 - 综合场景",
+  "description": "数据中台低代码平台",
   "repository": "git@github.com:alibaba/lowcode-demo.git",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
     "start": "build-scripts start --disable-reload --port 5557",
-    "build": "build-scripts build",
+    "build": "build-scripts build && sh scripts/postbuild.sh",
     "prepublishOnly": "npm run build",
     "pub": "node ./scripts/watchdog.js && npm pub"
   },
@@ -16,7 +16,7 @@
   ],
   "config": {},
   "dependencies": {
-    "@alilc/lowcode-utils": "1.3.2",
+    "@alifd/next": "1.27.12",
     "@alilc/lowcode-datasource-fetch-handler": "^1.0.1",
     "@alilc/lowcode-plugin-code-editor": "^1.0.3",
     "@alilc/lowcode-plugin-code-generator": "^1.0.4",
@@ -32,11 +32,15 @@
     "@alilc/lowcode-react-renderer": "^1.1.2",
     "@alilc/lowcode-setter-behavior": "^1.0.0",
     "@alilc/lowcode-setter-title": "^1.0.2",
-    "@alifd/next": "1.27.12",
+    "@alilc/lowcode-utils": "1.3.2",
     "antd": "^4.21.4",
+    "axios": "1.7.7",
+    "common": "workspace:^",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
+    "path-browserify": "^1.0.1",
     "regenerator-runtime": "0.14.1",
+    "services": "workspace:^",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -45,8 +49,9 @@
     "@alilc/lowcode-engine-ext": "^1.0.0",
     "@alilc/lowcode-types": "^1.1.1",
     "@babel/core": "7.20.12",
-    "@types/lodash": "^4.17.12",
     "@types/events": "^3.0.0",
+    "@types/lodash": "^4.17.12",
+    "@types/path-browserify": "1.0.3",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.2",
     "@types/streamsaver": "^2.0.0",

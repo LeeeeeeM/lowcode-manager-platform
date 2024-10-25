@@ -101,17 +101,17 @@
       "version": "0.1.0",
       "library": "BizComp",
       "urls": [
-        "http://172.16.40.240:9999/editor-project-m/build/lowcode/render/default/view.js",
-        "http://172.16.40.240:9999/editor-project-m/build/lowcode/render/default/view.css"
+        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.js",
+        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.css"
       ],
       "editUrls": [
-        "http://172.16.40.240:9999/editor-project-m/build/lowcode/render/default/view.js",
-        "http://172.16.40.240:9999/editor-project-m/build/lowcode/render/default/view.css"
+        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.js",
+        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.css"
       ],
       "advancedUrls": {
         "default": [
-          "http://172.16.40.240:9999/editor-project-m/build/lowcode/render/default/view.js",
-          "http://172.16.40.240:9999/editor-project-m/build/lowcode/render/default/view.css"
+          "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.js",
+          "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.css"
         ]
       },
       "advancedEditUrls": {}
@@ -169,13 +169,13 @@
         "package": "editor-project-m",
         "version": "0.1.0"
       },
-      "url": "http://172.16.40.240:9999/editor-project-m/build/lowcode/meta.js",
+      "url": "http://localhost:8082/editor-project-m/build/lowcode/meta.js",
       "urls": {
-        "default": "http://172.16.40.240:9999/editor-project-m/build/lowcode/meta.js"
+        "default": "http://localhost:8082/editor-project-m/build/lowcode/meta.js"
       },
       "advancedUrls": {
         "default": [
-          "http://172.16.40.240:9999/editor-project-m/build/lowcode/meta.js"
+          "http://localhost:8082/editor-project-m/build/lowcode/meta.js"
         ]
       }
     }

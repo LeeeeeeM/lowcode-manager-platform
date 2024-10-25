@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Flex, Table, type TableColumnsType } from "antd";
-import { SimpleProject } from "/@/services/entity";
+import { SimpleProject } from "services/entity";
 
 interface CustomTableProps<T> {
   total?: number;

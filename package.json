@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm -F lowcode-manage-center dev"
+    "start": "pnpm -F lowcode-manage-center start & pnpm -F lowcode-general start",
+    "build": "pnpm -F lowcode-manage-center build & pnpm -F lowcode-general build"
   },
   "repository": {
     "type": "git",

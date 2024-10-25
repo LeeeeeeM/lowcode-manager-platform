@@ -3,9 +3,9 @@ import { message } from "antd";
 import { useCallback, useState } from "react";
 import ViewBox from "/@/components/ViewBox";
 import FormInfo from "/@/components/FormInfo";
-import { CreateProject } from "/@/services";
-import { CURRENT_USER_NAME } from "/@/constants";
-import { ProjectInfo } from "/@/services/entity";
+import { CreateProject } from "services";
+import { CURRENT_USER_NAME } from "common";
+import { ProjectInfo } from "services/entity";
 
 export default function Product() {
   const navigate = useNavigate();

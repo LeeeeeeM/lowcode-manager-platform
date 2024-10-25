@@ -13,7 +13,7 @@ export default function Detail() {
     return () => {
       reset();
     }
-  }, []);
+  }, [reset]);
 
   console.log(params, useStore.getState());
   return (
