@@ -153,7 +153,7 @@ importers:
         version: 3.8.1(react@18.3.1)
       antd:
         specifier: ^5.21.4
-        version: 5.21.4(react-dom@18.3.1)(react@18.3.1)
+        version: 5.21.5(react-dom@18.3.1)(react@18.3.1)
       axios:
         specifier: ^1.7.7
         version: 1.7.7
@@ -187,9 +187,6 @@ importers:
       services:
         specifier: workspace:^
         version: link:../services
-      wujie-react:
-        specifier: ^1.0.22
-        version: 1.0.22(react@18.3.1)
       zustand:
         specifier: ^5.0.0
         version: 5.0.0(@types/react@18.3.11)(react@18.3.1)
@@ -5873,8 +5870,8 @@ packages:
       - moment
     dev: true
 
-  /antd@5.21.4(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-yMpwam1A4/RIIemJK0V3SpMAfgbBEM47OFzEYcEQPDP+B4ZAeviKOLaFFxUt/sxRCMeoALnJEK6Hb6qOqL0hbA==}
+  /antd@5.21.5(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-g/c8VkdruKDCVA6di9Ow1fG6dLtYJ1IOraPo7vXaY7DoQ56A3HExaFaH0fBEwTYKC0ICeftC4iA5eAjrF6/b9w==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -20608,22 +20605,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-
-  /wujie-react@1.0.22(react@18.3.1):
-    resolution: {integrity: sha512-ZJZRHXEfC26wakxiuVSApD1W688wRVD8tfU/KXj4QNmBYPl5xfucTNJuesub4xiLos99HqlRzAjjSAeBXch4rA==}
-    peerDependencies:
-      react: '>=16.0.0'
-    dependencies:
-      prop-types: 15.8.1
-      react: 18.3.1
-      wujie: 1.0.22
-    dev: false
-
-  /wujie@1.0.22:
-    resolution: {integrity: sha512-gzx13fp9hgTHdV9XetkVmp794uDSR93Zs9jLr891RaWRuMiLFoxh3Pe4qbmW604SxI8nMTHeIRydbgC7YxQ50Q==}
-    dependencies:
-      '@babel/runtime': 7.25.7
-    dev: false
 
   /xdg-basedir@3.0.0:
     resolution: {integrity: sha512-1Dly4xqlulvPD3fZUQJLY+FUIeqN3N2MM3uqe4rCJftAvOjFa3jFGfctOgluGx4ahPbUCsZkmJILiP0Vi4T6lQ==, tarball: https://r2.cnpmjs.org/xdg-basedir/-/xdg-basedir-3.0.0.tgz}

@@ -14,20 +14,32 @@ interface CustomTableProps<T> {
 }
 
 const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
-  const { total, pageSize, data, currentPage, onChangePageSize, loading, onClickAction = () => {} } = props;
+  const {
+    total,
+    pageSize,
+    data,
+    currentPage,
+    onChangePageSize,
+    loading,
+    onClickAction = () => {},
+  } = props;
 
   const previewPage = (item: SimplePage) => {
-    console.log(item, 'jump');
+    console.log(item, "jump");
     onClickAction(item);
   };
 
   const editPage = (item: SimplePage) => {
-    window.open(`${import.meta.env.DEV ? DEVELOP_LOWCODE_URL : '' }${LOWCODE_PATH_PREFIX}?${PAGE_SIG_ID}=${item.id}`);
-    console.log(item, 'download');
+    window.open(
+      `${
+        import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+      }${LOWCODE_PATH_PREFIX}?${PAGE_SIG_ID}=${item.id}`
+    );
+    console.log(item, "download");
   };
 
   const deletePage = (item: SimplePage) => {
-    console.log(item, 'delete');
+    console.log(item, "delete");
   };
 
   const renderAction = (item: SimplePage) => {
@@ -71,7 +83,7 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
       fixed: "right",
       width: 150,
       render: renderAction,
-    }
+    },
   ];
 
   return (

@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { Modal } from "antd";
-// import WujieReact from "wujie-react";
 import {
   ResponsiveIframeViewer,
   ViewportSize,
@@ -36,7 +35,7 @@ const PreviewModal: FC<PreviewModalProps> = (props) => {
       <div>
         <ResponsiveIframeViewer
           src={route}
-          title={info?.name || ''}
+          title={info?.name || ""}
           size={ViewportSize.mobile}
         />
       </div>
