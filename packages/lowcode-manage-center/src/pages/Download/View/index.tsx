@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { findNodeById } from "/@/utils/node";
 import ViewBox from "/@/components/ViewBox";
 
-export default function About() {
+export default function Download() {
   const [currentId, setCurrentId] = useState("");
 
   useEffect(() => {

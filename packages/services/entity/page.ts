@@ -10,6 +10,10 @@ export interface SimplePage {
   createBy: string;
   //最后修改人
   updateBy: string;
+  // 资源包
+  assets: string;
+  // 模版
+  content: string;
 }
 
 export interface Page {

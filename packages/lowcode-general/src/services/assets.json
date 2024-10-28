@@ -29,8 +29,8 @@
       "package": "antd",
       "version": "4.24.16",
       "urls": [
-        "https://cdn.jsdelivr.net/npm/antd@4.24.16/dist/antd.js",
-        "https://cdn.jsdelivr.net/npm/antd@4.24.16/dist/antd.css"
+        "http://localhost:8082/antd/dist/antd.js",
+        "http://localhost:8082/antd/dist/antd.css"
       ],
       "library": "antd"
     },

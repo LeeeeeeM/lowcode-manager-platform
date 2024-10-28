@@ -3,11 +3,12 @@ import { Button, Flex, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import ViewBox from "/@/components/ViewBox";
 import { useStore } from "../Model";
-import CustomTable from "../components/table";
-import { GetProjectList } from "services";
+import { GetPageList, GetProjectList } from "services";
+import { SimpleProject } from "services/entity";
 import { CURRENT_USER_NAME } from "common";
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
-import { SimpleProject } from "services/entity";
+import { genAssets } from "../../../utils/genAssets";
+import CustomTable from "../components/table";
 import DownloadModal from "../components/modal";
 
 export default function ProjectManage() {
@@ -19,7 +20,7 @@ export default function ProjectManage() {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  const itemRef = useRef<number>();
+  const itemRef = useRef<SimpleProject>();
 
   const closeModal = () => {
     setVisible(false);
@@ -40,7 +41,7 @@ export default function ProjectManage() {
       const { total, projectList } = result || {};
       useStore.setState({
         total: Number(total) || 0,
-        projectList: projectList || []
+        projectList: projectList || [],
       });
     } catch (e) {
       message.warning(`${e}`);
@@ -50,14 +51,29 @@ export default function ProjectManage() {
   }, []);
 
   const download = (item: SimpleProject) => {
-    console.log(item);
-    itemRef.current = item.id;
+    itemRef.current = item;
     setVisible(true);
-  }
+  };
 
-  const downloadImpl = async (path: string) => {
-    console.log(path);
-  }
+  const downloadImpl = async (dirPath: string) => {
+    try {
+      const item = itemRef.current!;
+      const { id } = item;
+
+      // 获取项目所有的页面
+      const { pageList = [] } = await GetPageList({
+        projectId: id,
+        pageNum: DEFAULT_PAGE_NUMBER,
+        // 最多 100 个
+        pageSize: DEFAULT_PAGE_SIZE * 10,
+      });
+
+      genAssets(pageList, dirPath);
+    } catch (e) {
+      console.log(e);
+      message.error(`请求异常`);
+    }
+  };
 
   useEffect(() => {
     loadData(currentPage);
@@ -85,10 +101,14 @@ export default function ProjectManage() {
             onChangePageSize,
             loading,
             reloadData: loadData,
-            onClickAction: download
+            onClickAction: download,
           }}
         />
-        <DownloadModal visible={visible} closeModal={closeModal} onConfirm={downloadImpl}/>
+        <DownloadModal
+          visible={visible}
+          closeModal={closeModal}
+          onConfirm={downloadImpl}
+        />
       </ViewBox>
     </>
   );
