@@ -11,6 +11,7 @@ interface CustomTableProps<T> {
   pageSize?: number;
   data?: T[];
   onChangePageSize: (v: number) => void;
+  onClickAction?: (item: T) => void;
   loading?: boolean;
   reloadData?: (v: number) => Promise<unknown>;
 }
@@ -25,6 +26,7 @@ const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
     onChangePageSize,
     loading,
     reloadData = () => {},
+    onClickAction = () => {}
   } = props;
 
   const curretnDeleteRef = useRef<number>();
@@ -56,7 +58,7 @@ const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
   };
 
   const downloadProject = (item: SimpleProject) => {
-    console.log(item, "download");
+    onClickAction(item);
   };
 
   const renderAction = (item: SimpleProject) => {

@@ -1,7 +1,12 @@
-export default function PageNotFound() {
+import Loading from "/@/components/Loading";
+import View from "./View";
+
+const Entry =  () => {
   return (
-    <>
-      <div>404 Page</div>
-    </>
+    <Loading>
+      <View />
+    </Loading>
   );
-}
+};
+
+export default Entry;

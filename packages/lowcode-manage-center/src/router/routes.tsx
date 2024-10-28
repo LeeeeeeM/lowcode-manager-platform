@@ -47,11 +47,6 @@ export const navRoutes: Route[] = [
 
 export const otherRoutes: Route[] = [
   {
-    label: "详情",
-    path: "/detail/:id",
-    lazy: () => import("../pages/Detail").then(({ Entry }) => Entry),
-  },
-  {
     label: "项目详情",
     path: "/project-detail/:id",
     lazy: () => import("../pages/ProjectDetail").then(({ Entry }) => Entry),
