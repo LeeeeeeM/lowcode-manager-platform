@@ -1,7 +1,16 @@
-import { FC } from "react";
-import { Button, Flex, Table, type TableColumnsType } from "antd";
+import { FC, useRef, useState } from "react";
+import {
+  Button,
+  Flex,
+  message,
+  Popconfirm,
+  Table,
+  type TableColumnsType,
+} from "antd";
 import { SimplePage } from "services/entity";
 import { DEVELOP_LOWCODE_URL, LOWCODE_PATH_PREFIX, PAGE_SIG_ID } from "common";
+import { DeletePage } from "services";
+import { DEFAULT_PAGE_NUMBER } from "/@/constants";
 
 interface CustomTableProps<T> {
   total?: number;
@@ -11,6 +20,7 @@ interface CustomTableProps<T> {
   onChangePageSize: (v: number) => void;
   loading?: boolean;
   onClickAction?: (item: T) => void;
+  reloadData?: (v: number) => Promise<unknown>;
 }
 
 const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
@@ -22,10 +32,33 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
     onChangePageSize,
     loading,
     onClickAction = () => {},
+    reloadData = () => {}
   } = props;
+  const curretnDeleteRef = useRef<number>();
+
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const showPopconfirm = (item: SimplePage) => {
+    curretnDeleteRef.current = item.id;
+  };
+
+  const handleOk = async () => {
+    setConfirmLoading(true);
+    try {
+      if (curretnDeleteRef.current) {
+        await DeletePage({
+          pageId: curretnDeleteRef.current,
+        });
+        await reloadData(DEFAULT_PAGE_NUMBER);
+      }
+    } catch {
+      message.error(`请求异常`);
+    } finally {
+      setConfirmLoading(false);
+    }
+  };
 
   const previewPage = (item: SimplePage) => {
-    console.log(item, "jump");
     onClickAction(item);
   };
 
@@ -35,11 +68,6 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
         import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
       }${LOWCODE_PATH_PREFIX}?${PAGE_SIG_ID}=${item.id}`
     );
-    console.log(item, "download");
-  };
-
-  const deletePage = (item: SimplePage) => {
-    console.log(item, "delete");
   };
 
   const renderAction = (item: SimplePage) => {
@@ -51,9 +79,15 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
         <Button type="link" onClick={() => editPage(item)}>
           编辑
         </Button>
-        <Button type="link" onClick={() => deletePage(item)}>
-          删除
-        </Button>
+        <Popconfirm
+          title={"删除当前页面"}
+          okButtonProps={{ loading: confirmLoading }}
+          onConfirm={handleOk}
+        >
+          <Button type="link" onClick={() => showPopconfirm(item)}>
+            删除
+          </Button>
+        </Popconfirm>
       </Flex>
     );
   };

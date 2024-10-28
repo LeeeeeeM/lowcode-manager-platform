@@ -31,7 +31,6 @@ export default function Product() {
       navigate(`/project-detail/${projectId}`, {
         replace: true,
       });
-      console.log(result, data);
     } catch (e) {
       message.warning(`${e}`);
     }

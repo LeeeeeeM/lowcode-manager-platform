@@ -45,15 +45,17 @@ export default function ProjectManage() {
   const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE_NUMBER);
 
   const createNewPage = async (name: string) => {
-    const { pageId } = await CreatePage({
-      projectId: Number(id),
-      name,
-      userName: CURRENT_USER_NAME
-    });
-    // 重新获取当前
-    await loadData(DEFAULT_PAGE_NUMBER);
-    console.log(pageId);
-    // navigate("/project-create");
+    try {
+      await CreatePage({
+        projectId: Number(id),
+        name,
+        userName: CURRENT_USER_NAME
+      });
+      // 重新获取当前
+      await loadData(DEFAULT_PAGE_NUMBER);
+    } catch {
+      message.error(`请求异常`)
+    }
   };
 
   const loadData = useCallback(
@@ -105,7 +107,8 @@ export default function ProjectManage() {
             data,
             onChangePageSize,
             loading,
-            onClickAction: openPreviewModal
+            onClickAction: openPreviewModal,
+            reloadData: loadData
           }}
         />
       </ViewBox>

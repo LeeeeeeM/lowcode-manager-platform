@@ -18,16 +18,17 @@ const AddPageModal: FC<AddPageModalProps> = (props) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    form.setFieldsValue({
-      name: "",
-    });
+    if (visible) {
+      form.setFieldsValue({
+        name: "",
+      });
+    }
   }, [form, visible]);
 
   const handleOk = async () => {
     setLoading(true);
     try {
       const result = await form.validateFields();
-      console.log(result);
       await onConfirm(result.name);
       closeModal();
     } catch (e) {
@@ -70,15 +71,6 @@ const AddPageModal: FC<AddPageModalProps> = (props) => {
         <Form.Item name="name" label="页面名称" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
-
-        {/* <Form.Item name="remark" label="页面备注">
-            <Input.TextArea
-              rows={4}
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
-            />
-          </Form.Item> */}
       </Form>
     </Modal>
   );

@@ -1,7 +1,9 @@
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Flex, Table, type TableColumnsType } from "antd";
+import { Button, Flex, message, Popconfirm, Table, type TableColumnsType } from "antd";
 import { SimpleProject } from "services/entity";
+import { DEFAULT_PAGE_NUMBER } from "/@/constants";
+import { DeleteProject } from "services";
 
 interface CustomTableProps<T> {
   total?: number;
@@ -10,23 +12,51 @@ interface CustomTableProps<T> {
   data?: T[];
   onChangePageSize: (v: number) => void;
   loading?: boolean;
+  reloadData?: (v: number) => Promise<unknown>;
 }
 
 const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
   const navigate = useNavigate();
-  const { total, pageSize, data, currentPage, onChangePageSize, loading } = props;
+  const {
+    total,
+    pageSize,
+    data,
+    currentPage,
+    onChangePageSize,
+    loading,
+    reloadData = () => {},
+  } = props;
+
+  const curretnDeleteRef = useRef<number>();
+
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const showPopconfirm = (item: SimpleProject) => {
+    curretnDeleteRef.current = item.id;
+  };
+
+  const handleOk = async () => {
+    setConfirmLoading(true);
+    try {
+      if (curretnDeleteRef.current) {
+        await DeleteProject({
+          projectId: curretnDeleteRef.current,
+        });
+        await reloadData(DEFAULT_PAGE_NUMBER);
+      }
+    } catch {
+      message.error(`请求异常`);
+    } finally {
+      setConfirmLoading(false);
+    }
+  };
 
   const jumpToDetail = (item: SimpleProject) => {
-    console.log(item, 'jump');
     navigate(`/project-detail/${item.id}`);
   };
 
   const downloadProject = (item: SimpleProject) => {
-    console.log(item, 'download');
-  };
-
-  const deleteProject = (item: SimpleProject) => {
-    console.log(item, 'delete');
+    console.log(item, "download");
   };
 
   const renderAction = (item: SimpleProject) => {
@@ -38,9 +68,16 @@ const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
         <Button type="link" onClick={() => downloadProject(item)}>
           下载
         </Button>
-        <Button type="link" onClick={() => deleteProject(item)}>
-          删除
-        </Button>
+        <Popconfirm
+          title={"删除当前项目"}
+          // open={open}
+          okButtonProps={{ loading: confirmLoading }}
+          onConfirm={handleOk}
+        >
+          <Button type="link" onClick={() => showPopconfirm(item)}>
+            删除
+          </Button>
+        </Popconfirm>
       </Flex>
     );
   };
@@ -70,7 +107,7 @@ const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
       fixed: "right",
       width: 150,
       render: renderAction,
-    }
+    },
   ];
 
   return (
@@ -86,7 +123,7 @@ const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
         total: total,
         current: currentPage,
         pageSize: pageSize,
-        onChange(v) {   
+        onChange(v) {
           onChangePageSize(v);
         },
       }}

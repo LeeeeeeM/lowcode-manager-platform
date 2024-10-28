@@ -67,6 +67,7 @@ export default function ProjectManage() {
             data,
             onChangePageSize,
             loading,
+            reloadData: loadData
           }}
         />
       </ViewBox>

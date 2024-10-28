@@ -3,12 +3,20 @@ import React, { useState } from 'react';
 import { Loading, Message } from '@alifd/next';
 import mergeWith from 'lodash/mergeWith';
 import isArray from 'lodash/isArray';
+import isEmpty from 'lodash/isEmpty';
 import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@alilc/lowcode-utils';
 import ReactRenderer from '@alilc/lowcode-react-renderer';
 import { PAGE_SIG_ID } from 'common';
 // import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import appHelper from './appHelper';
 import { getAllPageInfo } from './services';
+
+const emptyStyle: React.CSSProperties= {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100vh'
+};
 
 // const getScenarioName = function () {
 //   if (location.search) {
@@ -32,14 +40,15 @@ const Preview = () => {
       const schema = await getAllPageInfo(pageId);
       const { assets, content } = schema || {};
       const projectSchema = JSON.parse(content) || {};
-      const packages = JSON.parse(assets) || [];
+      const pack = JSON.parse(assets) || [];
+      const packages = isEmpty(pack) ? [] : pack;
       const {
-        componentsMap: componentsMapArray,
-        componentsTree,
-        i18n,
-        dataSource: projectDataSource,
+        componentsMap: componentsMapArray = [],
+        componentsTree = {},
+        i18n = {},
+        dataSource: projectDataSource = {},
       } = projectSchema;
-      const pageSchema = componentsTree?.[0];
+      const pageSchema = componentsTree?.[0] || {};
       componentsMapArray.forEach((component: any) => {
         componentsMap[component.componentName] = component;
       });
@@ -95,6 +104,8 @@ const Preview = () => {
   //   (window as any).setPreviewLocale = (locale: string) =>
   //     setPreviewLocale(getScenarioName(), locale);
   // }
+
+  if (isEmpty(schema)) return <div style={emptyStyle}>当前页面模板为空</div>;
 
   function customizer(objValue: [], srcValue: []) {
     if (isArray(objValue)) {

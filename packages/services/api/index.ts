@@ -74,6 +74,7 @@ export const GetPageList = (
   return axios.post(GET_PAGE_LIST, data);
 };
 
+// 测试接口联通
 export const GetLicenseTest = () => {
   return axios.get(GET_LICENSE_TEST);
 };
