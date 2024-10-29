@@ -3,20 +3,30 @@ import React, { useState } from 'react';
 import { Loading, Message } from '@alifd/next';
 import mergeWith from 'lodash/mergeWith';
 import isArray from 'lodash/isArray';
+import isEmpty from 'lodash/isEmpty';
 import { buildComponents, AssetLoader } from '@alilc/lowcode-utils';
 import ReactRenderer from '@alilc/lowcode-react-renderer';
 import appHelper from './appHelper';
 
-const Preview = () => {
+const emptyStyle: React.CSSProperties= {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100vh'
+};
+
+
+const Landing = () => {
   const [data, setData] = useState({});
+
+  const projectSchema = (window as any).__projectSchema__;
+  const packages = (window as any).__projectPackages__;
 
   async function init() {
     const componentsMap: any = {};
     const libraryMap = {};
 
     try {
-      const projectSchema = (window as any).__projectSchema__;
-      const packages = (window as any).__projectPackages__;
       const {
         componentsMap: componentsMapArray,
         componentsTree,
@@ -53,10 +63,13 @@ const Preview = () => {
         i18n,
         projectDataSource,
       });
-    } catch {
+    } catch(e) {
+      console.log(e)
       Message.error(`获取数据失败`);
     }
   }
+
+  if (isEmpty(projectSchema)) return <div style={emptyStyle}>当前页面模板为空</div>;
 
   const { schema, components, i18n = {}, projectDataSource = {} } = data as any;
 
@@ -88,4 +101,4 @@ const Preview = () => {
   );
 };
 
-ReactDOM.render(<Preview />, document.getElementById('ice-container'));
+ReactDOM.render(<Landing />, document.getElementById('ice-container'));

@@ -140,8 +140,6 @@ export async function parseAssets(assets: AssetsJson) {
 
   let components = buildComponents(libraryMap, proCodeComponentsMap);
 
-  console.log(components, 123123123);
-
   const lowCodeComponents = genLowCodeComponentsMap(components);
 
 

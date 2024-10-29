@@ -34,7 +34,7 @@ const generatePageContent = (
 
   // 处理 tpl
   const scriptTplNode = findNodeById(doc, INJECT_PARAMS.INJECT_TEMPLATE_ID);
-  const tempInjectCode = `window.__projectSchema__ = ${tpl};window.__projectPackages__ = ${assets};`;
+  const tempInjectCode = `window.__projectSchema__=${tpl};window.__projectPackages__=${assets};`;
   appendNodeText(scriptTplNode, tempInjectCode);
 
   // 处理 css
@@ -49,6 +49,12 @@ const generatePageContent = (
   const relativeJsPath = pbp.relative(pagePath, jsSrc!);
   modifyNodeAttr(jsNode, "src", relativeJsPath);
 
+  // 处理 icon
+  const iconNode = findNodeById(doc, INJECT_PARAMS.INJECT_ICON_ID);
+  const iconHref = getNodeAttr(iconNode, "href");
+  const relativeIconPath = pbp.relative(pagePath, iconHref!);
+  modifyNodeAttr(iconNode, "href", relativeIconPath);
+
   // 生成新模板
   const newTpl = serialize(doc);
 
@@ -60,7 +66,7 @@ const generatePageContent = (
 
 export const genAssets = async (pageList: SimplePage[], dirPath: string) => {
   // 下载 HTML、JS、CSS 资源
-  const [htmlContent, jsContent, cssContent] = await Promise.all([
+  const [htmlContent, jsContent, cssContent, iconContent] = await Promise.all([
     axios.get(
       `${
         import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
@@ -76,11 +82,20 @@ export const genAssets = async (pageList: SimplePage[], dirPath: string) => {
         import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
       }${LOWCODE_PATH_PREFIX}/css/activity.css`
     ),
+    axios.get(
+      `${
+        import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+      }${LOWCODE_PATH_PREFIX}/favicon.ico`,
+      {
+        responseType: "blob",
+      }
+    ),
   ]);
 
   const zipX = new jsZip();
   zipX.file(`js/activity.js`, jsContent);
   zipX.file(`css/activity.css`, cssContent);
+  zipX.file(`favicon.ico`, iconContent, { createFolders: false });
 
   pageList.forEach((page: SimplePage) => {
     const { name, id, assets, content } = page;
