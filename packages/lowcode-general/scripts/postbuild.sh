@@ -19,11 +19,14 @@ mkdir "lowcode"
 # 将 build 文件夹内的所有内容移动到 lowcode 文件夹中
 mv build/* lowcode/
 
-mv lowcode/ build
-
 # 检查移动操作是否成功
 if [ $? -eq 0 ]; then
   echo "All contents from 'build' have been moved to 'lowcode'."
 else
   echo "Error occurred while moving contents from 'build' to 'lowcode'."
 fi
+
+# 将 lowcode 文件夹内的所有内容移动到 根目录 dist 文件夹中
+mv lowcode/ ../../dist
+
+echo "All contents from 'lowcode' have been moved to 'root/dist'."

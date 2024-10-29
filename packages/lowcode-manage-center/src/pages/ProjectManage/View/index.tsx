@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button, Flex, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import ViewBox from "/@/components/ViewBox";
@@ -9,7 +9,7 @@ import { CURRENT_USER_NAME } from "common";
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
 import { genAssets } from "../../../utils/genAssets";
 import CustomTable from "../components/table";
-import DownloadModal from "../components/modal";
+// import DownloadModal from "../components/modal";
 
 export default function ProjectManage() {
   const navigate = useNavigate();
@@ -18,13 +18,13 @@ export default function ProjectManage() {
 
   const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE_NUMBER);
   const [loading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
 
-  const itemRef = useRef<SimpleProject>();
+  // const itemRef = useRef<SimpleProject>();
 
-  const closeModal = () => {
-    setVisible(false);
-  };
+  // const closeModal = () => {
+  //   setVisible(false);
+  // };
 
   const createNewProject = () => {
     navigate("/project-create");
@@ -50,14 +50,34 @@ export default function ProjectManage() {
     }
   }, []);
 
-  const download = (item: SimpleProject) => {
-    itemRef.current = item;
-    setVisible(true);
-  };
+  // const download = (item: SimpleProject) => {
+  //   itemRef.current = item;
+  //   setVisible(true);
+  // };
 
-  const downloadImpl = async (dirPath: string) => {
+  // const downloadImpl = async (dirPath: string) => {
+  //   try {
+  //     const item = itemRef.current!;
+  //     const { id } = item;
+
+  //     // 获取项目所有的页面
+  //     const { pageList = [] } = await GetPageList({
+  //       projectId: id,
+  //       pageNum: DEFAULT_PAGE_NUMBER,
+  //       // 最多 100 个
+  //       pageSize: DEFAULT_PAGE_SIZE * 10,
+  //     });
+
+  //     genAssets(pageList, dirPath);
+  //   } catch (e) {
+  //     console.log(e);
+  //     message.error(`请求异常`);
+  //   }
+  // };
+
+  const download = async (item: SimpleProject) => {
     try {
-      const item = itemRef.current!;
+      // const item = itemRef.current!;
       const { id } = item;
 
       // 获取项目所有的页面
@@ -68,7 +88,7 @@ export default function ProjectManage() {
         pageSize: DEFAULT_PAGE_SIZE * 10,
       });
 
-      genAssets(pageList, dirPath);
+      genAssets(pageList, '/');
     } catch (e) {
       console.log(e);
       message.error(`请求异常`);
@@ -104,11 +124,11 @@ export default function ProjectManage() {
             onClickAction: download,
           }}
         />
-        <DownloadModal
+        {/* <DownloadModal
           visible={visible}
           closeModal={closeModal}
           onConfirm={downloadImpl}
-        />
+        /> */}
       </ViewBox>
     </>
   );

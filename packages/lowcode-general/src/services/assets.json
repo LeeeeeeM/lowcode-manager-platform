@@ -29,8 +29,8 @@
       "package": "antd",
       "version": "4.24.16",
       "urls": [
-        "http://localhost:8082/antd/dist/antd.js",
-        "http://localhost:8082/antd/dist/antd.css"
+        "/antd/dist/antd.js",
+        "/antd/dist/antd.css"
       ],
       "library": "antd"
     },
@@ -101,17 +101,17 @@
       "version": "0.1.0",
       "library": "BizComp",
       "urls": [
-        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.js",
-        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.css"
+        "/editor-project-m/build/lowcode/render/default/view.js",
+        "/editor-project-m/build/lowcode/render/default/view.css"
       ],
       "editUrls": [
-        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.js",
-        "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.css"
+        "/editor-project-m/build/lowcode/render/default/view.js",
+        "/editor-project-m/build/lowcode/render/default/view.css"
       ],
       "advancedUrls": {
         "default": [
-          "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.js",
-          "http://localhost:8082/editor-project-m/build/lowcode/render/default/view.css"
+          "/editor-project-m/build/lowcode/render/default/view.js",
+          "/editor-project-m/build/lowcode/render/default/view.css"
         ]
       },
       "advancedEditUrls": {}
@@ -169,13 +169,13 @@
         "package": "editor-project-m",
         "version": "0.1.0"
       },
-      "url": "http://localhost:8082/editor-project-m/build/lowcode/meta.js",
+      "url": "/editor-project-m/build/lowcode/meta.js",
       "urls": {
-        "default": "http://localhost:8082/editor-project-m/build/lowcode/meta.js"
+        "default": "/editor-project-m/build/lowcode/meta.js"
       },
       "advancedUrls": {
         "default": [
-          "http://localhost:8082/editor-project-m/build/lowcode/meta.js"
+          "/editor-project-m/build/lowcode/meta.js"
         ]
       }
     }

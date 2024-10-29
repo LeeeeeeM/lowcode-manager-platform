@@ -1,8 +1,9 @@
 const fs = require('fs-extra');
-const path = require('path');
+// const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { INJECT_PARAMS } = require('common/inject/index.js');
+const webpack = require('webpack');
 
 const { version } = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
@@ -28,6 +29,10 @@ module.exports = ({ onGetWebpackConfig }) => {
         fs: 'empty',
       },
     });
+
+    config.plugin('define').use(webpack.DefinePlugin, [{
+      MODE: JSON.stringify(process.env.NODE_ENV)
+    }]);
 
     // config.output.merge({
     //   filename: (chunkData) => {

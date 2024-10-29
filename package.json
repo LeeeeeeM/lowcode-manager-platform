@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "pnpm -F lowcode-manage-center start & pnpm -F lowcode-general start",
-    "build": "pnpm -F lowcode-manage-center build & pnpm -F lowcode-general build"
+    "build": "sh scripts/prebuild.sh && pnpm -F lowcode-manage-center build & pnpm -F lowcode-general build"
   },
   "repository": {
     "type": "git",

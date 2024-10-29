@@ -24,6 +24,9 @@ export default ({ command, mode }: ConfigEnv) => {
 
   return defineConfig({
     plugins: [react()],
+    build: {
+      outDir: 'build'
+    },
     server: {
       proxy: {
         "/api/v2/code/": {
