@@ -8,6 +8,6 @@ if [ ! -d "build" ]; then
 fi
 
 # 将 build 文件夹内的所有内容移动到 根目录 dist 文件夹中
-mv build/* ../../dist
+mv build/* ../../build
 
-echo "All contents from 'dist' have been moved to 'root/dist'."
+echo "All contents from 'build' have been moved to 'root/build'."
