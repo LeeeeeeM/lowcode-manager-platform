@@ -66,7 +66,7 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
     window.open(
       `${
         import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
-      }${LOWCODE_PATH_PREFIX}?${PAGE_SIG_ID}=${item.id}`
+      }${LOWCODE_PATH_PREFIX}/?${PAGE_SIG_ID}=${item.id}`
     );
   };
 
