@@ -16,6 +16,7 @@
     "axios": "^1.7.7",
     "classnames": "^2.5.1",
     "common": "workspace:^",
+    "dayjs": "^1.11.13",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "parse5": "^7.2.0",

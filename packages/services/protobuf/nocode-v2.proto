@@ -1,0 +1,251 @@
+syntax = "proto3";
+
+option go_package = "./;nocode";
+
+package nocode;
+
+import "google/api/annotations.proto";  // 引入 gRPC Gateway 注释
+
+// 客户服务定义
+service NocodeService {
+  //创建项目
+  rpc CreateProject (CreateProjectRequest) returns (CreateProjectResponse) {
+    option (google.api.http) = {
+      post: "/api/create_project"
+      body: "*"
+    };
+  }
+  //删除项目
+  rpc DeleteProject (DeleteProjectRequest) returns (Result) {
+    option (google.api.http) = {
+      post: "/api/delete_project"
+      body: "*"
+    };
+  }
+  //项目列表
+  rpc GetProjectList (GetProjectListRequest) returns (GetProjectListResponse) {
+    option (google.api.http) = {
+      post: "/api/get_project_list"
+      body: "*"
+    };
+  }
+  //项目详情
+  rpc GetProject (GetProjectRequest) returns (GetProjectResponse) {
+    option (google.api.http) = {
+      post: "/api/get_project"
+      body: "*"
+    };
+  }
+
+  //创建页面
+  rpc CreatePage (CreatePageRequest) returns (CreatePageResponse) {
+    option (google.api.http) = {
+      post: "/api/create_page"
+      body: "*"
+    };
+  }
+
+  //修改页面
+  rpc UpdatePage (UpdatePageRequest) returns (Result) {
+    option (google.api.http) = {
+      post: "/api/update_page"
+      body: "*"
+    };
+  }
+
+  //删除页面
+  rpc DeletePage (DeletePageRequest) returns (Result) {
+    option (google.api.http) = {
+      post: "/api/delete_page"
+      body: "*"
+    };
+  }
+  //保存页面配置
+  rpc SavePageConf (SavePageConfRequest) returns (Result) {
+    option (google.api.http) = {
+      post: "/api/save_page_conf"
+      body: "*"
+    };
+  }
+
+  //根据页面id获取页面
+  rpc GetPage (GetPageRequest) returns (GetPageResponse) {
+    option (google.api.http) = {
+      post: "/api/get_page"
+      body: "*"
+    };
+  }
+  //根据项目id获取页面列表
+  rpc GetPageList (GetPageListRequest) returns (GetPageListResponse) {
+    option (google.api.http) = {
+      post: "/api/get_page_list"
+      body: "*"
+    };
+  }
+}
+//项目（用于列表展示）
+message SimpleProject{
+  int32 id=1;
+  //项目名称
+  string name=2;
+  //创建时间
+  int64 create_on=4;
+  //创建人
+  string create_by=5;
+  //最后修改时间
+  int64 update_on=6;
+  //最后修改人
+  string update_by=7;
+}
+//项目（用于详情）
+message Project{
+  int32 id=1;
+  //项目名称
+  string name=2;
+  //备注
+  string remark=3;
+}
+
+//页面
+message Page{
+  int32  id = 1;
+  //页面名称
+  string name = 2;
+  //内容
+  string content = 3;
+  //依赖
+  string assets = 4;
+  //创建时间
+  int64 create_on = 5;
+  //最后修改时间
+  int64 update_on = 6;
+  //创建人
+  string create_by = 7;
+  //最后修改人
+  string update_by = 8;
+  //页面标识
+  string identifier = 9;
+}
+
+
+message Result {
+  int32 code = 1;
+  string message = 2;
+}
+
+
+
+
+
+message CreatePageRequest {
+  //项目id
+  int32 project_id = 1;
+  //页面名称
+  string name = 2;
+  //用户
+  string user_name = 3;
+  //页面标识
+  string identifier = 4;
+}
+
+message CreatePageResponse {
+  int32 code = 1;
+  string message = 2;
+  //页面id
+  int32 page_id = 3;
+}
+
+message UpdatePageRequest {
+  //项目id
+  int32 project_id = 1;
+  //id
+  int32 page_id = 2;
+  //页面名称
+  string name = 3;
+  //用户
+  string user_name = 4;
+  //页面标识
+  string identifier = 5;
+}
+
+
+
+message SavePageConfRequest {
+  int32 page_id = 1;
+  string content = 2;
+  string assets = 3;
+  //用户
+  string user_name = 4;
+}
+
+message GetPageRequest {
+  //页面id
+  int32 page_id = 1;
+}
+
+message GetPageResponse {
+  int32 code = 1;
+  string message = 2;
+  //页面对象
+  Page page = 3;
+}
+
+message GetPageListRequest {
+  //项目id
+  int32 project_id = 1;
+  int32 page_num = 2;
+  int32 page_size = 3;
+}
+
+message GetPageListResponse {
+  int32 code = 1;
+  string message = 2;
+  //页面对象
+  repeated Page page_list = 3;
+  int64 total = 4;
+}
+
+message GetProjectListRequest {
+  //用户
+  string user_name = 1;
+  int32 page_num = 2;
+  int32 page_size = 3;
+}
+
+message GetProjectListResponse {
+  int32 code = 1;
+  string message = 2;
+  //项目列表
+  repeated SimpleProject project_list = 3;
+  int64 total = 4;
+}
+
+message GetProjectRequest {
+  //项目id
+  int32 project_id = 1;
+
+}
+
+message GetProjectResponse {
+  int32 code = 1;
+  string message = 2;
+  //项目对象
+  Project project = 3;
+}
+message CreateProjectRequest{
+  string name = 1;
+  string remark = 2;
+  string user_name = 3;
+}
+message CreateProjectResponse{
+  int32 code = 1;
+  string message = 2;
+  //项目id
+  int32 project_id = 3;
+}
+message DeleteProjectRequest{
+  int32 project_id = 1;
+}
+message DeletePageRequest{
+  int32 page_id = 1;
+}

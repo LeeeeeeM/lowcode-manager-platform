@@ -1,4 +1,4 @@
-import { Page, SimplePage } from "../entity";
+import { Page } from "../entity";
 import { Project, SimpleProject } from "../entity/project";
 
 export interface CreateProjectRequest {
@@ -29,6 +29,20 @@ export interface CreatePageRequest {
   projectId: number;
   name: string;
   userName: string;
+  identifier: string;
+}
+
+export interface UpdatePageRequest {
+  //项目id
+  projectId: number;
+  //id
+  pageId: number;
+  //页面名称
+  name: string;
+  //用户
+  userName: string;
+  //页面标识
+  identifier: string;
 }
 
 export interface CreatePageResponse {
@@ -61,7 +75,7 @@ export interface GetPageListRequest {
 }
 
 export interface GetPageListResponse {
-  pageList: SimplePage[];
+  pageList: Page[];
   total: number;
 }
 

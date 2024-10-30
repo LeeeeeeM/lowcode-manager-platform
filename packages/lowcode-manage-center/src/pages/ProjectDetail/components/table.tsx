@@ -7,10 +7,16 @@ import {
   Table,
   type TableColumnsType,
 } from "antd";
-import { SimplePage } from "services/entity";
+import dayjs from "dayjs";
+import { Page } from "services/entity";
 import { DEVELOP_LOWCODE_URL, LOWCODE_PATH_PREFIX, PAGE_SIG_ID } from "common";
 import { DeletePage } from "services";
 import { DEFAULT_PAGE_NUMBER } from "/@/constants";
+
+export enum Action {
+  PREVIEW = 'preview',
+  MODIFY_INFO = 'modify'
+}
 
 interface CustomTableProps<T> {
   total?: number;
@@ -19,11 +25,11 @@ interface CustomTableProps<T> {
   data?: T[];
   onChangePageSize: (v: number) => void;
   loading?: boolean;
-  onClickAction?: (item: T) => void;
+  onClickAction?: (item: T, action: Action) => void;
   reloadData?: (v: number) => Promise<unknown>;
 }
 
-const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
+const CustomTable: FC<CustomTableProps<Page>> = (props) => {
   const {
     total,
     pageSize,
@@ -38,7 +44,7 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
 
   const [confirmLoading, setConfirmLoading] = useState(false);
 
-  const showPopconfirm = (item: SimplePage) => {
+  const showPopconfirm = (item: Page) => {
     curretnDeleteRef.current = item.id;
   };
 
@@ -58,11 +64,11 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
     }
   };
 
-  const previewPage = (item: SimplePage) => {
-    onClickAction(item);
+  const previewPage = (item: Page) => {
+    onClickAction(item, Action.PREVIEW);
   };
 
-  const editPage = (item: SimplePage) => {
+  const editPage = (item: Page) => {
     window.open(
       `${
         import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
@@ -70,14 +76,21 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
     );
   };
 
-  const renderAction = (item: SimplePage) => {
+  const modifyPageInfo = (item: Page) => {
+    onClickAction(item, Action.MODIFY_INFO);
+  }
+
+  const renderAction = (item: Page) => {
     return (
       <Flex>
         <Button type="link" onClick={() => previewPage(item)}>
           预览
         </Button>
+        <Button type="link" onClick={() => modifyPageInfo(item)}>
+          修改页面信息
+        </Button>
         <Button type="link" onClick={() => editPage(item)}>
-          编辑
+          编辑页面
         </Button>
         <Popconfirm
           title={"删除当前页面"}
@@ -92,7 +105,7 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
     );
   };
 
-  const columns: TableColumnsType<SimplePage> = [
+  const columns: TableColumnsType<Page> = [
     {
       title: "页面名称",
       width: 100,
@@ -106,22 +119,34 @@ const CustomTable: FC<CustomTableProps<SimplePage>> = (props) => {
       key: "id",
     },
     {
-      title: "页面备注",
-      dataIndex: "address",
-      key: "1",
+      title: "创建时间",
+      dataIndex: "createOn",
+      key: "createOn",
       width: 100,
+      render(item) {
+        return dayjs(item).format('YYYY-MM-DD HH:mm:ss');
+      }
+    },
+    {
+      title: "页面标识",
+      dataIndex: "identifier",
+      key: "identifier",
+      width: 100,
+      render(item) {
+        return item;
+      }
     },
     {
       title: "操作列",
       key: "operation",
       fixed: "right",
-      width: 150,
+      width: 200,
       render: renderAction,
     },
   ];
 
   return (
-    <Table<SimplePage>
+    <Table<Page>
       columns={columns}
       dataSource={data}
       rowKey="id"

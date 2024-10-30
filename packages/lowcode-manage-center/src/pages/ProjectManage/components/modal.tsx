@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
-
-const pathRegex = /^(?:\/)?[\w-]+(?:\/[\w-]+)*\/?$/;
+import { PATH_REG } from "/@/constants";
 
 interface DownloadModalProps {
   visible: boolean;
@@ -29,7 +28,7 @@ const DownloadModal: FC<DownloadModalProps> = (props) => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const checkPath = async (_: unknown, value: string) => {
-    if (pathRegex.test(value) || value === '/') {
+    if (PATH_REG.test(value) || value === '/') {
       return Promise.resolve();
     }
     return Promise.reject(`不是合法路径，请使用 xxx/yyy 等格式`);

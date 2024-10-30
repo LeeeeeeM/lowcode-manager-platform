@@ -18,5 +18,7 @@ export const GET_PAGE_DETAIL = `${API_PREFIX}/get_page`;
 
 export const GET_PAGE_LIST = `${API_PREFIX}/get_page_list`;
 
+export const UPDATE_PAGE = `${API_PREFIX}/update_page`;
+
 /** test */
 export const GET_LICENSE_TEST = `/api/v2/code/get_license_test`

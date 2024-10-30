@@ -4,11 +4,11 @@ import {
   ResponsiveIframeViewer,
   ViewportSize,
 } from "react-responsive-iframe-viewer/dist/main";
-import { SimplePage } from "services/entity";
+import { Page } from "services/entity";
 import { DEVELOP_LOWCODE_URL, LOWCODE_PATH_PREFIX, PAGE_SIG_ID } from "common";
 
 interface PreviewModalProps {
-  info?: SimplePage;
+  info?: Page;
   visible: boolean;
   closeModal: () => void;
 }

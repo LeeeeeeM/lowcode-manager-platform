@@ -2,7 +2,7 @@ import jsZip from "jszip";
 import { parse, serialize, html } from "parse5";
 import pbp from "path-browserify";
 import { saveAs } from "file-saver";
-import { SimplePage } from "services/entity";
+import { Page } from "services/entity";
 import { apiInstance as axios } from "services/api/request";
 import {
   appendNodeText,
@@ -22,7 +22,7 @@ import {
 const generatePageContent = (
   content: string,
   dirPath: string,
-  options: Pick<SimplePage, "name" | "id" | "content" | "assets">
+  options: Pick<Page, "name" | "id" | "content" | "assets" | "identifier">
 ) => {
   const doc = parse(content) as unknown as Element;
   const { name, id, content: tpl, assets } = options;
@@ -64,7 +64,7 @@ const generatePageContent = (
   };
 };
 
-export const genAssets = async (pageList: SimplePage[], dirPath: string) => {
+export const genAssets = async (pageList: Page[], dirPath: string) => {
   // 下载 HTML、JS、CSS 资源
   const [htmlContent, jsContent, cssContent, iconContent] = await Promise.all([
     axios.get(
@@ -97,15 +97,16 @@ export const genAssets = async (pageList: SimplePage[], dirPath: string) => {
   zipX.file(`css/activity.css`, cssContent);
   zipX.file(`favicon.ico`, iconContent, { createFolders: false });
 
-  pageList.forEach((page: SimplePage) => {
-    const { name, id, assets, content } = page;
-    const { newTpl, pagePath } = generatePageContent(htmlContent, dirPath, {
+  pageList.forEach((page: Page) => {
+    const { name, id, assets, content, identifier } = page;
+    const { newTpl } = generatePageContent(htmlContent, dirPath, {
       content,
       assets,
       id,
+      identifier,
       name,
     });
-    zipX.file(`${pagePath}/index.html`, newTpl);
+    zipX.file(`pages/${identifier}.html`, newTpl);
   });
 
   const blob = await zipX.generateAsync({ type: "blob" });

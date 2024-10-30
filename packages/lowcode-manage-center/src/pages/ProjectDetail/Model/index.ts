@@ -2,11 +2,11 @@ import { create } from "zustand";
 
 import { registerStore } from "/@/store/registerStore";
 import { MODEL_NAMESPACE } from "/@/constants/model";
-import { ProjectInfo, SimplePage } from "services/entity";
+import { ProjectInfo, Page } from "services/entity";
 
 interface ProjectDetailState {
   total: number;
-  pageList: SimplePage[];
+  pageList: Page[];
   projectInfo: ProjectInfo;
 }
 
@@ -20,7 +20,7 @@ const initState: ProjectDetailState = {
   },
 };
 interface ProjectDetailActions {
-  setPageList: (list: SimplePage[]) => void;
+  setPageList: (list: Page[]) => void;
   setPageTotal: (total: number) => void;
   reset: () => void;
 }

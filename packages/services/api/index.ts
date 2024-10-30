@@ -15,6 +15,7 @@ import {
   GetProjectResponse,
   Result,
   SavePageConfRequest,
+  UpdatePageRequest,
 } from "./model";
 import { apiInstance as axios } from "./request";
 import {
@@ -28,6 +29,7 @@ import {
   GET_PROJECT_DETAIL,
   GET_PROJECT_LIST,
   SAVE_PAGE,
+  UPDATE_PAGE,
 } from "./url";
 
 export const CreateProject = (
@@ -63,6 +65,10 @@ export const DeletePage = (data: DeletePageRequest) => {
 export const SavePage = (data: SavePageConfRequest): Promise<Result> => {
   return axios.post(SAVE_PAGE, data);
 };
+
+export const UpdatePage = (data: UpdatePageRequest): Promise<Result> => {
+  return axios.post(UPDATE_PAGE, data);
+}
 
 export const GetPageDetail = (data: GetPageRequest): Promise<Result & GetPageResponse> => {
   return axios.post(GET_PAGE_DETAIL, data);

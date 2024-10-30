@@ -1,35 +1,50 @@
 import { FC, useEffect, useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
+import { DEFAULT_PAGE_INFO, ID_REG } from "/@/constants";
 
-interface AddPageModalProps {
-  visible: boolean;
-  closeModal: () => void;
-  onConfirm: (name: string) => Promise<unknown>;
+export interface PageInfo {
+  name: string;
+  identifier: string;
+  id?: number;
 }
 
-const AddPageModal: FC<AddPageModalProps> = (props) => {
+interface AddPageModalProps<T> {
+  visible: boolean;
+  closeModal: () => void;
+  onConfirm: (value: T) => Promise<unknown>;
+  info: PageInfo;
+}
+
+const AddPageModal: FC<AddPageModalProps<PageInfo>> = (props) => {
   const [form] = Form.useForm();
   const {
     visible = false,
     closeModal = () => {},
     onConfirm = () => {},
+    info = DEFAULT_PAGE_INFO,
   } = props;
 
   const [loading, setLoading] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const checkId = async (_: unknown, value: string) => {
+    if (ID_REG.test(value)) {
+      return Promise.resolve();
+    }
+    return Promise.reject(`请使用数字、字母、-、_`);
+  };
+
   useEffect(() => {
     if (visible) {
-      form.setFieldsValue({
-        name: "",
-      });
+      form.setFieldsValue(info);
     }
-  }, [form, visible]);
+  }, [form, visible, info]);
 
   const handleOk = async () => {
     setLoading(true);
     try {
       const result = await form.validateFields();
-      await onConfirm(result.name);
+      await onConfirm(result);
       closeModal();
     } catch (e) {
       console.log(e);
@@ -69,6 +84,13 @@ const AddPageModal: FC<AddPageModalProps> = (props) => {
         // wrapperCol={{ span: 18 }}
       >
         <Form.Item name="name" label="页面名称" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="identifier"
+          label="页面标识"
+          rules={[{ required: true, validator: checkId }]}
+        >
           <Input />
         </Form.Item>
       </Form>

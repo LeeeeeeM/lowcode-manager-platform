@@ -13,7 +13,12 @@ class API {
     return this.instance.get(url, config).then(({ data }) => data);
   }
   post(url: string, data?: unknown, config?: AxiosRequestConfig) {
-    return this.instance.post(url, data, config).then(({ data }) => data);
+    return this.instance.post(url, data, config).then(({ data }) => {
+      if (data.code !== 200) {
+        return Promise.reject(data.message);
+      }
+      return data;
+    });
   }
 }
 
