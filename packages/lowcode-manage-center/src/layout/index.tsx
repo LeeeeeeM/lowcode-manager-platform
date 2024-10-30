@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Layout } from "antd";
 
 // const { Header, Content, Footer, Sider } = Layout;
@@ -14,7 +14,7 @@ import { Layout } from "antd";
 //   scrollbarColor: "unset",
 // };
 
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 // import { Layout as AntdLayout } from 'antd'
 // import cns from 'classnames'
 
@@ -26,6 +26,7 @@ import { navRoutes } from "../router/routes";
 
 export const BodyLayout: FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   // const isDesktop = useIsDesktop()
   // const {
   //   token: { colorBgContainer, borderRadiusLG },
@@ -38,6 +39,21 @@ export const BodyLayout: FC = () => {
   //     </div>
   //   )
   // }
+
+  useEffect(() => {
+    // @ts-expect-error window as any
+    window.$wujie?.bus.$on("react16-router-change", (path: string) => {
+      console.log(path);
+      navigate(path);
+    });
+  }, []);
+
+
+
+  useEffect(() => {
+    // @ts-expect-error window as any
+    window.$wujie?.bus.$emit("sub-route-change", "react16", location.pathname);
+  }, [location]);
 
   if (location.pathname === "/") {
     return <Navigate replace to={navRoutes[0].path} />;

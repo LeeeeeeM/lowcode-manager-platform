@@ -10,9 +10,9 @@ const router = createBrowserRouter([
     children: allRoutes.map((route) => ({
       path: route.path,
       lazy: () => route.lazy().then((Component) => ({ Component })),
-      loader: route.loader
+      loader: route.loader,
     })),
-  }
+  },
 ]);
 
 export const Router = () => {
