@@ -61,7 +61,7 @@ const AddPageModal: FC<AddPageModalProps<PageInfo>> = (props) => {
     <Modal
       open={visible}
       destroyOnClose={true}
-      title="新建页面"
+      title={info?.identifier ? "修改页面" : "新建页面"}
       onOk={handleOk}
       onCancel={handleCancel}
       footer={[
@@ -74,7 +74,7 @@ const AddPageModal: FC<AddPageModalProps<PageInfo>> = (props) => {
           loading={loading}
           onClick={handleOk}
         >
-          创建
+          {info?.identifier ? "保存" : "创建"}
         </Button>,
       ]}
     >
