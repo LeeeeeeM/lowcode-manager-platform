@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+// import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -8,7 +8,8 @@ import credentialsFetch from "./utils/fetch";
 import plugins from "./utils/plugin";
 import lifecycles from "./utils/lifecycle";
 
-const { setupApp, preloadApp, bus } = WujieReact;
+// const { setupApp, preloadApp, bus } = WujieReact;
+const { setupApp } = WujieReact;
 const isProduction = process.env.NODE_ENV === "production";
 const attrs = isProduction ? { src: hostMap("//localhost:5173/") } : {};
 
@@ -20,7 +21,7 @@ setupApp({
   attrs,
   alive: true,
   exec: true,
-  // @ts-ignore
+  // @ts-expect-error type any
   fetch: credentialsFetch,
   plugins,
   prefix: { "prefix-dialog": "/dialog", "prefix-location": "/location" },

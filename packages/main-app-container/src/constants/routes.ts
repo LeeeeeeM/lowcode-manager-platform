@@ -1,0 +1,1 @@
+export const ANY_MATCH_NAME = '未找到对应页面';

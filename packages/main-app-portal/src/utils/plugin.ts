@@ -1,5 +1,6 @@
 import { WujieWindow } from "./lifecycle";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const plugins: any = [
   {
     htmlLoader: (code: string) => {
