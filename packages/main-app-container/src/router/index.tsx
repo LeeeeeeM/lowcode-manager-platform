@@ -1,12 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Spin } from "antd";
+import { BodyLayout } from "/@/layout";
 import { allRoutes } from "./routes";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    lazy: () =>
-      import("/@/layout").then(({ BodyLayout }) => ({ Component: BodyLayout })),
+    // lazy: () =>
+    //   import("/@/layout").then(({ BodyLayout }) => ({ Component: BodyLayout })),
+    element: <BodyLayout />,
     children: allRoutes.map((route) => ({
       path: route.path,
       element: route.element

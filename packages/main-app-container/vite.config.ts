@@ -6,6 +6,7 @@ import { defineConfig, type ConfigEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { createHtmlPlugin } from "vite-plugin-html";
 import { injectCode } from './inject.env';
+import { INJECT_PARAMS } from 'common/inject';
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv) => {
@@ -27,8 +28,9 @@ export default ({ command, mode }: ConfigEnv) => {
   return defineConfig({
     plugins: [
       react(),
+      // cssInjectedByJsPlugin(),
       createHtmlPlugin({
-        minify: true,
+        minify: false,
         /**
          * 在这里写entry后，你将不需要在`index.html`内添加 script 标签，原有标签需要删除
          * @default src/main.ts
@@ -45,15 +47,25 @@ export default ({ command, mode }: ConfigEnv) => {
          */
         inject: {
           data: {
-            injectScript: `<script>
+            injectScript: `<script id="${INJECT_PARAMS.INJECT_PORTAL_TMP_ID}">
               ${injectCode}
             </script>`,
           }
         },
       }),
     ],
+    // 设置根目录
+    base: './',
     build: {
-      outDir: "build",
+      outDir: `build/portal`,
+      rollupOptions: {
+        output: {
+          // 入口文件的输出路径和命名规则
+          entryFileNames: `js/[name].js`,
+          // 静态资源文件的输出路径和命名规则
+          assetFileNames: `[ext]/[name].[ext]`
+        }
+      }
     },
     server: {
       proxy: {

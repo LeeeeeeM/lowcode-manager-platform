@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "build": "tsc && vite build",
+    "start": "vite --port 5558",
+    "build": "tsc && vite build && sh scripts/postbuild.sh",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,22 +13,14 @@
     "@ant-design/icons": "^5.5.1",
     "ahooks": "^3.8.1",
     "antd": "^5.21.4",
-    "axios": "^1.7.7",
     "classnames": "^2.5.1",
     "common": "workspace:^",
-    "dayjs": "^1.11.13",
-    "file-saver": "^2.0.5",
-    "jszip": "^3.10.1",
-    "parse5": "^7.2.0",
-    "path-browserify": "^1.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-responsive-iframe-viewer": "^1.1.4",
     "react-router-dom": "^6.27.0",
     "services": "workspace:^",
     "wujie": "^1.0.22",
-    "wujie-react": "^1.0.22",
-    "zustand": "^5.0.0"
+    "wujie-react": "^1.0.22"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

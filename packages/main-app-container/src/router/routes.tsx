@@ -4,6 +4,7 @@ import { ANY_MATCH_NAME } from "/@/constants";
 // import ProjectManager from "../pages/Home";
 import PageNotFound from "../pages/PageNotFound";
 import WujieContainer from "../components/WujieContainer";
+import { PageConfig } from "common";
 
 type Route = {
   label?: string;
@@ -12,7 +13,7 @@ type Route = {
   element: ReactNode;
 };
 
-const PAGE_CONFIG_LIST = window.__PROJECT_CONFIG__.pageConfigList || [];
+const PAGE_CONFIG_LIST = window.__PROJECT_CONFIG__?.pageConfigList || [];
 
 const COMPOSED_PAGE_LIST: Route[] = PAGE_CONFIG_LIST.map(
   (pageConfig: PageConfig) => {

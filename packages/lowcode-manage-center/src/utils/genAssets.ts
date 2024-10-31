@@ -15,8 +15,12 @@ import {
 } from "/@/utils/node";
 import {
   DEVELOP_LOWCODE_URL,
+  DEVELOP_PORTAL_URL,
   INJECT_PARAMS,
   LOWCODE_PATH_PREFIX,
+  PageConfig,
+  PORTAL_NAME,
+  ProjectConfInterface,
 } from "common";
 
 const generatePageContent = (
@@ -64,7 +68,51 @@ const generatePageContent = (
   };
 };
 
-export const genAssets = async (pageList: Page[], dirPath: string) => {
+const generatePortalPageContent = (
+  content: string,
+  pages: Page[],
+  projectName: string
+): string => {
+  const doc = parse(content) as unknown as Element;
+
+  const pageConfs: PageConfig[] = pages.map((page: Page) => {
+    const { name, identifier } = page;
+    return {
+      name,
+      identifier,
+      url: `/pages/${identifier}.html`
+    };
+  });
+
+  // 处理 title
+  const titleNode = findNodeByTag(doc, html.TAG_NAMES.TITLE);
+  modifyNodeText(titleNode, projectName);
+
+  const projectConfig: ProjectConfInterface = {
+    portalConfig: {
+      hasNav: true,
+      hasTitle: false,
+      projectTitle: projectName
+    },
+    pageConfigList: pageConfs,
+  };
+
+  // 处理 tpl
+  const scriptTplNode = findNodeById(doc, INJECT_PARAMS.INJECT_PORTAL_TMP_ID);
+  const tempInjectCode = `window.__PROJECT_CONFIG__=${JSON.stringify(
+    projectConfig
+  )};`;
+  modifyNodeText(scriptTplNode, tempInjectCode);
+
+  const newTpl = serialize(doc);
+  return newTpl;
+};
+
+export const genAssets = async (
+  pageList: Page[],
+  dirPath: string,
+  projectName: string
+) => {
   // 下载 HTML、JS、CSS 资源
   const [htmlContent, jsContent, cssContent, iconContent] = await Promise.all([
     axios.get(
@@ -92,10 +140,33 @@ export const genAssets = async (pageList: Page[], dirPath: string) => {
     ),
   ]);
 
+  // 下载 PORTAL HTML、JS、CSS 资源
+  const [htmlPortalContent, jsPortalContent, cssPortalContent] =
+    await Promise.all([
+      axios.get(
+        `${import.meta.env.DEV ? DEVELOP_PORTAL_URL : ""}${PORTAL_NAME}/index.html`
+      ),
+      axios.get(
+        `${
+          import.meta.env.DEV ? DEVELOP_PORTAL_URL : ""
+        }${PORTAL_NAME}/js/index.js`
+      ),
+      axios.get(
+        `${
+          import.meta.env.DEV ? DEVELOP_PORTAL_URL : ""
+        }${PORTAL_NAME}/css/index.css`
+      ),
+    ]);
+
   const zipX = new jsZip();
+  // 压缩最终页
   zipX.file(`js/activity.js`, jsContent);
   zipX.file(`css/activity.css`, cssContent);
   zipX.file(`favicon.ico`, iconContent, { createFolders: false });
+
+  // 压缩 portal
+  zipX.file(`js/index.js`, jsPortalContent);
+  zipX.file(`css/index.css`, cssPortalContent);
 
   pageList.forEach((page: Page) => {
     const { name, id, assets, content, identifier } = page;
@@ -108,6 +179,14 @@ export const genAssets = async (pageList: Page[], dirPath: string) => {
     });
     zipX.file(`pages/${identifier}.html`, newTpl);
   });
+
+  const newPortalHtmlContent = generatePortalPageContent(
+    htmlPortalContent,
+    pageList,
+    projectName
+  );
+
+  zipX.file(`index.html`, newPortalHtmlContent);
 
   const blob = await zipX.generateAsync({ type: "blob" });
 

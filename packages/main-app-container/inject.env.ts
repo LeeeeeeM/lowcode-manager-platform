@@ -1,7 +1,7 @@
 const projectConfig = {
   portalConfig: {
     hasNav: true,
-    hasTitle: false
+    hasTitle: false,
   },
   pageConfigList: [
     {
@@ -27,6 +27,14 @@ const projectConfig = {
   ],
 };
 
+const projectConfigBuild = {
+  portalConfig: {
+    hasNav: true,
+    hasTitle: false,
+  },
+  pageConfigList: [],
+};
+
 export const injectCode = `window.__PROJECT_CONFIG__=${JSON.stringify(
-  projectConfig
+  process.env.NODE_ENV === "production" ?  projectConfigBuild: projectConfig
 )}`;

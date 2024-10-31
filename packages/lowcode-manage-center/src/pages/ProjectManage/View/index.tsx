@@ -78,7 +78,7 @@ export default function ProjectManage() {
   const download = async (item: SimpleProject) => {
     try {
       // const item = itemRef.current!;
-      const { id } = item;
+      const { id, name } = item;
 
       // 获取项目所有的页面
       const { pageList = [] } = await GetPageList({
@@ -88,7 +88,7 @@ export default function ProjectManage() {
         pageSize: DEFAULT_PAGE_SIZE * 10,
       });
 
-      genAssets(pageList, '/');
+      genAssets(pageList, '/', name);
     } catch (e) {
       console.log(e);
       message.error(`请求异常`);

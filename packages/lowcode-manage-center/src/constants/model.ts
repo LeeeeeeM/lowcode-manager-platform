@@ -8,3 +8,8 @@ export const DEFAULT_PAGE_INFO = {
   name: "",
   identifier: "",
 };
+
+export enum Action {
+  PREVIEW = 'preview',
+  MODIFY_INFO = 'modify'
+}

@@ -9,6 +9,8 @@ import cns from "classnames";
 import { navRoutes } from "/@/router/routes";
 import styles from "./index.module.less";
 
+const TITLE = window.__PROJECT_CONFIG__?.portalConfig?.projectTitle || '';
+
 export const Nav: FC = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -48,7 +50,7 @@ export const Nav: FC = () => {
               }
             )}
           >
-            {import.meta.env.VITE_APP_TITLE}
+            {TITLE || import.meta.env.VITE_APP_TITLE}
           </Typography>
         ) : (
           <HeartTwoTone className="text-xl" />

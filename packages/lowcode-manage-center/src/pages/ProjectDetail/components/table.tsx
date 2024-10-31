@@ -11,12 +11,7 @@ import dayjs from "dayjs";
 import { Page } from "services/entity";
 import { DEVELOP_LOWCODE_URL, LOWCODE_PATH_PREFIX, PAGE_SIG_ID } from "common";
 import { DeletePage } from "services";
-import { DEFAULT_PAGE_NUMBER } from "/@/constants";
-
-export enum Action {
-  PREVIEW = 'preview',
-  MODIFY_INFO = 'modify'
-}
+import { Action, DEFAULT_PAGE_NUMBER } from "/@/constants";
 
 interface CustomTableProps<T> {
   total?: number;

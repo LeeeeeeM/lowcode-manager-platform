@@ -4,6 +4,7 @@ import { Button, Flex, message } from "antd";
 import { CreatePage, GetPageList, UpdatePage } from "services";
 import { CURRENT_USER_NAME } from "common";
 import {
+  Action,
   DEFAULT_PAGE_INFO,
   DEFAULT_PAGE_NUMBER,
   DEFAULT_PAGE_SIZE,
@@ -11,7 +12,7 @@ import {
 import ViewBox from "/@/components/ViewBox";
 import FormInfo from "/@/components/FormInfo";
 import { useStore } from "../Model";
-import CustomTable, { Action } from "../components/table";
+import CustomTable from "../components/table";
 import CreateModal, { type PageInfo } from "../components/modal";
 import PreviewModal from "../components/preview";
 import { Page } from "services/entity";
@@ -41,22 +42,21 @@ export default function ProjectManage() {
   const [previewVisible, setPreviewVisible] = useState(false);
 
   const dispatchAction = (item: Page, action: Action) => {
-    switch(action) {
+    switch (action) {
       case Action.PREVIEW:
         openPreviewModal(item);
         break;
       case Action.MODIFY_INFO:
-        console.log(222);
         openModal({
           name: item.name,
           identifier: item.identifier,
-          id: item.id
+          id: item.id,
         });
         break;
       default:
         break;
     }
-  }
+  };
 
   const openPreviewModal = (item: Page) => {
     setCurrentPreviewItem(item);
@@ -92,33 +92,35 @@ export default function ProjectManage() {
     [id]
   );
 
-  const createOrSaveNewPage = useCallback(async (info: PageInfo) => {
-    const { name, identifier } = info;
-    console.log(info)
-    try {
-      if (currentPageInfo.id) {
-        await UpdatePage({
-          projectId: Number(id),
-          pageId: currentPageInfo.id,
-          name,
-          userName: CURRENT_USER_NAME,
-          identifier,
-        });
-      } else {
-        await CreatePage({
-          projectId: Number(id),
-          name,
-          userName: CURRENT_USER_NAME,
-          identifier,
-        });
-      }
+  const createOrSaveNewPage = useCallback(
+    async (info: PageInfo) => {
+      const { name, identifier } = info;
+      try {
+        if (currentPageInfo.id) {
+          await UpdatePage({
+            projectId: Number(id),
+            pageId: currentPageInfo.id,
+            name,
+            userName: CURRENT_USER_NAME,
+            identifier,
+          });
+        } else {
+          await CreatePage({
+            projectId: Number(id),
+            name,
+            userName: CURRENT_USER_NAME,
+            identifier,
+          });
+        }
 
-      // 重新获取当前
-      await loadData(DEFAULT_PAGE_NUMBER);
-    } catch(e) {
-      message.error(`请求异常: ${e}`);
-    }
-  }, [currentPageInfo.id, id, loadData]);
+        // 重新获取当前
+        await loadData(DEFAULT_PAGE_NUMBER);
+      } catch (e) {
+        message.error(`请求异常: ${e}`);
+      }
+    },
+    [currentPageInfo.id, id, loadData]
+  );
 
   useEffect(() => {
     loadData(currentPage);

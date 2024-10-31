@@ -5,11 +5,12 @@ import credentialsFetch from "./utils/fetch";
 import plugins from "./utils/plugin";
 import lifecycles from "./utils/lifecycle";
 import App from "./App.tsx";
+import { PageConfig } from "common";
 // import './index.css'
 
 const { setupApp } = WujieReact;
 
-const PAGE_CONFIG_LIST = window.__PROJECT_CONFIG__.pageConfigList || [];
+const PAGE_CONFIG_LIST = window.__PROJECT_CONFIG__?.pageConfigList || [];
 
 PAGE_CONFIG_LIST.forEach(
   (pageConfig: PageConfig) => {
