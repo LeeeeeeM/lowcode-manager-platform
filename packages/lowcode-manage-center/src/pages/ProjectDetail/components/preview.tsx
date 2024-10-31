@@ -31,12 +31,14 @@ const PreviewModal: FC<PreviewModalProps> = (props) => {
       title={`预览页面-${info?.name}`}
       onCancel={handleCancel}
       footer={null}
+      width={'100%'}
     >
       <div>
         <ResponsiveIframeViewer
           src={route}
           title={info?.name || ""}
-          size={ViewportSize.mobile}
+          showControls={false}
+          size={ViewportSize.desktop}
         />
       </div>
     </Modal>
