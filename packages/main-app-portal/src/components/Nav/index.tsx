@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import WujieReact from "wujie-react";
-import { Button } from "antd";
-import { UnorderedListOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { CaretUpOutlined } from "@ant-design/icons";
 
 const { bus } = WujieReact;
 
@@ -20,8 +19,8 @@ const subMap = {
 export function Nav() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [react16Flag, setReact16Flag] = useState(
-    location.pathname.includes("react16-sub")
+  const [react16Flag, setReact16Flag] = useState<boolean>(
+    location.pathname.includes("react16-sub") || true
   );
 
   // 在 xxx-sub 路由下子应用将激活路由同步给主应用，主应用跳转对应路由高亮菜单栏

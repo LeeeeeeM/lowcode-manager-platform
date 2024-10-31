@@ -6,7 +6,10 @@ export default function React16() {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.replace("/react16-sub", "").replace("/react16", ""); ////
-  path && WujieReact.bus.$emit("react16-router-change", path);
+
+  if (path) {
+    WujieReact.bus.$emit("react16-router-change", path);
+  }
   
   const react16Url = hostMap("http://localhost:5174/");
   const props = {

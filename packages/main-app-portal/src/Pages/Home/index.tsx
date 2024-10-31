@@ -6,8 +6,8 @@ interface HomeProps {
   changeActive?: (value: boolean) => void;
 }
 
-const Home: FC<HomeProps> = (props) => {
-  const { changeActive = () => {} } = props;
+const Home: FC<HomeProps> = () => {
+  // const { changeActive = () => {} } = props;
   const [checkState] = useState(
     window.localStorage.getItem("preload") !== "false"
   );
@@ -27,10 +27,10 @@ const Home: FC<HomeProps> = (props) => {
     setTimeout(() => window.location.reload(), 1000);
   };
 
-  const handleClick = (e: any) => {
-    changeActive(true);
-    e.stopPropagation();
-  }
+  // const handleClick = (e: any) => {
+  //   changeActive(true);
+  //   e.stopPropagation();
+  // }
 
   return (
     <div className="home">
