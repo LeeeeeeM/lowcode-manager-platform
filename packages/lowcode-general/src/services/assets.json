@@ -99,7 +99,7 @@
     {
       "package": "editor-project-m",
       "version": "0.1.0",
-      "library": "BizComp",
+      "library": "EditorProjectM",
       "urls": [
         "/editor-project-m/build/lowcode/render/default/view.js",
         "/editor-project-m/build/lowcode/render/default/view.css"

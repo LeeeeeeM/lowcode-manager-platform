@@ -3,3 +3,6 @@ publish
 .vscode
 dist
 build
+!public/**/build
+!public/**/dist
+.DS_Store

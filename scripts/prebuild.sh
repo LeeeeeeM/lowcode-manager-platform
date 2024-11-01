@@ -12,4 +12,4 @@ mkdir "build"
 echo "Dir 'build' have been mkdir."
 
 # 移植公共组件
-cp -r public build
+cp -r public build/resources

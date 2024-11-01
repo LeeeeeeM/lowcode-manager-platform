@@ -27,7 +27,7 @@ const assets = {
     {
       package: 'antd',
       version: '4.24.16',
-      urls: [`${PREFIX}/antd/dist/antd.js`, `${PREFIX}/antd/dist/antd.css`],
+      urls: [`${PREFIX}/resources/antd/dist/antd.js`, `${PREFIX}/resources/antd/dist/antd.css`],
       library: 'antd',
     },
     {
@@ -95,19 +95,39 @@ const assets = {
     {
       package: 'editor-project-m',
       version: '0.1.0',
-      library: 'BizComp',
+      library: 'EditorProjectM',
       urls: [
-        `${PREFIX}/editor-project-m/build/lowcode/render/default/view.js`,
-        `${PREFIX}/editor-project-m/build/lowcode/render/default/view.css`,
+        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.css`,
       ],
       editUrls: [
-        `${PREFIX}/editor-project-m/build/lowcode/render/default/view.js`,
-        `${PREFIX}/editor-project-m/build/lowcode/render/default/view.css`,
+        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.css`,
       ],
       advancedUrls: {
         default: [
-          `${PREFIX}/editor-project-m/build/lowcode/render/default/view.js`,
-          `${PREFIX}/editor-project-m/build/lowcode/render/default/view.css`,
+          `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.css`,
+        ],
+      },
+      advancedEditUrls: {},
+    },
+    {
+      package: 'custom-table',
+      version: '0.1.0',
+      library: 'CustomTable',
+      urls: [
+        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.css`,
+      ],
+      advancedUrls: {
+        default: [
+          `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.css`,
         ],
       },
       advancedEditUrls: {},
@@ -169,12 +189,26 @@ const assets = {
         package: 'editor-project-m',
         version: '0.1.0',
       },
-      url: `${PREFIX}/editor-project-m/build/lowcode/meta.js`,
+      url: `${PREFIX}/resources/editor-project-m/build/lowcode/meta.js`,
       urls: {
-        default: `${PREFIX}/editor-project-m/build/lowcode/meta.js`,
+        default: `${PREFIX}/resources/editor-project-m/build/lowcode/meta.js`,
       },
       advancedUrls: {
-        default: [`${PREFIX}/editor-project-m/build/lowcode/meta.js`],
+        default: [`${PREFIX}/resources/editor-project-m/build/lowcode/meta.js`],
+      },
+    },
+    {
+      exportName: 'CustomTableMeta',
+      npm: {
+        package: 'custom-table',
+        version: '0.1.0',
+      },
+      url: `${PREFIX}/resources/custom-table/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/custom-table/build/lowcode/meta.js`,
+      },
+      advancedUrls: {
+        default: `${PREFIX}/resources/custom-table/build/lowcode/meta.js`,
       },
     },
   ],
