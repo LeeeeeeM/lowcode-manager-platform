@@ -1,6 +1,5 @@
 import { resolve } from "path";
 import fs from "fs";
-
 import dotenv from "dotenv";
 import { defineConfig, type ConfigEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
@@ -68,16 +67,7 @@ export default ({ command, mode }: ConfigEnv) => {
       }
     },
     server: {
-      proxy: {
-        "/api/v2/code/": {
-          target: "http://dms.smartsteps.com",
-          changeOrigin: true,
-        },
-        "/api/": {
-          target: "http://k8s.smartsteps.com:32679",
-          changeOrigin: true,
-        }
-      },
+      proxy: {},
     },
     resolve: {
       alias: [{ find: "/@", replacement: resolve(__dirname, "./src") }],

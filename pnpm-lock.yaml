@@ -348,9 +348,6 @@ importers:
       vite:
         specifier: ^5.4.8
         version: 5.4.9(@types/node@22.7.7)(less@4.2.0)
-      vite-plugin-css-injected-by-js:
-        specifier: ^3.5.2
-        version: 3.5.2(vite@5.4.9)
       vite-plugin-html:
         specifier: ^3.2.2
         version: 3.2.2(vite@5.4.9)
@@ -20302,14 +20299,6 @@ packages:
 
   /vendors@1.0.4:
     resolution: {integrity: sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==, tarball: https://r2.cnpmjs.org/vendors/-/vendors-1.0.4.tgz}
-    dev: true
-
-  /vite-plugin-css-injected-by-js@3.5.2(vite@5.4.9):
-    resolution: {integrity: sha512-2MpU/Y+SCZyWUB6ua3HbJCrgnF0KACAsmzOQt1UvRVJCGF6S8xdA3ZUhWcWdM9ivG4I5az8PnQmwwrkC2CAQrQ==}
-    peerDependencies:
-      vite: '>2.0.0-0'
-    dependencies:
-      vite: 5.4.9(@types/node@22.7.7)(less@4.2.0)
     dev: true
 
   /vite-plugin-html@3.2.2(vite@5.4.9):
