@@ -49,8 +49,8 @@ const assets = {
         'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/dist/AlilcLowcodeMaterials.css',
       ],
       editUrls: [
-        'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/view.js',
-        'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/view.css',
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.js`,
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.css`,
       ],
     },
     {
@@ -179,12 +179,12 @@ const assets = {
       npm: {
         package: '@alilc/lowcode-materials',
       },
-      url: 'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/meta.js',
+      url: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
       urls: {
         default:
-          'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/meta.js',
+          `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
         design:
-          'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/meta.design.js',
+          `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.design.js`,
       },
     },
     {
