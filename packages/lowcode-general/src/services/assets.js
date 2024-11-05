@@ -88,8 +88,8 @@ const assets = {
         'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/dist/AlifdFusionUi.css',
       ],
       editUrls: [
-        'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/build/lowcode/view.js',
-        'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/build/lowcode/view.css',
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.css`,
       ],
     },
     {
@@ -203,10 +203,10 @@ const assets = {
       npm: {
         package: '@alifd/fusion-ui',
       },
-      url: 'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/build/lowcode/meta.js',
+      url: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.js`,
       urls: {
-        default: 'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/build/lowcode/meta.js',
-        design: 'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/build/lowcode/meta.design.js',
+        default: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.js`,
+        design: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.design.js`,
       },
     },
     // {
