@@ -6,6 +6,7 @@ import isArray from 'lodash/isArray';
 import isEmpty from 'lodash/isEmpty';
 import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@alilc/lowcode-utils';
 import ReactRenderer from '@alilc/lowcode-react-renderer';
+// import { Slot, Leaf } from './built-in-comp';
 import { PAGE_SIG_ID } from 'common';
 // import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import appHelper from './appHelper';
@@ -114,9 +115,7 @@ const Preview = () => {
   }
 
   return (
-    <div className="lowcode-plugin-sample-preview">
       <ReactRenderer
-        className="lowcode-plugin-sample-preview-content"
         schema={{
           ...schema,
           dataSource: mergeWith(schema.dataSource, projectDataSource, customizer),
@@ -126,7 +125,6 @@ const Preview = () => {
         messages={i18n}
         appHelper={appHelper}
       />
-    </div>
   );
 };
 

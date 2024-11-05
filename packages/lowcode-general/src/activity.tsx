@@ -85,9 +85,7 @@ const Landing = () => {
   }
 
   return (
-    <div className="lowcode-plugin-sample-preview">
       <ReactRenderer
-        className="lowcode-plugin-sample-preview-content"
         schema={{
           ...schema,
           dataSource: mergeWith(schema.dataSource, projectDataSource, customizer),
@@ -97,7 +95,6 @@ const Landing = () => {
         messages={i18n}
         appHelper={appHelper}
       />
-    </div>
   );
 };
 

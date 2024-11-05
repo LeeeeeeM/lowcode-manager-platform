@@ -132,6 +132,46 @@ const assets = {
       },
       advancedEditUrls: {},
     },
+    {
+      package: 'custom-tooltip',
+      version: '0.1.0',
+      library: 'CustomTooltip',
+      urls: [
+        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.css`,
+      ],
+      advancedUrls: {
+        default: [
+          `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.css`,
+        ],
+      },
+      advancedEditUrls: {},
+    },
+    {
+      package: 'custom-popover',
+      version: '0.1.0',
+      library: 'CustomPopover',
+      urls: [
+        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.css`,
+      ],
+      advancedUrls: {
+        default: [
+          `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.css`,
+        ],
+      },
+      advancedEditUrls: {},
+    },
   ],
   components: [
     {
@@ -209,6 +249,34 @@ const assets = {
       },
       advancedUrls: {
         default: `${PREFIX}/resources/custom-table/build/lowcode/meta.js`,
+      },
+    },
+    {
+      exportName: 'CustomTooltipMeta',
+      npm: {
+        package: 'custom-tooltip',
+        version: '0.1.0',
+      },
+      url: `${PREFIX}/resources/custom-tooltip/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/custom-tooltip/build/lowcode/meta.js`,
+      },
+      advancedUrls: {
+        default: `${PREFIX}/resources/custom-tooltip/build/lowcode/meta.js`,
+      },
+    },
+    {
+      exportName: 'CustomPopoverMeta',
+      npm: {
+        package: 'custom-popover',
+        version: '0.1.0',
+      },
+      url: `${PREFIX}/resources/custom-popover/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/custom-popover/build/lowcode/meta.js`,
+      },
+      advancedUrls: {
+        default: `${PREFIX}/resources/custom-popover/build/lowcode/meta.js`,
       },
     },
   ],
