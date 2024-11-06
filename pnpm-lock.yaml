@@ -81,6 +81,9 @@ importers:
       path-browserify:
         specifier: ^1.0.1
         version: 1.0.1
+      react-hotkeys-hook:
+        specifier: ^4.6.1
+        version: 4.6.1(react-dom@18.3.1)(react@16.14.0)
       regenerator-runtime:
         specifier: 0.14.1
         version: 0.14.1
@@ -17672,6 +17675,16 @@ packages:
 
   /react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
+    dev: false
+
+  /react-hotkeys-hook@4.6.1(react-dom@18.3.1)(react@16.14.0):
+    resolution: {integrity: sha512-XlZpbKUj9tkfgPgT9gA+1p7Ey6vFIZHttUjPqpTdyT5nqQ8mHL7elxvSbaC+dpSiHUSmr21Ya1mDxBZG3aje4Q==}
+    peerDependencies:
+      react: '>=16.8.1'
+      react-dom: '>=16.8.1'
+    dependencies:
+      react: 16.14.0
+      react-dom: 18.3.1(react@16.14.0)
     dev: false
 
   /react-is@16.13.1:

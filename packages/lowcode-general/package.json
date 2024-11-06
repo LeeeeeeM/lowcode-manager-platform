@@ -39,6 +39,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
     "path-browserify": "^1.0.1",
+    "react-hotkeys-hook": "^4.6.1",
     "regenerator-runtime": "0.14.1",
     "services": "workspace:^",
     "uuid": "^8.3.2"

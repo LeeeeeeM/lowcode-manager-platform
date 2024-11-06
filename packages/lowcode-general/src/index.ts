@@ -6,7 +6,6 @@ import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en';
 import CodeGenPlugin from '@alilc/lowcode-plugin-code-generator';
 import DataSourcePanePlugin from '@alilc/lowcode-plugin-datasource-pane';
 import SchemaPlugin from '@alilc/lowcode-plugin-schema';
-import CodeEditorPlugin from "@alilc/lowcode-plugin-code-editor";
 import ManualPlugin from "@alilc/lowcode-plugin-manual";
 import InjectPlugin from '@alilc/lowcode-plugin-inject';
 import SimulatorResizerPlugin from '@alilc/lowcode-plugin-simulator-select';
@@ -20,6 +19,9 @@ import SetRefPropPlugin from '@alilc/lowcode-plugin-set-ref-prop';
 import LogoSamplePlugin from './plugins/plugin-logo-sample';
 import SimulatorLocalePlugin from './plugins/plugin-simulator-locale';
 import lowcodePlugin from './plugins/plugin-lowcode-component';
+// 自定义js、css代码编辑器
+import CodeEditorPlugin from "./plugins/plugin-code-editor";
+
 import appHelper from './appHelper';
 import './global.scss';
 
@@ -100,8 +102,23 @@ async function registerPlugins() {
   // await plugins.register(lowcodePlugin);
 };
 
+const registerEvents = () => {
+  window.addEventListener('beforeunload', function (e) {
+    // 标准的对话框文本
+    var confirmationMessage = '确定要离开此页面吗？';
+  
+    (e || window.event).returnValue = confirmationMessage; // 标准的跨浏览器方式
+  
+    // 对于Chrome，Safari，Firefox 22+，IE9+
+    return confirmationMessage;
+  });
+};
+
+
 (async function main() {
   await registerPlugins();
+
+  registerEvents();
 
   init(document.getElementById('lce-container')!, {
     locale: 'zh-CN',

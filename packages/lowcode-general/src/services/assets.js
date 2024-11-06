@@ -93,26 +93,6 @@ const assets = {
       ],
     },
     {
-      package: 'editor-project-m',
-      version: '0.1.0',
-      library: 'EditorProjectM',
-      urls: [
-        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/editor-project-m/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
-    {
       package: 'custom-table',
       version: '0.1.0',
       library: 'CustomTable',
@@ -223,20 +203,6 @@ const assets = {
     //       'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.design.js',
     //   },
     // },
-    {
-      exportName: 'EditorProjectMMeta',
-      npm: {
-        package: 'editor-project-m',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/editor-project-m/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/editor-project-m/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: [`${PREFIX}/resources/editor-project-m/build/lowcode/meta.js`],
-      },
-    },
     {
       exportName: 'CustomTableMeta',
       npm: {
