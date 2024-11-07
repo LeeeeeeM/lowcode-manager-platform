@@ -25,6 +25,12 @@ const assets = {
       library: 'Next',
     },
     {
+      package: '@ant-design/icons',
+      version: '4.7.0',
+      urls: ['//g.alicdn.com/code/npm/@ali/ant-design-icons-cdn/4.5.0/index.umd.min.js'],
+      library: 'icons',
+    },
+    {
       package: 'antd',
       version: '4.24.16',
       urls: [`${PREFIX}/resources/antd/dist/antd.js`, `${PREFIX}/resources/antd/dist/antd.css`],
@@ -90,6 +96,19 @@ const assets = {
       editUrls: [
         `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
         `${PREFIX}/resources/fusion-ui/build/lowcode/view.css`,
+      ],
+    },
+    {
+      package: '@alilc/antd-lowcode-materials',
+      version: '1.2.1',
+      library: 'AntdLowcode',
+      urls: [
+        'https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.1/build/lowcode/view.js',
+        'https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.1/build/lowcode/view.css',
+      ],
+      editUrls: [
+        `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/view.js`,
+        `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/view.css`,
       ],
     },
     {
@@ -161,10 +180,8 @@ const assets = {
       },
       url: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
       urls: {
-        default:
-          `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
-        design:
-          `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.design.js`,
+        default: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
+        design: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.design.js`,
       },
     },
     {
@@ -187,6 +204,18 @@ const assets = {
       urls: {
         default: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.js`,
         design: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.design.js`,
+      },
+    },
+    {
+      exportName: 'AlilcAntdLowcodeMaterialsMeta',
+      npm: {
+        package: '@alilc/antd-lowcode-materials',
+        version: '1.2.1',
+      },
+      url: `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/meta.js`,
+        design: `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/meta.design.js`,
       },
     },
     // {
@@ -247,7 +276,7 @@ const assets = {
     },
   ],
   sort: {
-    groupList: ['精选组件', '原子组件', '低代码组件'],
+    groupList: ['ANTD组件', 'FUSION基础组件', 'FUSION-UI组件', '布局组件'],
     categoryList: [
       '基础元素',
       '布局容器类',
@@ -263,7 +292,7 @@ const assets = {
       '信息反馈',
     ],
   },
-  groupList: ['精选组件', '原子组件', '低代码组件'],
+  groupList: ['ANTD组件', 'FUSION基础组件', 'FUSION-UI组件', '布局组件'],
   ignoreComponents: {},
 };
 
