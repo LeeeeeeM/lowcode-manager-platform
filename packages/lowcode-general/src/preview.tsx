@@ -114,6 +114,8 @@ const Preview = () => {
     }
   }
 
+  console.log(111)
+
   return (
       <ReactRenderer
         schema={{

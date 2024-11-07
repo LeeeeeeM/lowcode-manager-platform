@@ -1,5 +1,6 @@
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext';
+import VariableBindDialog from './plugin-variable-bind-dialog';
 
 // 设置内置 setter 和事件绑定、插件绑定面板
 const DefaultSettersRegistryPlugin = (ctx: IPublicModelPluginContext) => {
@@ -23,7 +24,7 @@ const DefaultSettersRegistryPlugin = (ctx: IPublicModelPluginContext) => {
       skeleton.add({
         area: 'centerArea',
         type: 'Widget',
-        content: pluginMap.VariableBindDialog,
+        content: VariableBindDialog,
         name: 'variableBindDialog',
         props: {},
       });

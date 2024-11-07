@@ -18,6 +18,7 @@
   "dependencies": {
     "@alifd/next": "1.27.12",
     "@alilc/lowcode-datasource-fetch-handler": "^1.0.1",
+    "@alilc/lowcode-plugin-base-monaco-editor": "^1.1.2",
     "@alilc/lowcode-plugin-code-editor": "^1.0.3",
     "@alilc/lowcode-plugin-code-generator": "^1.0.4",
     "@alilc/lowcode-plugin-components-pane": "latest",
