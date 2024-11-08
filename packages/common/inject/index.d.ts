@@ -5,3 +5,5 @@ export const INJECT_PARAMS: {
   INJECT_ICON_ID: string;
   INJECT_PORTAL_TMP_ID: string;
 };
+
+export const DEVELOP_COMPONENT_URL: string;

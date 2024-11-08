@@ -1,3 +1,3 @@
 export * from "./project";
-export * from "./inject/index.ts";
+export * from "./inject/index.es";
 export * from "./types";

@@ -2,10 +2,12 @@ const fs = require('fs-extra');
 // const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { INJECT_PARAMS } = require('common/inject/index.js');
+const { INJECT_PARAMS, DEVELOP_COMPONENT_URL } = require('common/inject/index.js');
 const webpack = require('webpack');
 
 const { version } = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+
+console.log(process.env.NODE_ENV)
 
 module.exports = ({ onGetWebpackConfig }) => {
   onGetWebpackConfig((config) => {
@@ -16,6 +18,9 @@ module.exports = ({ onGetWebpackConfig }) => {
         configFile: './tsconfig.json',
       },
     ]);
+
+    // 替换为我的包
+    config.resolve.alias.set('@alilc/lowcode-renderer-core', '@evilemon/lowcode-renderer-core');
 
     config.devServer.proxy({
       '/api/': {
@@ -30,9 +35,22 @@ module.exports = ({ onGetWebpackConfig }) => {
       },
     });
 
-    config.plugin('define').use(webpack.DefinePlugin, [{
-      MODE: JSON.stringify(process.env.NODE_ENV)
-    }]);
+    config.plugin('define').use(webpack.DefinePlugin, [
+      {
+        MODE: JSON.stringify(process.env.NODE_ENV),
+      },
+    ]);
+
+    // config.plugin('string-replace').use(StringReplacePlugin, [
+    //   {
+    //     replacements: [
+    //       {
+    //         pattern: /@alilc\/lowcode-renderer-core/g, // 要替换的字符串（正则表达式）
+    //         replacement: '@evilemon/lowcode-renderer-core', // 替换后的字符串
+    //       },
+    //     ],
+    //   },
+    // ]);
 
     // config.output.merge({
     //   filename: (chunkData) => {
@@ -50,6 +68,7 @@ module.exports = ({ onGetWebpackConfig }) => {
         minify: false,
         templateParameters: {
           version,
+          env: process.env.NODE_ENV === 'development' ? DEVELOP_COMPONENT_URL : '..'
         },
         template: require.resolve('./public/index.ejs'),
         filename: 'index.html',
