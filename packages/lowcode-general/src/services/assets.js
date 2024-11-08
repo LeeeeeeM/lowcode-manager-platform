@@ -90,8 +90,8 @@ const assets = {
       version: '2.1.0',
       library: 'AlifdFusionUi',
       urls: [
-        'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/dist/AlifdFusionUi.js',
-        'https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/dist/AlifdFusionUi.css',
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.css`,
       ],
       editUrls: [
         `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
@@ -103,8 +103,8 @@ const assets = {
       version: '1.2.1',
       library: 'AntdLowcode',
       urls: [
-        'https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.1/build/lowcode/view.js',
-        'https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.1/build/lowcode/view.css',
+        `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/view.js`,
+        `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/view.css`,
       ],
       editUrls: [
         `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/view.js`,
