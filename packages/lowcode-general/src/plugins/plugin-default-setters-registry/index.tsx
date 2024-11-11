@@ -1,4 +1,5 @@
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+// @ts-ignore
 import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext';
 import VariableBindDialog from './plugin-variable-bind-dialog';
 

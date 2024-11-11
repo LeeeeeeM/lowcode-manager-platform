@@ -20,15 +20,15 @@ const SaveSamplePlugin = (ctx: IPublicModelPluginContext) => {
         // @TODO 查找当前组件树中 input 组件等，获取其 ref 、 label、componentName
       };
 
-      skeleton.add({
-        name: 'resetSchema',
-        area: 'topArea',
-        type: 'Widget',
-        props: {
-          align: 'right',
-        },
-        content: <Button onClick={() => resetSchema()}>重置页面</Button>,
-      });
+      // skeleton.add({
+      //   name: 'resetSchema',
+      //   area: 'topArea',
+      //   type: 'Widget',
+      //   props: {
+      //     align: 'right',
+      //   },
+      //   content: <Button onClick={() => resetSchema()}>重置页面</Button>,
+      // });
 
       if (!pageId) return;
 
@@ -41,7 +41,7 @@ const SaveSamplePlugin = (ctx: IPublicModelPluginContext) => {
         },
         content: <Button onClick={() => save()}>保存</Button>,
       });
-      hotkey.bind('command+s', (e) => {
+      hotkey.bind(['command+s', 'ctrl+s'], (e) => {
         e.preventDefault();
         savePage(pageId);
       });

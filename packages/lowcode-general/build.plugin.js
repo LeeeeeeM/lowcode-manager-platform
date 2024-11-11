@@ -7,8 +7,6 @@ const webpack = require('webpack');
 
 const { version } = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
-console.log(process.env.NODE_ENV)
-
 module.exports = ({ onGetWebpackConfig }) => {
   onGetWebpackConfig((config) => {
     config.output.publicPath('/lowcode');
