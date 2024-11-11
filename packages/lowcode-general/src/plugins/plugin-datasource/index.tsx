@@ -27,7 +27,6 @@ const plugin = (ctx: IPublicModelPluginContext, options: Options) => {
     },
     // 插件的初始化函数，在引擎初始化之后会立刻调用
     init() {
-      console.log(1111);
       const dataSourceTypes = ctx.preference.getPreferenceValue('dataSourceTypes') || options.dataSourceTypes;
       const importPlugins = ctx.preference.getPreferenceValue('importPlugins') || options.importPlugins;
 

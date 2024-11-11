@@ -129,8 +129,6 @@ export class VariableDataSourceForm extends PureComponent<DataSourceFormProps, {
       }
     });
 
-    console.log(formSchema, 'formSchema')
-
     // 过滤 x-display 值为隐藏的属性
     filterXDisplay(formSchema);
 

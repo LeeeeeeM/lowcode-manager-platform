@@ -11,7 +11,7 @@ import { Button, Message, Dialog } from '@alifd/next';
 import _isArray from 'lodash/isArray';
 import { createStateMachine } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/stateMachine';
 // @alilc/lowcode-plugin-datasource-pane
-import { DataSourcePaneContext } from '../utils/panel-context';
+import { DataSourcePaneContext } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/panel-context';
 import { DataSourceFilter } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceFilter';
 import { DataSourceOperations } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceOperations';
 import { DataSourceList } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceList';

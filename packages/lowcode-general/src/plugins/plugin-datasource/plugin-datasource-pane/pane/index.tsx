@@ -10,8 +10,7 @@ import _isEmpty from 'lodash/isEmpty';
 import _isFunction from 'lodash/isFunction';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
-import { EditorContext } from '../utils/editor-context';
-import { DataSourcePane } from './DataSourcePane';
+import { EditorContext } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/editor-context';
 import { DataSourceFilter } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceFilter';
 import { DataSourceList } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceList';
 import { DroppableDataSourceListItem } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceListItem';
@@ -25,9 +24,11 @@ import { JSFunctionComp } from '@alilc/lowcode-plugin-datasource-pane/lib/compon
 import { ErrorBoundary } from 'react-error-boundary';
 import { isSchemaValid, correctSchema } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/schema';
 import { createStateService } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/stateMachine';
-import { DataSourcePaneContext } from '../utils/panel-context';
+import { DataSourcePaneContext } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/panel-context';
 import { mergeTwoObjectListByKey } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/misc';
 import { common } from '@alilc/lowcode-engine';
+
+import { DataSourcePane } from './DataSourcePane';
 
 import './index.scss';
 
@@ -226,6 +227,3 @@ export {
   DataSourcePaneContext,
   createStateService,
 };
-
-export * from '../datasource-types';
-export * from '../types';
