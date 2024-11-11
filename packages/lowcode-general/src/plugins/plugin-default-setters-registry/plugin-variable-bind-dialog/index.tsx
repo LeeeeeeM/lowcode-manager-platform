@@ -4,6 +4,7 @@ import { Dialog, Input, Button, Icon, Tree } from '@alifd/next';
 import { PluginProps } from '@alilc/lowcode-types';
 import { event, project } from '@alilc/lowcode-engine';
 import MonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor';
+import { DataSourceIdentityType } from './type';
 import './index.less';
 
 const HelpText = `你可以通过点击左侧区域绑定变量或处理函数，当然你也可以在上方输入复杂的表达式。
@@ -142,12 +143,28 @@ export default class VariableBindDialog extends Component<PluginProps> {
    * @param  {String}
    * @return {Array}
    */
-  getVarableList(): any[] {
+  getVariableList(): any[] {
     const schema = this.exportSchema();
 
     const stateMap = schema.componentsTree[0]?.state;
+    const originDataSourceMap = schema.componentsTree[0]?.dataSource;
+
+    const variableSource = (originDataSourceMap?.list || []).filter(item => [DataSourceIdentityType.VARIABLE].includes(item.type));
     const dataSourceMap = {};
     const dataSource = [];
+
+    for (const item of variableSource) {
+      const { id, code: { value: originValue } } = item;
+      if (id) {
+        dataSource.push(`this.state.${id}`);
+        let value;
+        try {
+          value = eval(`(${originValue})`);
+        } catch (e) {}
+
+        dataSourceMap[id] = value;
+      }
+    }
 
     for (const key in stateMap) {
       // console.log(stateMap);
@@ -225,7 +242,7 @@ export default class VariableBindDialog extends Component<PluginProps> {
   getDataSource(): any[] {
     const schema = this.exportSchema();
     const stateMap = schema.componentsTree[0]?.dataSource;
-    const list = stateMap?.list || [];
+    const list = (stateMap?.list || []).filter(item => [DataSourceIdentityType.JSONP, DataSourceIdentityType.FETCH].includes(item.type));
     const dataSource = [];
 
     for (const item of list) {
@@ -274,7 +291,7 @@ export default class VariableBindDialog extends Component<PluginProps> {
       },
       () => {
         const methods = this.getMethods();
-        const stateVaroableList = this.getVarableList();
+        const stateVaroableList = this.getVariableList();
         const dataSource = this.getDataSource();
 
         this.setState({
