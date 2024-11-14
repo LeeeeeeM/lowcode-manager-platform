@@ -7,7 +7,7 @@ const watermarkConfig: WatermarkProps = {
 }
 
 export const Main = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   return <Outlet />;
 

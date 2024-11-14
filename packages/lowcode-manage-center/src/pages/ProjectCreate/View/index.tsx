@@ -4,7 +4,7 @@ import { useCallback, useState } from "react";
 import ViewBox from "/@/components/ViewBox";
 import FormInfo from "/@/components/FormInfo";
 import { CreateProject } from "services";
-import { CURRENT_USER_NAME } from "common";
+import { getUserName } from "common";
 import { ProjectInfo } from "services/entity";
 
 export default function Product() {
@@ -24,7 +24,7 @@ export default function Product() {
   const createNewProject = useCallback(async () => {
     try {
       const result = await CreateProject({
-        userName: CURRENT_USER_NAME,
+        userName: getUserName(),
         ...data,
       });
       const { projectId } = result || {};

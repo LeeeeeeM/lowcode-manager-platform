@@ -8,7 +8,7 @@ interface ContentProps {
 
 const Content: FC<ContentProps> = (props) => {
   const { children } = props;
-  return <div className={cns(styles["view-box"], "h-[calc(100vh_-_50px)] overflow-y-auto overflow-x-hidden px-3 mt-2 bg-gray-200")}>{children}</div>;
+  return <div className={cns(styles["view-box"], "h-[calc(100vh_-_50px)] overflow-y-auto overflow-x-hidden px-3 mt-2")}>{children}</div>;
 };
 
 export default Content;

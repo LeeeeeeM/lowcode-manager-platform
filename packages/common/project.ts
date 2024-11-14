@@ -1,4 +1,7 @@
-export const CURRENT_USER_NAME = "slm";
+let CURRENT_USER_NAME = "slm";
+
+export const getUserName = () => CURRENT_USER_NAME;
+export const setUserName = (name: string) => CURRENT_USER_NAME = name;
 
 export const LOWCODE_PATH_PREFIX = '/lowcode';
 

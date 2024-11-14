@@ -17,5 +17,5 @@ body.dark::-webkit-scrollbar {
 }
 
 #root {
-  @apply fixed h-full w-full overflow-hidden;
+  @apply h-full w-full overflow-hidden;
 }

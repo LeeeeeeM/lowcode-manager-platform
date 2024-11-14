@@ -5,7 +5,7 @@ import ViewBox from "/@/components/ViewBox";
 import { useStore } from "../Model";
 import { GetPageList, GetProjectList } from "services";
 import { SimpleProject } from "services/entity";
-import { CURRENT_USER_NAME } from "common";
+import { getUserName } from "common";
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from "/@/constants";
 import { genAssets } from "../../../utils/genAssets";
 import CustomTable from "../components/table";
@@ -34,7 +34,7 @@ export default function ProjectManage() {
     try {
       setLoading(true);
       const result = await GetProjectList({
-        userName: CURRENT_USER_NAME,
+        userName: getUserName(),
         pageNum: v,
         pageSize: DEFAULT_PAGE_SIZE,
       });

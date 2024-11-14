@@ -18,7 +18,7 @@ export const BodyLayout: FC = () => {
   }
 
   return (
-    <Layout hasSider className="bg-gray-200 h-full">
+    <Layout hasSider className="h-full">
       {hasNav ? <Nav /> : null}
       <Layout.Content className="overflow-auto h-full">
         {hasTitle ? <Header /> : null}

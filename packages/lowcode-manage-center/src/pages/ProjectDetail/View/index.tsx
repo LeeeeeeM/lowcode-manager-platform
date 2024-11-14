@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button, Flex, message } from "antd";
 import { CreatePage, GetPageList, UpdatePage } from "services";
-import { CURRENT_USER_NAME } from "common";
+import { getUserName } from "common";
 import {
   Action,
   DEFAULT_PAGE_INFO,
@@ -19,6 +19,7 @@ import { Page } from "services/entity";
 
 export default function ProjectManage() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const projectInfo = useStore((state) => state.projectInfo);
   const total = useStore((state) => state.total);
@@ -33,6 +34,10 @@ export default function ProjectManage() {
   const openModal = (info: PageInfo) => {
     setVisible(true);
     setCurrentPageInfo(info);
+  };
+
+  const returnProject = () => {
+    navigate(`/project-manage`);
   };
 
   const closeModal = () => {
@@ -101,14 +106,14 @@ export default function ProjectManage() {
             projectId: Number(id),
             pageId: currentPageInfo.id,
             name,
-            userName: CURRENT_USER_NAME,
+            userName: getUserName(),
             identifier,
           });
         } else {
           await CreatePage({
             projectId: Number(id),
             name,
-            userName: CURRENT_USER_NAME,
+            userName: getUserName(),
             identifier,
           });
         }
@@ -139,6 +144,7 @@ export default function ProjectManage() {
       <ViewBox>
         <FormInfo editable={false} formData={projectInfo} showSubmit={false} />
         <Flex align="center" gap={10} className="mb-2">
+          <Button onClick={() => returnProject()}>返回项目</Button>
           <Button onClick={() => openModal(DEFAULT_PAGE_INFO)}>新建页面</Button>
         </Flex>
         <CustomTable

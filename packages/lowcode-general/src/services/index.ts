@@ -1,6 +1,6 @@
 import { Message, Dialog } from '@alifd/next';
 import { GetPageDetail, SavePage } from 'services';
-import { CURRENT_USER_NAME } from 'common';
+import { getUserName } from 'common';
 import { filterPackages } from '@alilc/lowcode-plugin-inject';
 import { material, project } from '@alilc/lowcode-engine';
 import { IPublicTypeProjectSchema, IPublicEnumTransformStage } from '@alilc/lowcode-types';
@@ -16,7 +16,7 @@ export const savePage = async (pageId: string | null): Promise<void> => {
       pageId: Number(pageId),
       content: schema,
       assets,
-      userName: CURRENT_USER_NAME,
+      userName: getUserName(),
     });
     Message.success(`保存成功`);
   } catch (e) {

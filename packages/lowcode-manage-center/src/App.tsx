@@ -6,7 +6,24 @@ import "/@/styles/global.css";
 
 const App = () => {
   return (
-    <ConfigProvider locale={zhCN}>
+    <ConfigProvider
+      locale={zhCN}
+      theme={{
+        components: {
+          Layout: {
+            siderBg: "#1890ff",
+            triggerBg: "#1890ff",
+            bodyBg: '#ffffff'
+          },
+          Menu: {
+            darkItemBg: "transparent",
+            darkItemSelectedBg: "#ffffff",
+            darkItemColor: "#ffffff",
+            darkItemSelectedColor: "#000000",
+          },
+        },
+      }}
+    >
       <Router />
     </ConfigProvider>
   );

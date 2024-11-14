@@ -114,6 +114,7 @@ const CustomTable: FC<CustomTableProps<SimpleProject>> = (props) => {
 
   return (
     <Table<SimpleProject>
+      className="border-solid border rounded"
       columns={columns}
       dataSource={data}
       rowKey="id"
