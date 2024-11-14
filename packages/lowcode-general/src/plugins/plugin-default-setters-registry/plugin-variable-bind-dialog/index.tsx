@@ -510,7 +510,7 @@ export default class VariableBindDialog extends Component<PluginProps> {
     } else if (selParentVariable == 'methods') {
       selectLabel = `this.${label}()`;
     } else if (selParentVariable == 'dataSource') {
-      selectLabel = `this.state.${label}`;
+      selectLabel = `this.dataSourceMap.${label}`;
     } else {
       const fondKey = Object.keys(this.extraDataMap || {}).find((k) => k === selParentVariable);
       if (fondKey) {

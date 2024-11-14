@@ -6,6 +6,8 @@ export const PORTAL_NAME = "/portal";
 
 export const PAGE_SIG_ID = 'pageId';
 
+export const DEVELOP_MANAGER_URL = 'http://localhost:5173';
+
 export const DEVELOP_LOWCODE_URL = 'http://localhost:5557';
 
 export const DEVELOP_PORTAL_URL = 'http://localhost:5558';

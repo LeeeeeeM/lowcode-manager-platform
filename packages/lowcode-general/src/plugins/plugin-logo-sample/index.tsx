@@ -1,7 +1,8 @@
 import React from 'react';
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
-import { Dropdown, Menu } from '@alifd/next';
+import { Button } from '@alifd/next';
 import './index.scss';
+import { DEVELOP_MANAGER_URL } from 'common';
 export interface IProps {
   logo?: string;
   href?: string;
@@ -14,7 +15,12 @@ const Logo: React.FC<IProps> = (props): React.ReactElement => {
   const urls = scenarioInfo?.urls || [];
   return (
     <div className="lowcode-plugin-logo">
-      数据中台低代码平台
+      <a href={process.env.NODE_ENV === 'development' ? DEVELOP_MANAGER_URL + '/' : '/'}>
+        <Button type="primary" text size="large">
+          数据中台低代码平台
+        </Button>
+      </a>
+
       {/* <a
         className="logo"
         target="blank"

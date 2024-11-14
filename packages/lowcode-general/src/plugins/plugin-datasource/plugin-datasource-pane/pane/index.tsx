@@ -85,7 +85,7 @@ export default class DataSourcePanePlugin extends PureComponent<
     exportPlugins: [],
   };
 
-  stateService = createStateService();
+  stateService: any = createStateService();
 
   state = {
     active: false,
