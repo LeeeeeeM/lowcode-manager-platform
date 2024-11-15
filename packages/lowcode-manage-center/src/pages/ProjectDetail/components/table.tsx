@@ -33,7 +33,7 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
     onChangePageSize,
     loading,
     onClickAction = () => {},
-    reloadData = () => {}
+    reloadData = () => {},
   } = props;
   const curretnDeleteRef = useRef<number>();
 
@@ -66,14 +66,14 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
   const editPage = (item: Page) => {
     window.open(
       `${
-        import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+        import.meta.env.DEV ? DEVELOP_LOWCODE_URL + "/" : "/"
       }${LOWCODE_PATH_PREFIX}/?${PAGE_SIG_ID}=${item.id}`
     );
   };
 
   const modifyPageInfo = (item: Page) => {
     onClickAction(item, Action.MODIFY_INFO);
-  }
+  };
 
   const renderAction = (item: Page) => {
     return (
@@ -119,8 +119,8 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
       key: "createOn",
       width: 100,
       render(item) {
-        return dayjs(item).format('YYYY-MM-DD HH:mm:ss');
-      }
+        return dayjs(item).format("YYYY-MM-DD HH:mm:ss");
+      },
     },
     {
       title: "页面标识",
@@ -129,7 +129,7 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
       width: 100,
       render(item) {
         return item;
-      }
+      },
     },
     {
       title: "操作列",

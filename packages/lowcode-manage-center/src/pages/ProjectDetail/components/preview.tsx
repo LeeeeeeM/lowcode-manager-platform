@@ -21,7 +21,10 @@ const PreviewModal: FC<PreviewModalProps> = (props) => {
   };
 
   const route = `${
-    import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+    // wujie 内引入 iframe，其根节点加载资源会被 主应用的 origin 替代，做的跨域方案，所以这里用 __WUJIE_PUBLIC_PATH__，使用原始资源路径
+    import.meta.env.DEV
+      ? DEVELOP_LOWCODE_URL + "/"
+      : window.__WUJIE_PUBLIC_PATH__ || "/"
   }${LOWCODE_PATH_PREFIX}/preview.html?${PAGE_SIG_ID}=${info?.id}`;
 
   return (
@@ -31,7 +34,7 @@ const PreviewModal: FC<PreviewModalProps> = (props) => {
       title={`预览页面-${info?.name}`}
       onCancel={handleCancel}
       footer={null}
-      width={'100%'}
+      width={"100%"}
     >
       <div>
         <ResponsiveIframeViewer

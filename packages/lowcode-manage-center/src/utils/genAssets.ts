@@ -80,7 +80,7 @@ const generatePortalPageContent = (
     return {
       name,
       identifier,
-      url: `/pages/${identifier}.html`
+      url: `/pages/${identifier}.html`,
     };
   });
 
@@ -92,7 +92,7 @@ const generatePortalPageContent = (
     portalConfig: {
       hasNav: true,
       hasTitle: false,
-      projectTitle: projectName
+      projectTitle: projectName,
     },
     pageConfigList: pageConfs,
   };
@@ -117,22 +117,22 @@ export const genAssets = async (
   const [htmlContent, jsContent, cssContent, iconContent] = await Promise.all([
     axios.get(
       `${
-        import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+        import.meta.env.DEV ? DEVELOP_LOWCODE_URL + "/" : "/"
       }${LOWCODE_PATH_PREFIX}/activity.html`
     ),
     axios.get(
       `${
-        import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+        import.meta.env.DEV ? DEVELOP_LOWCODE_URL + "/" : "/"
       }${LOWCODE_PATH_PREFIX}/js/activity.js`
     ),
     axios.get(
       `${
-        import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+        import.meta.env.DEV ? DEVELOP_LOWCODE_URL + "/" : "/"
       }${LOWCODE_PATH_PREFIX}/css/activity.css`
     ),
     axios.get(
       `${
-        import.meta.env.DEV ? DEVELOP_LOWCODE_URL : ""
+        import.meta.env.DEV ? DEVELOP_LOWCODE_URL + "/" : "/"
       }${LOWCODE_PATH_PREFIX}/favicon.ico`,
       {
         responseType: "blob",
@@ -144,16 +144,18 @@ export const genAssets = async (
   const [htmlPortalContent, jsPortalContent, cssPortalContent] =
     await Promise.all([
       axios.get(
-        `${import.meta.env.DEV ? DEVELOP_PORTAL_URL : ""}${PORTAL_NAME}/index.html`
+        `${
+          import.meta.env.DEV ? DEVELOP_PORTAL_URL + "/" : "/"
+        }${PORTAL_NAME}/index.html`
       ),
       axios.get(
         `${
-          import.meta.env.DEV ? DEVELOP_PORTAL_URL : ""
+          import.meta.env.DEV ? DEVELOP_PORTAL_URL + "/" : "/"
         }${PORTAL_NAME}/js/index.js`
       ),
       axios.get(
         `${
-          import.meta.env.DEV ? DEVELOP_PORTAL_URL : ""
+          import.meta.env.DEV ? DEVELOP_PORTAL_URL + "/" : "/"
         }${PORTAL_NAME}/css/index.css`
       ),
     ]);
