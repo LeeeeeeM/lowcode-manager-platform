@@ -171,6 +171,46 @@ const assets = {
       },
       advancedEditUrls: {},
     },
+    {
+      package: 'custom-transfer',
+      version: '0.1.0',
+      library: 'CustomTransfer',
+      urls: [
+        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.css`,
+      ],
+      advancedUrls: {
+        default: [
+          `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.css`,
+        ],
+      },
+      advancedEditUrls: {},
+    },
+    {
+      package: 'wujie-container',
+      version: '0.1.0',
+      library: 'WujieContainer',
+      urls: [
+        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.css`,
+      ],
+      advancedUrls: {
+        default: [
+          `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.css`,
+        ],
+      },
+      advancedEditUrls: {},
+    },
   ],
   components: [
     {
@@ -272,6 +312,34 @@ const assets = {
       },
       advancedUrls: {
         default: `${PREFIX}/resources/custom-popover/build/lowcode/meta.js`,
+      },
+    },
+    {
+      exportName: 'CustomTransferMeta',
+      npm: {
+        package: 'custom-transfer',
+        version: '0.1.0',
+      },
+      url: `${PREFIX}/resources/custom-transfer/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/custom-transfer/build/lowcode/meta.js`,
+      },
+      advancedUrls: {
+        default: `${PREFIX}/resources/custom-transfer/build/lowcode/meta.js`,
+      },
+    },
+    {
+      exportName: 'WujieContainerMeta',
+      npm: {
+        package: 'wujie-container',
+        version: '0.1.0',
+      },
+      url: `${PREFIX}/resources/wujie-container/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/wujie-container/build/lowcode/meta.js`,
+      },
+      advancedUrls: {
+        default: `${PREFIX}/resources/wujie-container/build/lowcode/meta.js`,
       },
     },
   ],
