@@ -7,4 +7,4 @@
 ## 本地编译
 >make build
 ## 发布
->make publish TAG=v2.10.0.0 MESSAGE=增加g6
+>make publish TAG=v1.0.16 MESSAGE=增加g6
