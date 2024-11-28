@@ -64,13 +64,9 @@ const assets = {
       version: '2.4.1',
       library: 'AlifdLayout',
       urls: [
-        `${PREFIX}/resources/layout/build/lowcode/view.js`,
-        `${PREFIX}/resources/layout/build/lowcode/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/layout/build/lowcode/view.js`,
-        `${PREFIX}/resources/layout/build/lowcode/view.css`,
-      ],
+        `${PREFIX}/resources/layout/dist/AlifdLayout.js`,
+        `${PREFIX}/resources/layout/dist/AlifdLayout.css`,
+      ]
     },
     // {
     //   package: '@alifd/pro-layout',
