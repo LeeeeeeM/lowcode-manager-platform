@@ -14,6 +14,7 @@ import {
   type Element,
 } from "/@/utils/node";
 import {
+  DEVELOP_COMPONENT_URL,
   DEVELOP_LOWCODE_URL,
   DEVELOP_PORTAL_URL,
   INJECT_PARAMS,
@@ -160,7 +161,28 @@ export const genAssets = async (
       ),
     ]);
 
+  const [resources] = await Promise.all([
+    axios.customGet(
+      `${
+        import.meta.env.DEV ? DEVELOP_COMPONENT_URL + "/" : "/"
+      }resource.zip`, {
+        responseType: 'blob'
+      }
+    ).then(res => {
+      return jsZip.loadAsync(res.data).then(res => res)
+    }),
+  ]);
+
   const zipX = new jsZip();
+
+  Object.keys(resources.files).forEach((filename: string) => {
+    const file = resources.files[filename];
+    if (!file.dir) {
+      zipX.file(`resources/${file.name}`, file.async('blob'))
+    }
+  })
+
+
   // 压缩最终页
   zipX.file(`js/activity.js`, jsContent);
   zipX.file(`css/activity.css`, cssContent);

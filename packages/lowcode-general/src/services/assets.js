@@ -1,5 +1,5 @@
 import { DEVELOP_COMPONENT_URL } from 'common';
-const PREFIX = MODE === 'development' ? DEVELOP_COMPONENT_URL : location.origin;
+const PREFIX = MODE === 'development' ? DEVELOP_COMPONENT_URL : '';
 
 const assets = {
   packages: [

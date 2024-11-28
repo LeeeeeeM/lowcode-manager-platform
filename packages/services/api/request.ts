@@ -20,6 +20,9 @@ class API {
       return data;
     });
   }
+  customGet(url: string, config?: AxiosRequestConfig) {
+    return this.instance.get(url, config);
+  }
 }
 
 export const apiInstance = new API();
