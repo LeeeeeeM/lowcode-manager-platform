@@ -3,31 +3,31 @@ const PREFIX = MODE === 'development' ? DEVELOP_COMPONENT_URL : location.origin;
 
 const assets = {
   packages: [
-    {
-      package: 'moment',
-      version: '2.24.0',
-      urls: ['https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js'],
-      library: 'moment',
-    },
-    {
-      package: 'lodash',
-      library: '_',
-      urls: ['https://g.alicdn.com/platform/c/lodash/4.6.1/lodash.min.js'],
-    },
+    // {
+    //   package: 'moment',
+    //   version: '2.24.0',
+    //   urls: [`${PREFIX}/resources/moment/moment.min.js`],
+    //   library: 'moment',
+    // },
+    // {
+    //   package: 'lodash',
+    //   library: '_',
+    //   urls: [`${PREFIX}/resources/lodash/lodash.min.js`],
+    // },
     {
       title: 'fusion组件库',
       package: '@alifd/next',
-      version: '1.26.4',
+      version: '1.27.29',
       urls: [
-        'https://g.alicdn.com/code/lib/alifd__next/1.26.4/next.min.css',
-        'https://g.alicdn.com/code/lib/alifd__next/1.26.4/next-with-locales.min.js',
+        `${PREFIX}/resources/next/next.min.css`,
+        `${PREFIX}/resources/next/next.min.js`,
       ],
       library: 'Next',
     },
     {
       package: '@ant-design/icons',
       version: '4.7.0',
-      urls: ['//g.alicdn.com/code/npm/@ali/ant-design-icons-cdn/4.5.0/index.umd.min.js'],
+      urls: [`${PREFIX}/resources/@ant-design/icons/index.umd.min.js`],
       library: 'icons',
     },
     {
@@ -36,23 +36,23 @@ const assets = {
       urls: [`${PREFIX}/resources/antd/dist/antd.js`, `${PREFIX}/resources/antd/dist/antd.css`],
       library: 'antd',
     },
-    {
-      title: 'NextTable',
-      package: 'NextTable',
-      version: '1.0.1',
-      urls: [
-        'https://g.alicdn.com/fusion-platform/pro-table/1.0.1/next-table.js',
-        'https://g.alicdn.com/fusion-platform/pro-table/1.0.1/next-table.css',
-      ],
-      library: 'NextTable',
-    },
+    // {
+    //   title: 'NextTable',
+    //   package: 'NextTable',
+    //   version: '1.0.1',
+    //   urls: [
+    //     `${PREFIX}/resources/next-table/next-table.js`,
+    //     `${PREFIX}/resources/next-table/next-table.css`,
+    //   ],
+    //   library: 'NextTable',
+    // },
     {
       package: '@alilc/lowcode-materials',
       version: '1.2.1',
       library: 'AlilcLowcodeMaterials',
       urls: [
-        'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/dist/AlilcLowcodeMaterials.js',
-        'https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/dist/AlilcLowcodeMaterials.css',
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.js`,
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.css`,
       ],
       editUrls: [
         `${PREFIX}/resources/lowcode-materials/build/lowcode/view.js`,
@@ -64,27 +64,27 @@ const assets = {
       version: '2.4.1',
       library: 'AlifdLayout',
       urls: [
-        'https://alifd.alicdn.com/npm/@alifd/layout@2.4.1/dist/AlifdLayout.js',
-        'https://alifd.alicdn.com/npm/@alifd/layout@2.4.1/dist/AlifdLayout.css',
+        `${PREFIX}/resources/layout/build/lowcode/view.js`,
+        `${PREFIX}/resources/layout/build/lowcode/view.css`,
       ],
       editUrls: [
-        'https://alifd.alicdn.com/npm/@alifd/layout@2.4.1/build/lowcode/view.js',
-        'https://alifd.alicdn.com/npm/@alifd/layout@2.4.1/build/lowcode/view.css',
+        `${PREFIX}/resources/layout/build/lowcode/view.js`,
+        `${PREFIX}/resources/layout/build/lowcode/view.css`,
       ],
     },
-    {
-      package: '@alifd/pro-layout',
-      version: '1.0.1-beta.5',
-      library: 'AlifdProLayout',
-      urls: [
-        'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/dist/AlifdProLayout.js',
-        'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/dist/AlifdProLayout.css',
-      ],
-      editUrls: [
-        'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/view.js',
-        'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/view.css',
-      ],
-    },
+    // {
+    //   package: '@alifd/pro-layout',
+    //   version: '1.0.1-beta.5',
+    //   library: 'AlifdProLayout',
+    //   urls: [
+    //     'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/dist/AlifdProLayout.js',
+    //     'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/dist/AlifdProLayout.css',
+    //   ],
+    //   editUrls: [
+    //     'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/view.js',
+    //     'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/view.css',
+    //   ],
+    // },
     {
       package: '@alifd/fusion-ui',
       version: '2.1.0',
@@ -230,9 +230,9 @@ const assets = {
         package: '@alifd/layout',
         version: '2.4.1',
       },
-      url: 'https://alifd.alicdn.com/npm/@alifd/layout@2.4.1/build/lowcode/meta.js',
+      url: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
       urls: {
-        default: 'https://alifd.alicdn.com/npm/@alifd/layout@2.4.1/build/lowcode/meta.js',
+        default: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
       },
     },
     {
@@ -258,20 +258,20 @@ const assets = {
         design: `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/meta.design.js`,
       },
     },
-    {
-      exportName: 'AlifdProLayoutMeta',
-      npm: {
-        package: '@alifd/pro-layout',
-        version: '1.0.1-beta.5',
-      },
-      url: 'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.js',
-      urls: {
-        default:
-          'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.js',
-        design:
-          'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.design.js',
-      },
-    },
+    // {
+    //   exportName: 'AlifdProLayoutMeta',
+    //   npm: {
+    //     package: '@alifd/pro-layout',
+    //     version: '1.0.1-beta.5',
+    //   },
+    //   url: 'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.js',
+    //   urls: {
+    //     default:
+    //       'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.js',
+    //     design:
+    //       'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.design.js',
+    //   },
+    // },
     {
       exportName: 'CustomTableMeta',
       npm: {
