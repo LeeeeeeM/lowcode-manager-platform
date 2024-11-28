@@ -8,7 +8,6 @@ import { PAGE_SIG_ID } from 'common';
 const EditorInitPlugin = (ctx: IPublicModelPluginContext, options: any) => {
   return {
     async init() {
-      console.log(assets)
       const { material, project, config } = ctx;
       const scenarioName = options['scenarioName'];
       const scenarioDisplayName = options['displayName'] || scenarioName;

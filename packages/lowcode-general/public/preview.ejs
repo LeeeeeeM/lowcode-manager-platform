@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>中台落地页</title>
-  <link rel="icon" href="./favicon.ico" id="<%= INJECT_ICON_ID %>">
+  <title>数据中台低代码平台 - 预览页</title>
   <link href="<%= env %>/resources/next/next.css" rel="stylesheet">
-  <link id="<%= INJECT_CSS_ID %>" href="./css/activity.css" rel="stylesheet">
+  <link href="./css/preview.css" rel="stylesheet">
 </head>
 <body>
 <div id="ice-container"></div>
-<script id="<%= INJECT_TEMPLATE_ID  %>">
+<script>
   window.g_config = {
     locale: 'zh-CN',
   };
@@ -28,6 +27,6 @@
 <script src="<%= env %>/resources/moment/moment.min.js"></script>
 <!-- Fusion Next 的主包，低代码编辑器的依赖 -->
 <script src="<%= env %>/resources/next/next.min.js"></script>
-<script id="<%= INJECT_JS_ID %>" type="text/javascript" src="./js/activity.js"></script>
+<script type="text/javascript" src="./js/preview.js"></script>
 </body>
 </html>

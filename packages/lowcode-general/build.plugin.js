@@ -77,8 +77,10 @@ module.exports = ({ onGetWebpackConfig }) => {
       {
         inject: false,
         minify: false,
-        templateParameters: {},
-        template: require.resolve('./public/preview.html'),
+        templateParameters: {
+          env: process.env.NODE_ENV === 'development' ? DEVELOP_COMPONENT_URL : '..'
+        },
+        template: require.resolve('./public/preview.ejs'),
         filename: 'preview.html',
       },
     ]);
@@ -89,6 +91,7 @@ module.exports = ({ onGetWebpackConfig }) => {
         minify: false,
         templateParameters: {
           ...INJECT_PARAMS,
+          env: process.env.NODE_ENV === 'development' ? DEVELOP_COMPONENT_URL : '..'
         },
         template: require.resolve('./public/activity.ejs'),
         filename: 'activity.html',
