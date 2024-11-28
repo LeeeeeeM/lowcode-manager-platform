@@ -119,7 +119,7 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
       key: "createOn",
       width: 100,
       render(item) {
-        return dayjs(item).format("YYYY-MM-DD HH:mm:ss");
+        return dayjs(Number(item)).format("YYYY-MM-DD HH:mm:ss");
       },
     },
     {
