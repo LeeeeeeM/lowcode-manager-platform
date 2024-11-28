@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Button, Flex, message } from "antd";
+import { Button, Flex, message, notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import ViewBox from "/@/components/ViewBox";
 import { useStore } from "../Model";
@@ -12,6 +12,7 @@ import CustomTable from "../components/table";
 // import DownloadModal from "../components/modal";
 
 export default function ProjectManage() {
+  const [api, contextHolder] = notification.useNotification();
   const navigate = useNavigate();
   const total = useStore((state) => state.total);
   const data = useStore((state) => state.projectList);
@@ -50,35 +51,17 @@ export default function ProjectManage() {
     }
   }, []);
 
-  // const download = (item: SimpleProject) => {
-  //   itemRef.current = item;
-  //   setVisible(true);
-  // };
-
-  // const downloadImpl = async (dirPath: string) => {
-  //   try {
-  //     const item = itemRef.current!;
-  //     const { id } = item;
-
-  //     // 获取项目所有的页面
-  //     const { pageList = [] } = await GetPageList({
-  //       projectId: id,
-  //       pageNum: DEFAULT_PAGE_NUMBER,
-  //       // 最多 100 个
-  //       pageSize: DEFAULT_PAGE_SIZE * 10,
-  //     });
-
-  //     genAssets(pageList, dirPath);
-  //   } catch (e) {
-  //     console.log(e);
-  //     message.error(`请求异常`);
-  //   }
-  // };
-
   const download = async (item: SimpleProject) => {
+    const key = Date.now();
     try {
       // const item = itemRef.current!;
       const { id, name } = item;
+      api.info({
+        message: "正在下载资源",
+        description: "下载较为耗时，请等待",
+        showProgress: true,
+        key
+      });
 
       // 获取项目所有的页面
       const { pageList = [] } = await GetPageList({
@@ -88,10 +71,15 @@ export default function ProjectManage() {
         pageSize: DEFAULT_PAGE_SIZE * 10,
       });
 
-      genAssets(pageList, '/', name);
+      await genAssets(pageList, "/", name);
+      api.success({
+        message: "下载资源完成"
+      });
     } catch (e) {
       console.log(e);
       message.error(`请求异常`);
+    } finally {
+      api.destroy(key);
     }
   };
 
@@ -110,6 +98,7 @@ export default function ProjectManage() {
   return (
     <>
       <ViewBox>
+        {contextHolder}
         <Flex align="center" gap={10} className="mb-2">
           <Button onClick={createNewProject}>新建项目</Button>
         </Flex>
