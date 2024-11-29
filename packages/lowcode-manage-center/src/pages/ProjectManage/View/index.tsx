@@ -60,6 +60,7 @@ export default function ProjectManage() {
         message: "正在下载资源",
         description: "下载较为耗时，请等待",
         showProgress: true,
+        duration: 60,
         key
       });
 
@@ -73,7 +74,8 @@ export default function ProjectManage() {
 
       await genAssets(pageList, "/", name);
       api.success({
-        message: "下载资源完成"
+        message: "下载资源完成",
+        duration: 2
       });
     } catch (e) {
       console.log(e);
