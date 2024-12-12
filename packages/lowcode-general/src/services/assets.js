@@ -207,6 +207,26 @@ const assets = {
       },
       advancedEditUrls: {},
     },
+    {
+      package: 'custom-heatmap',
+      version: '0.1.0',
+      library: 'CustomHeatmap',
+      urls: [
+        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.css`,
+      ],
+      advancedUrls: {
+        default: [
+          `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.css`,
+        ],
+      },
+      advancedEditUrls: {},
+    },
   ],
   components: [
     {
@@ -336,6 +356,20 @@ const assets = {
       },
       advancedUrls: {
         default: `${PREFIX}/resources/wujie-container/build/lowcode/meta.js`,
+      },
+    },
+    {
+      exportName: 'CustomHeatmapMeta',
+      npm: {
+        package: 'custom-heatmap',
+        version: '0.1.0',
+      },
+      url: `${PREFIX}/resources/custom-heatmap/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/custom-heatmap/build/lowcode/meta.js`,
+      },
+      advancedUrls: {
+        default: `${PREFIX}/resources/custom-heatmap/build/lowcode/meta.js`,
       },
     },
   ],
