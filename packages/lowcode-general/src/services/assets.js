@@ -227,6 +227,26 @@ const assets = {
       },
       advancedEditUrls: {},
     },
+    {
+      package: 'custom-echarts',
+      version: '0.1.0',
+      library: 'CustomEcharts',
+      urls: [
+        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.css`,
+      ],
+      advancedUrls: {
+        default: [
+          `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.js`,
+          `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.css`,
+        ],
+      },
+      advancedEditUrls: {},
+    },
   ],
   components: [
     {
@@ -370,6 +390,20 @@ const assets = {
       },
       advancedUrls: {
         default: `${PREFIX}/resources/custom-heatmap/build/lowcode/meta.js`,
+      },
+    },
+    {
+      exportName: 'CustomEchartsMeta',
+      npm: {
+        package: 'custom-echarts',
+        version: '0.1.0',
+      },
+      url: `${PREFIX}/resources/custom-echarts/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/custom-echarts/build/lowcode/meta.js`,
+      },
+      advancedUrls: {
+        default: `${PREFIX}/resources/custom-echarts/build/lowcode/meta.js`,
       },
     },
   ],

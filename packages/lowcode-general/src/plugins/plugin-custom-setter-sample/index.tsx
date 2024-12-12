@@ -3,6 +3,7 @@ import TitleSetter from '@alilc/lowcode-setter-title';
 import BehaviorSetter from './setters/behavior-setter';
 import CustomSetter from './setters/custom-setter';
 import ArrayNewSetter from './array-setter';
+import JsSetter from './js-setter';
 
 // 保存功能示例
 const CustomSetterSamplePlugin = (ctx: IPublicModelPluginContext) => {
@@ -14,6 +15,7 @@ const CustomSetterSamplePlugin = (ctx: IPublicModelPluginContext) => {
       setters.registerSetter('BehaviorSetter', BehaviorSetter);
       setters.registerSetter('CustomSetter', CustomSetter);
       setters.registerSetter('ArrayNewSetter', ArrayNewSetter);
+      setters.registerSetter('JsSetter', JsSetter);
     },
   };
 }
