@@ -3,17 +3,17 @@ const PREFIX = MODE === 'development' ? DEVELOP_COMPONENT_URL : '';
 
 const assets = {
   packages: [
-    // {
-    //   package: 'moment',
-    //   version: '2.24.0',
-    //   urls: [`${PREFIX}/resources/moment/moment.min.js`],
-    //   library: 'moment',
-    // },
-    // {
-    //   package: 'lodash',
-    //   library: '_',
-    //   urls: [`${PREFIX}/resources/lodash/lodash.min.js`],
-    // },
+    {
+      package: 'moment',
+      version: '2.24.0',
+      urls: [`${PREFIX}/resources/moment/moment.min.js`],
+      library: 'moment',
+    },
+    {
+      package: 'lodash',
+      library: '_',
+      urls: [`${PREFIX}/resources/lodash/lodash.min.js`],
+    },
     {
       title: 'fusion组件库',
       package: '@alifd/next',
@@ -64,6 +64,10 @@ const assets = {
       version: '2.4.1',
       library: 'AlifdLayout',
       urls: [
+        `${PREFIX}/resources/layout/dist/AlifdLayout.js`,
+        `${PREFIX}/resources/layout/dist/AlifdLayout.css`
+      ],
+      editUrls: [
         `${PREFIX}/resources/layout/build/lowcode/view.js`,
         `${PREFIX}/resources/layout/build/lowcode/view.css`,
       ]
