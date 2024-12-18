@@ -118,6 +118,8 @@ export default function ProjectManage() {
           });
         }
 
+        setCurrentPage(DEFAULT_PAGE_NUMBER);
+
         // 重新获取当前
         await loadData(DEFAULT_PAGE_NUMBER);
       } catch (e) {
@@ -127,16 +129,14 @@ export default function ProjectManage() {
     [currentPageInfo.id, id, loadData]
   );
 
-  useEffect(() => {
-    loadData(currentPage);
-  }, [loadData, currentPage]);
-
   const onChangePageSize = useCallback(async (v: number) => {
     setCurrentPage(v);
+    loadData(v);
   }, []);
 
   useEffect(() => {
     setCurrentPage(DEFAULT_PAGE_NUMBER);
+    loadData(DEFAULT_PAGE_NUMBER);
   }, []);
 
   return (
