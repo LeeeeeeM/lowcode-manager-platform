@@ -1,0 +1,26 @@
+[
+  {
+    "meta": "SsAntdMaterialAffixMeta",
+    "lib": "@ss-antd-material/affix",
+    "version": "0.1.0",
+    "name": "affix"
+  },
+  {
+    "meta": "SsAntdMaterialAutoCompleteMeta",
+    "lib": "@ss-antd-material/auto-complete",
+    "version": "0.1.0",
+    "name": "auto-complete"
+  },
+  {
+    "meta": "SsAntdMaterialButtonMeta",
+    "lib": "@ss-antd-material/button",
+    "version": "0.1.0",
+    "name": "button"
+  },
+  {
+    "meta": "SsAntdMaterialIconMeta",
+    "lib": "@ss-antd-material/icon",
+    "version": "0.1.0",
+    "name": "icon"
+  }
+]

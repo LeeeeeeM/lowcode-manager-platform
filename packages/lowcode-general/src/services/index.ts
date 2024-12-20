@@ -1,16 +1,18 @@
 import { Message, Dialog } from '@alifd/next';
 import { GetPageDetail, SavePage } from 'services';
 import { getUserName } from 'common';
-import { filterPackages } from '@alilc/lowcode-plugin-inject';
+// import { filterPackages } from '@alilc/lowcode-plugin-inject';
 import { material, project } from '@alilc/lowcode-engine';
+import { filterPackages } from '../utils';
 import { IPublicTypeProjectSchema, IPublicEnumTransformStage } from '@alilc/lowcode-types';
 import DefaultPageSchema from './defaultPageSchema1.json';
 // import DefaultI18nSchema from './defaultI18nSchema.json';
 
 export const savePage = async (pageId: string | null): Promise<void> => {
   try {
-    const schema = JSON.stringify(project.exportSchema(IPublicEnumTransformStage.Save));
-    const packages = await filterPackages(material.getAssets()!.packages);
+    const rawSchema = project.exportSchema(IPublicEnumTransformStage.Save);
+    const schema = JSON.stringify(rawSchema);
+    const packages = await filterPackages(material.getAssets()!.packages, rawSchema);
     const assets = JSON.stringify(packages);
     await SavePage({
       pageId: Number(pageId),
