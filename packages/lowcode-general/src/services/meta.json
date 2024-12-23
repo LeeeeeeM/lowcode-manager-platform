@@ -6,16 +6,82 @@
     "name": "affix"
   },
   {
+    "meta": "SsAntdMaterialAlertMeta",
+    "lib": "@ss-antd-material/alert",
+    "version": "0.1.0",
+    "name": "alert"
+  },
+  {
     "meta": "SsAntdMaterialAutoCompleteMeta",
     "lib": "@ss-antd-material/auto-complete",
     "version": "0.1.0",
     "name": "auto-complete"
   },
   {
+    "meta": "SsAntdMaterialAvatarMeta",
+    "lib": "@ss-antd-material/avatar",
+    "version": "0.1.0",
+    "name": "avatar"
+  },
+  {
+    "meta": "SsAntdMaterialBackTopMeta",
+    "lib": "@ss-antd-material/back-top",
+    "version": "0.1.0",
+    "name": "back-top"
+  },
+  {
+    "meta": "SsAntdMaterialBadgeMeta",
+    "lib": "@ss-antd-material/badge",
+    "version": "0.1.0",
+    "name": "badge"
+  },
+  {
+    "meta": "SsAntdMaterialBreadcrumbMeta",
+    "lib": "@ss-antd-material/breadcrumb",
+    "version": "0.1.0",
+    "name": "breadcrumb"
+  },
+  {
     "meta": "SsAntdMaterialButtonMeta",
     "lib": "@ss-antd-material/button",
     "version": "0.1.0",
     "name": "button"
+  },
+  {
+    "meta": "SsAntdMaterialCalendarMeta",
+    "lib": "@ss-antd-material/calendar",
+    "version": "0.1.0",
+    "name": "calendar"
+  },
+  {
+    "meta": "SsAntdMaterialCardMeta",
+    "lib": "@ss-antd-material/card",
+    "version": "0.1.0",
+    "name": "card"
+  },
+  {
+    "meta": "SsAntdMaterialCarouselMeta",
+    "lib": "@ss-antd-material/carousel",
+    "version": "0.1.0",
+    "name": "carousel"
+  },
+  {
+    "meta": "SsAntdMaterialCascaderMeta",
+    "lib": "@ss-antd-material/cascader",
+    "version": "0.1.0",
+    "name": "cascader"
+  },
+  {
+    "meta": "SsAntdMaterialCheckboxMeta",
+    "lib": "@ss-antd-material/checkbox",
+    "version": "0.1.0",
+    "name": "checkbox"
+  },
+  {
+    "meta": "SsAntdMaterialCollapseMeta",
+    "lib": "@ss-antd-material/collapse",
+    "version": "0.1.0",
+    "name": "collapse"
   },
   {
     "meta": "SsAntdMaterialIconMeta",
