@@ -114,16 +114,112 @@
     "name": "divider"
   },
   {
+    "meta": "SsAntdMaterialDrawerMeta",
+    "lib": "@ss-antd-material/drawer",
+    "version": "0.1.0",
+    "name": "drawer"
+  },
+  {
+    "meta": "SsAntdMaterialDropdownMeta",
+    "lib": "@ss-antd-material/dropdown",
+    "version": "0.1.0",
+    "name": "dropdown"
+  },
+  {
+    "meta": "SsAntdMaterialEmptyMeta",
+    "lib": "@ss-antd-material/empty",
+    "version": "0.1.0",
+    "name": "empty"
+  },
+  {
+    "meta": "SsAntdMaterialFormMeta",
+    "lib": "@ss-antd-material/form",
+    "version": "0.1.0",
+    "name": "form"
+  },
+  {
+    "meta": "SsAntdMaterialGridMeta",
+    "lib": "@ss-antd-material/grid",
+    "version": "0.1.0",
+    "name": "grid"
+  },
+  {
     "meta": "SsAntdMaterialIconMeta",
     "lib": "@ss-antd-material/icon",
     "version": "0.1.0",
     "name": "icon"
   },
   {
+    "meta": "SsAntdMaterialImageMeta",
+    "lib": "@ss-antd-material/image",
+    "version": "0.1.0",
+    "name": "image"
+  },
+  {
+    "meta": "SsAntdMaterialInputMeta",
+    "lib": "@ss-antd-material/input",
+    "version": "0.1.0",
+    "name": "input"
+  },
+  {
+    "meta": "SsAntdMaterialInputNumberMeta",
+    "lib": "@ss-antd-material/input-number",
+    "version": "0.1.0",
+    "name": "input-number"
+  },
+  {
+    "meta": "SsAntdMaterialListMeta",
+    "lib": "@ss-antd-material/list",
+    "version": "0.1.0",
+    "name": "list"
+  },
+  {
     "meta": "SsAntdMaterialMentionsMeta",
     "lib": "@ss-antd-material/mentions",
     "version": "0.1.0",
     "name": "mentions"
+  },
+  {
+    "meta": "SsAntdMaterialMenuMeta",
+    "lib": "@ss-antd-material/menu",
+    "version": "0.1.0",
+    "name": "menu"
+  },
+  {
+    "meta": "SsAntdMaterialModalMeta",
+    "lib": "@ss-antd-material/modal",
+    "version": "0.1.0",
+    "name": "modal"
+  },
+  {
+    "meta": "SsAntdMaterialRateMeta",
+    "lib": "@ss-antd-material/rate",
+    "version": "0.1.0",
+    "name": "rate"
+  },
+  {
+    "meta": "SsAntdMaterialSelectMeta",
+    "lib": "@ss-antd-material/select",
+    "version": "0.1.0",
+    "name": "select"
+  },
+  {
+    "meta": "SsAntdMaterialSliderMeta",
+    "lib": "@ss-antd-material/slider",
+    "version": "0.1.0",
+    "name": "slider"
+  },
+  {
+    "meta": "SsAntdMaterialSwitchMeta",
+    "lib": "@ss-antd-material/switch",
+    "version": "0.1.0",
+    "name": "switch"
+  },
+  {
+    "meta": "SsAntdMaterialTimePickerMeta",
+    "lib": "@ss-antd-material/time-picker",
+    "version": "0.1.0",
+    "name": "time-picker"
   },
   {
     "meta": "SsAntdMaterialTypographyMeta",
