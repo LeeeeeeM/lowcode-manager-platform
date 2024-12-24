@@ -84,9 +84,51 @@
     "name": "collapse"
   },
   {
+    "meta": "SsAntdMaterialCommentMeta",
+    "lib": "@ss-antd-material/comment",
+    "version": "0.1.0",
+    "name": "comment"
+  },
+  {
+    "meta": "SsAntdMaterialConfigProviderMeta",
+    "lib": "@ss-antd-material/config-provider",
+    "version": "0.1.0",
+    "name": "config-provider"
+  },
+  {
+    "meta": "SsAntdMaterialDatePickerMeta",
+    "lib": "@ss-antd-material/date-picker",
+    "version": "0.1.0",
+    "name": "date-picker"
+  },
+  {
+    "meta": "SsAntdMaterialDescriptionsMeta",
+    "lib": "@ss-antd-material/descriptions",
+    "version": "0.1.0",
+    "name": "descriptions"
+  },
+  {
+    "meta": "SsAntdMaterialDividerMeta",
+    "lib": "@ss-antd-material/divider",
+    "version": "0.1.0",
+    "name": "divider"
+  },
+  {
     "meta": "SsAntdMaterialIconMeta",
     "lib": "@ss-antd-material/icon",
     "version": "0.1.0",
     "name": "icon"
+  },
+  {
+    "meta": "SsAntdMaterialMentionsMeta",
+    "lib": "@ss-antd-material/mentions",
+    "version": "0.1.0",
+    "name": "mentions"
+  },
+  {
+    "meta": "SsAntdMaterialTypographyMeta",
+    "lib": "@ss-antd-material/typography",
+    "version": "0.1.0",
+    "name": "typography"
   }
 ]
