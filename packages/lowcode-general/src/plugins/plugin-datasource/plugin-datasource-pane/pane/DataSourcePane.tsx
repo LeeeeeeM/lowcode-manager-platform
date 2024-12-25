@@ -9,22 +9,22 @@ import {
 } from '@alilc/lowcode-datasource-types';
 import { Button, Message, Dialog } from '@alifd/next';
 import _isArray from 'lodash/isArray';
-import { createStateMachine } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/stateMachine';
-// @alilc/lowcode-plugin-datasource-pane
-import { DataSourcePaneContext } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/panel-context';
-import { DataSourceFilter } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceFilter';
-import { DataSourceOperations } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceOperations';
-import { DataSourceList } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceList';
-import { generateClassName } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/misc';
+import { createStateMachine } from '@evilemon/lowcode-plugin-datasource-pane/lib/utils/stateMachine';
+// @evilemon/lowcode-plugin-datasource-pane
+import { DataSourcePaneContext } from '@evilemon/lowcode-plugin-datasource-pane/lib/utils/panel-context';
+import { DataSourceFilter } from '@evilemon/lowcode-plugin-datasource-pane/lib/components/DataSourceFilter';
+import { DataSourceOperations } from '@evilemon/lowcode-plugin-datasource-pane/lib/components/DataSourceOperations';
+import { DataSourceList } from '@evilemon/lowcode-plugin-datasource-pane/lib/components/DataSourceList';
+import { generateClassName } from '@evilemon/lowcode-plugin-datasource-pane/lib/utils/misc';
 import { DataSourceFormAction, DataSourceFormEntry } from './components/DataSourceFormEntry';
-import { DataSourceExport as ExportDetail } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceExport';
-import { DataSourceImport as ImportDetail } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceImport';
-import { DataSourcePanelMode } from '@alilc/lowcode-plugin-datasource-pane/lib/types';
+import { DataSourceExport as ExportDetail } from '@evilemon/lowcode-plugin-datasource-pane/lib/components/DataSourceExport';
+import { DataSourceImport as ImportDetail } from '@evilemon/lowcode-plugin-datasource-pane/lib/components/DataSourceImport';
+import { DataSourcePanelMode } from '@evilemon/lowcode-plugin-datasource-pane/lib/types';
 import type {
   DataSourceInfoTag,
   DataSourcePaneImportPlugin,
   DataSourceType,
-} from '@alilc/lowcode-plugin-datasource-pane/lib/types';
+} from '@evilemon/lowcode-plugin-datasource-pane/lib/types';
 
 export interface DataSourcePaneProps {
   className?: string;

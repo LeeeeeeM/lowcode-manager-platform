@@ -30,9 +30,6 @@ importers:
       '@alilc/lowcode-plugin-components-pane':
         specifier: latest
         version: 2.0.4
-      '@alilc/lowcode-plugin-datasource-pane':
-        specifier: ^1.0.9
-        version: 1.0.11(@alifd/next@1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(@types/node@22.7.7)(@types/react-dom@16.9.24)(@types/react@16.14.62)(moment@2.30.1)(monaco-editor@0.52.0)(prop-types@15.8.1)(react-is@18.3.1)(typescript@4.9.5)
       '@alilc/lowcode-plugin-inject':
         specifier: ^1.2.1
         version: 1.2.3(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(date-fns@2.30.0)(moment@2.30.1)(monaco-editor@0.52.0)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)(reflect-metadata@0.2.2)
@@ -66,6 +63,9 @@ importers:
       '@alilc/lowcode-utils':
         specifier: 1.3.2
         version: 1.3.2(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))
+      '@evilemon/lowcode-plugin-datasource-pane':
+        specifier: ^1.0.9
+        version: 1.0.11(@alifd/next@1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(@types/node@22.7.7)(@types/react-dom@16.9.24)(@types/react@16.14.62)(moment@2.30.1)(monaco-editor@0.52.0)(prop-types@15.8.1)(react-is@18.3.1)(typescript@4.9.5)
       '@evilemon/lowcode-renderer-core':
         specifier: 1.3.2-beta.1
         version: 1.3.2-beta.1(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))
@@ -552,12 +552,6 @@ packages:
 
   '@alilc/lowcode-plugin-components-pane@2.0.4':
     resolution: {integrity: sha512-kTZmddS4D5jD7Ru6p2PGs0L5A+eHVPD/F2PtHco+bK0dLrCkvyHHiRC/YCCEuNUS7HSkzjfVVpMY/otglE4hGw==}
-
-  '@alilc/lowcode-plugin-datasource-pane@1.0.11':
-    resolution: {integrity: sha512-k31HM526zeDFWvkJOr227xUtaeby3YZAIkgAhC7pAdPhEpYgFQL3xfCS/wBiMsX56Wm8Lmi5Czzr4VuyCzjRSA==}
-    peerDependencies:
-      '@alifd/next': ^1.20.28
-      moment: ^2.29.1
 
   '@alilc/lowcode-plugin-designer@1.3.2':
     resolution: {integrity: sha512-ro+hnXO1OT6sOnYs3SsgQgFPMR4NJPyUP1ySkT6AAb0Dz9HL16YWAUd/h/LN+A4MKlbIWVsXW6qeJ0/LtRymew==}
@@ -1796,6 +1790,12 @@ packages:
   '@eslint/plugin-kit@0.2.1':
     resolution: {integrity: sha512-HFZ4Mp26nbWk9d/BpvP0YNL6W4UoZF0VFcTw/aPPA8RpOxeFQgK+ClABGgAUXs9Y/RGX/l1vOmrqz1MQt9MNuw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@evilemon/lowcode-plugin-datasource-pane@1.0.11':
+    resolution: {integrity: sha512-OvoUdxgTFaPnLB56H1VIvXncZNjO7cCOP1DAUtAgTLqtrbm154BH56PStVbljPTcxqA1wYrqRa3om+dkQT0y+g==}
+    peerDependencies:
+      '@alifd/next': ^1.20.28
+      moment: ^2.29.1
 
   '@evilemon/lowcode-renderer-core@1.3.2-beta.1':
     resolution: {integrity: sha512-pj14IKiDNxX3tWa7H9NfpQdBEyJizZKID9IrIPZyS7xhRB7EbndKv08vDTATSsYx+xV9qJyJqMh+7/EFUvN0tA==}
@@ -10396,50 +10396,6 @@ snapshots:
       lodash.debounce: 4.0.8
       react: 16.14.0
 
-  '@alilc/lowcode-plugin-datasource-pane@1.0.11(@alifd/next@1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(@types/node@22.7.7)(@types/react-dom@16.9.24)(@types/react@16.14.62)(moment@2.30.1)(monaco-editor@0.52.0)(prop-types@15.8.1)(react-is@18.3.1)(typescript@4.9.5)':
-    dependencies:
-      '@alifd/next': 1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
-      '@alilc/lowcode-plugin-base-monaco-editor': 1.1.2(monaco-editor@0.52.0)
-      '@alilc/lowcode-types': 1.3.2
-      '@babel/core': 7.20.12
-      '@babel/parser': 7.25.9
-      '@babel/preset-env': 7.25.9(@babel/core@7.20.12)
-      '@babel/preset-react': 7.25.9(@babel/core@7.20.12)
-      '@babel/standalone': 7.25.9
-      '@babel/traverse': 7.25.9
-      '@babel/types': 7.25.9
-      '@formily/core': 2.3.2
-      '@formily/next': 2.3.2(@alifd/next@1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(@types/react-dom@16.9.24)(@types/react@16.14.62)(prop-types@15.8.1)(react-dom@16.14.0(react@16.14.0))(react-is@18.3.1)(react@16.14.0)(typescript@4.9.5)
-      '@formily/react': 2.3.2(@types/react-dom@16.9.24)(@types/react@16.14.62)(react-dom@16.14.0(react@16.14.0))(react-is@18.3.1)(react@16.14.0)(typescript@4.9.5)
-      '@types/lodash': 4.17.12
-      '@xstate/react': 1.6.3(@types/react@16.14.62)(react@16.14.0)(xstate@4.38.3)
-      ajv: 6.12.6
-      babel-plugin-transform-remove-strict-mode: 0.0.2
-      classnames: 2.5.1
-      js-beautify: 1.15.1
-      lodash: 4.17.21
-      moment: 2.30.1
-      react: 16.14.0
-      react-copy-to-clipboard: 5.1.0(react@16.14.0)
-      react-dnd: 14.0.5(@types/node@22.7.7)(@types/react@16.14.62)(react@16.14.0)
-      react-dnd-html5-backend: 14.1.0
-      react-dom: 16.14.0(react@16.14.0)
-      react-error-boundary: 3.1.4(react@16.14.0)
-      svgo: 2.8.0
-      traverse: 0.6.10
-      xstate: 4.38.3
-    transitivePeerDependencies:
-      - '@types/hoist-non-react-statics'
-      - '@types/node'
-      - '@types/react'
-      - '@types/react-dom'
-      - '@xstate/fsm'
-      - monaco-editor
-      - prop-types
-      - react-is
-      - supports-color
-      - typescript
-
   '@alilc/lowcode-plugin-designer@1.3.2(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(reflect-metadata@0.2.2)':
     dependencies:
       '@alilc/lowcode-designer': 1.3.2(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(reflect-metadata@0.2.2)
@@ -12108,6 +12064,50 @@ snapshots:
   '@eslint/plugin-kit@0.2.1':
     dependencies:
       levn: 0.4.1
+
+  '@evilemon/lowcode-plugin-datasource-pane@1.0.11(@alifd/next@1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(@types/node@22.7.7)(@types/react-dom@16.9.24)(@types/react@16.14.62)(moment@2.30.1)(monaco-editor@0.52.0)(prop-types@15.8.1)(react-is@18.3.1)(typescript@4.9.5)':
+    dependencies:
+      '@alifd/next': 1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
+      '@alilc/lowcode-plugin-base-monaco-editor': 1.1.2(monaco-editor@0.52.0)
+      '@alilc/lowcode-types': 1.3.2
+      '@babel/core': 7.20.12
+      '@babel/parser': 7.25.9
+      '@babel/preset-env': 7.25.9(@babel/core@7.20.12)
+      '@babel/preset-react': 7.25.9(@babel/core@7.20.12)
+      '@babel/standalone': 7.25.9
+      '@babel/traverse': 7.25.9
+      '@babel/types': 7.25.9
+      '@formily/core': 2.3.2
+      '@formily/next': 2.3.2(@alifd/next@1.27.12(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(@types/react-dom@16.9.24)(@types/react@16.14.62)(prop-types@15.8.1)(react-dom@16.14.0(react@16.14.0))(react-is@18.3.1)(react@16.14.0)(typescript@4.9.5)
+      '@formily/react': 2.3.2(@types/react-dom@16.9.24)(@types/react@16.14.62)(react-dom@16.14.0(react@16.14.0))(react-is@18.3.1)(react@16.14.0)(typescript@4.9.5)
+      '@types/lodash': 4.17.12
+      '@xstate/react': 1.6.3(@types/react@16.14.62)(react@16.14.0)(xstate@4.38.3)
+      ajv: 6.12.6
+      babel-plugin-transform-remove-strict-mode: 0.0.2
+      classnames: 2.5.1
+      js-beautify: 1.15.1
+      lodash: 4.17.21
+      moment: 2.30.1
+      react: 16.14.0
+      react-copy-to-clipboard: 5.1.0(react@16.14.0)
+      react-dnd: 14.0.5(@types/node@22.7.7)(@types/react@16.14.62)(react@16.14.0)
+      react-dnd-html5-backend: 14.1.0
+      react-dom: 16.14.0(react@16.14.0)
+      react-error-boundary: 3.1.4(react@16.14.0)
+      svgo: 2.8.0
+      traverse: 0.6.10
+      xstate: 4.38.3
+    transitivePeerDependencies:
+      - '@types/hoist-non-react-statics'
+      - '@types/node'
+      - '@types/react'
+      - '@types/react-dom'
+      - '@xstate/fsm'
+      - monaco-editor
+      - prop-types
+      - react-is
+      - supports-color
+      - typescript
 
   '@evilemon/lowcode-renderer-core@1.3.2-beta.1(@alifd/meet-react@2.9.9(rax@1.2.3)(react-dom@16.14.0(react@16.14.0))(react@16.14.0))(moment@2.30.1)(react-dom@16.14.0(react@16.14.0))':
     dependencies:

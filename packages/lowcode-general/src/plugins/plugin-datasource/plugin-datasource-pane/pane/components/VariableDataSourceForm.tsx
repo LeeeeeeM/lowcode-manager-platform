@@ -22,10 +22,10 @@ import traverse from 'traverse';
 
 import { JSData } from '../Forms/jsData';
 
-import { generateClassName } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/misc';
-import { filterXDisplay } from '@alilc/lowcode-plugin-datasource-pane/lib/utils/filter-x-display';
+import { generateClassName } from '@evilemon/lowcode-plugin-datasource-pane/lib/utils/misc';
+import { filterXDisplay } from '@evilemon/lowcode-plugin-datasource-pane/lib/utils/filter-x-display';
 
-import { DataSourceFormProps, DataSourceFormMode } from '@alilc/lowcode-plugin-datasource-pane/lib/types';
+import { DataSourceFormProps, DataSourceFormMode } from '@evilemon/lowcode-plugin-datasource-pane/lib/types';
 
 const SCHEMA = {
   type: 'object',

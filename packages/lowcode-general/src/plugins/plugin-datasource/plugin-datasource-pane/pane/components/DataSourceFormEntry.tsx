@@ -7,10 +7,10 @@ import _cloneDeep from 'lodash/cloneDeep';
 import _mergeWith from 'lodash/mergeWith';
 import _get from 'lodash/get';
 
-import { DataSourceFormProps } from '@alilc/lowcode-plugin-datasource-pane/lib/types';
+import { DataSourceFormProps } from '@evilemon/lowcode-plugin-datasource-pane/lib/types';
 import { DataSourceIdentityType } from '../type';
 
-import { DataSourceForm } from '@alilc/lowcode-plugin-datasource-pane/lib/components/DataSourceForm';
+import { DataSourceForm } from '@evilemon/lowcode-plugin-datasource-pane/lib/components/DataSourceForm';
 import { VariableDataSourceForm } from './VariableDataSourceForm';
 
 export interface DataSourceFormAction {

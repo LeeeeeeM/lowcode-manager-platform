@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Search } from '@alifd/next';
 import { PluginProps } from '@alilc/lowcode-types';

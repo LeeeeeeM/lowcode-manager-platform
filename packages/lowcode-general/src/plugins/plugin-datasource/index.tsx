@@ -1,10 +1,10 @@
-// import DataSourcePanePlugin from '@alilc/lowcode-plugin-datasource-pane/lib/pane';
+// import DataSourcePanePlugin from '@evilemon/lowcode-plugin-datasource-pane/lib/pane';
 import DataSourcePanePlugin from './plugin-datasource-pane/pane';
 
 import {
   DataSourcePaneImportPlugin,
   DataSourceType,
-} from '@alilc/lowcode-plugin-datasource-pane/lib/types';
+} from '@evilemon/lowcode-plugin-datasource-pane/lib/types';
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
 import { DataSourceIdentityType } from './plugin-datasource-pane/pane/type';
 

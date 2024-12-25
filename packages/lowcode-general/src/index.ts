@@ -4,7 +4,7 @@ import EditorInitPlugin from './plugins/plugin-editor-init';
 import UndoRedoPlugin from '@alilc/lowcode-plugin-undo-redo';
 import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en';
 import CodeGenPlugin from '@alilc/lowcode-plugin-code-generator';
-// import DataSourcePanePlugin from '@alilc/lowcode-plugin-datasource-pane';
+// import DataSourcePanePlugin from '@evilemon/lowcode-plugin-datasource-pane';
 import SchemaPlugin from '@alilc/lowcode-plugin-schema';
 import ManualPlugin from "@alilc/lowcode-plugin-manual";
 import InjectPlugin from '@alilc/lowcode-plugin-inject';

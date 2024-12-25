@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import BehaviorSetter from '@alilc/lowcode-setter-behavior';
 
