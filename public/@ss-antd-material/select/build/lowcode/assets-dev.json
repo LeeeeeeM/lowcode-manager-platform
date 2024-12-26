@@ -3,7 +3,7 @@
     {
       "package": "@ss-antd-material/select",
       "version": "0.1.0",
-      "library": "@ss-antd-material/select",
+      "library": "@ss-antd-material/form",
       "urls": [
         "./render/default/view.js",
         "./render/default/view.css"
