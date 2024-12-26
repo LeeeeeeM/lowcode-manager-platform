@@ -7,7 +7,7 @@ import CodeGenPlugin from '@alilc/lowcode-plugin-code-generator';
 // import DataSourcePanePlugin from '@evilemon/lowcode-plugin-datasource-pane';
 import SchemaPlugin from '@alilc/lowcode-plugin-schema';
 import ManualPlugin from "@alilc/lowcode-plugin-manual";
-import InjectPlugin from '@alilc/lowcode-plugin-inject';
+// import InjectPlugin from '@alilc/lowcode-plugin-inject';
 import SimulatorResizerPlugin from '@alilc/lowcode-plugin-simulator-select';
 import ComponentPanelPlugin from './plugins/plugin-component-panel';
 import DefaultSettersRegistryPlugin from './plugins/plugin-default-setters-registry';
@@ -28,7 +28,7 @@ import appHelper from './appHelper';
 import './global.scss';
 
 async function registerPlugins() {
-  await plugins.register(InjectPlugin);
+  // await plugins.register(InjectPlugin);
 
   await plugins.register(EditorInitPlugin, {
     scenarioName: 'general',
