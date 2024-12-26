@@ -192,10 +192,58 @@
     "name": "modal"
   },
   {
+    "meta": "SsAntdMaterialPageHeaderMeta",
+    "lib": "@ss-antd-material/page-header",
+    "version": "0.1.0",
+    "name": "page-header"
+  },
+  {
+    "meta": "SsAntdMaterialPaginationMeta",
+    "lib": "@ss-antd-material/pagination",
+    "version": "0.1.0",
+    "name": "pagination"
+  },
+  {
+    "meta": "SsAntdMaterialPopconfirmMeta",
+    "lib": "@ss-antd-material/popconfirm",
+    "version": "0.1.0",
+    "name": "popconfirm"
+  },
+  {
+    "meta": "SsAntdMaterialPopoverMeta",
+    "lib": "@ss-antd-material/popover",
+    "version": "0.1.0",
+    "name": "popover"
+  },
+  {
+    "meta": "SsAntdMaterialProgressMeta",
+    "lib": "@ss-antd-material/progress",
+    "version": "0.1.0",
+    "name": "progress"
+  },
+  {
+    "meta": "SsAntdMaterialRadioMeta",
+    "lib": "@ss-antd-material/radio",
+    "version": "0.1.0",
+    "name": "radio"
+  },
+  {
     "meta": "SsAntdMaterialRateMeta",
     "lib": "@ss-antd-material/rate",
     "version": "0.1.0",
     "name": "rate"
+  },
+  {
+    "meta": "SsAntdMaterialResultMeta",
+    "lib": "@ss-antd-material/result",
+    "version": "0.1.0",
+    "name": "result"
+  },
+  {
+    "meta": "SsAntdMaterialSegmentedMeta",
+    "lib": "@ss-antd-material/segmented",
+    "version": "0.1.0",
+    "name": "segmented"
   },
   {
     "meta": "SsAntdMaterialSelectMeta",
@@ -204,10 +252,46 @@
     "name": "select"
   },
   {
+    "meta": "SsAntdMaterialSkeletonMeta",
+    "lib": "@ss-antd-material/skeleton",
+    "version": "0.1.0",
+    "name": "skeleton"
+  },
+  {
     "meta": "SsAntdMaterialSliderMeta",
     "lib": "@ss-antd-material/slider",
     "version": "0.1.0",
     "name": "slider"
+  },
+  {
+    "meta": "SsAntdMaterialSlotMeta",
+    "lib": "@ss-antd-material/slot",
+    "version": "0.1.0",
+    "name": "slot"
+  },
+  {
+    "meta": "SsAntdMaterialSpaceMeta",
+    "lib": "@ss-antd-material/space",
+    "version": "0.1.0",
+    "name": "space"
+  },
+  {
+    "meta": "SsAntdMaterialSpinMeta",
+    "lib": "@ss-antd-material/spin",
+    "version": "0.1.0",
+    "name": "spin"
+  },
+  {
+    "meta": "SsAntdMaterialStatisticMeta",
+    "lib": "@ss-antd-material/statistic",
+    "version": "0.1.0",
+    "name": "statistic"
+  },
+  {
+    "meta": "SsAntdMaterialStepsMeta",
+    "lib": "@ss-antd-material/steps",
+    "version": "0.1.0",
+    "name": "steps"
   },
   {
     "meta": "SsAntdMaterialSwitchMeta",
@@ -216,15 +300,69 @@
     "name": "switch"
   },
   {
+    "meta": "SsAntdMaterialTableMeta",
+    "lib": "@ss-antd-material/table",
+    "version": "0.1.0",
+    "name": "table"
+  },
+  {
+    "meta": "SsAntdMaterialTabsMeta",
+    "lib": "@ss-antd-material/tabs",
+    "version": "0.1.0",
+    "name": "tabs"
+  },
+  {
+    "meta": "SsAntdMaterialTagMeta",
+    "lib": "@ss-antd-material/tag",
+    "version": "0.1.0",
+    "name": "tag"
+  },
+  {
     "meta": "SsAntdMaterialTimePickerMeta",
     "lib": "@ss-antd-material/time-picker",
     "version": "0.1.0",
     "name": "time-picker"
   },
   {
+    "meta": "SsAntdMaterialTimelineMeta",
+    "lib": "@ss-antd-material/timeline",
+    "version": "0.1.0",
+    "name": "timeline"
+  },
+  {
+    "meta": "SsAntdMaterialTooltipMeta",
+    "lib": "@ss-antd-material/tooltip",
+    "version": "0.1.0",
+    "name": "tooltip"
+  },
+  {
+    "meta": "SsAntdMaterialTransferMeta",
+    "lib": "@ss-antd-material/transfer",
+    "version": "0.1.0",
+    "name": "transfer"
+  },
+  {
+    "meta": "SsAntdMaterialTreeMeta",
+    "lib": "@ss-antd-material/tree",
+    "version": "0.1.0",
+    "name": "tree"
+  },
+  {
+    "meta": "SsAntdMaterialTreeSelectMeta",
+    "lib": "@ss-antd-material/tree-select",
+    "version": "0.1.0",
+    "name": "tree-select"
+  },
+  {
     "meta": "SsAntdMaterialTypographyMeta",
     "lib": "@ss-antd-material/typography",
     "version": "0.1.0",
     "name": "typography"
+  },
+  {
+    "meta": "SsAntdMaterialUploadMeta",
+    "lib": "@ss-antd-material/upload",
+    "version": "0.1.0",
+    "name": "upload"
   }
 ]
