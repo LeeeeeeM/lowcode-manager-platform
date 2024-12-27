@@ -11,13 +11,7 @@ import { PAGE_SIG_ID } from 'common';
 // import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import appHelper from './appHelper';
 import { getAllPageInfo } from './services';
-
-const emptyStyle: React.CSSProperties= {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '100vh'
-};
+import './landing.less';
 
 // const getScenarioName = function () {
 //   if (location.search) {
@@ -85,8 +79,8 @@ const Preview = () => {
         i18n,
         projectDataSource,
       });
-    } catch(e) {
-      console.log(e)
+    } catch (e) {
+      console.log(e);
       Message.error(`获取数据失败`);
     }
   }
@@ -106,7 +100,7 @@ const Preview = () => {
   //     setPreviewLocale(getScenarioName(), locale);
   // }
 
-  if (isEmpty(schema)) return <div style={emptyStyle}>当前页面模板为空</div>;
+  if (isEmpty(schema)) return <div id="lce-empty-page">当前页面模板为空</div>;
 
   function customizer(objValue: [], srcValue: []) {
     if (isArray(objValue)) {
@@ -115,16 +109,16 @@ const Preview = () => {
   }
 
   return (
-      <ReactRenderer
-        schema={{
-          ...schema,
-          dataSource: mergeWith(schema.dataSource, projectDataSource, customizer),
-        }}
-        components={components}
-        // locale={currentLocale}
-        messages={i18n}
-        appHelper={appHelper}
-      />
+    <ReactRenderer
+      schema={{
+        ...schema,
+        dataSource: mergeWith(schema.dataSource, projectDataSource, customizer),
+      }}
+      components={components}
+      // locale={currentLocale}
+      messages={i18n}
+      appHelper={appHelper}
+    />
   );
 };
 

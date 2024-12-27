@@ -7,14 +7,7 @@ import isEmpty from 'lodash/isEmpty';
 import { buildComponents, AssetLoader } from '@alilc/lowcode-utils';
 import ReactRenderer from '@alilc/lowcode-react-renderer';
 import appHelper from './appHelper';
-
-const emptyStyle: React.CSSProperties= {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '100vh'
-};
-
+import './landing.less';
 
 const Landing = () => {
   const [data, setData] = useState({});
@@ -63,13 +56,13 @@ const Landing = () => {
         i18n,
         projectDataSource,
       });
-    } catch(e) {
-      console.log(e)
+    } catch (e) {
+      console.log(e);
       Message.error(`获取数据失败`);
     }
   }
 
-  if (isEmpty(projectSchema)) return <div style={emptyStyle}>当前页面模板为空</div>;
+  if (isEmpty(projectSchema)) return <div id="lce-empty-page">当前页面模板为空</div>;
 
   const { schema, components, i18n = {}, projectDataSource = {} } = data as any;
 
@@ -85,16 +78,16 @@ const Landing = () => {
   }
 
   return (
-      <ReactRenderer
-        schema={{
-          ...schema,
-          dataSource: mergeWith(schema.dataSource, projectDataSource, customizer),
-        }}
-        components={components}
-        // locale={currentLocale}
-        messages={i18n}
-        appHelper={appHelper}
-      />
+    <ReactRenderer
+      schema={{
+        ...schema,
+        dataSource: mergeWith(schema.dataSource, projectDataSource, customizer),
+      }}
+      components={components}
+      // locale={currentLocale}
+      messages={i18n}
+      appHelper={appHelper}
+    />
   );
 };
 
