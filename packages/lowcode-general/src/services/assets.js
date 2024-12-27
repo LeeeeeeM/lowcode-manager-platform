@@ -1,11 +1,32 @@
 import { DEVELOP_COMPONENT_URL } from 'common';
-import MetaInfos from './meta.json';
+import AntdMetaInfos from '../assets/antd.meta.json';
+import CustomMetaInfos from '../assets/custom.meta.json';
 const PREFIX = MODE === 'development' ? DEVELOP_COMPONENT_URL : '';
 
 const metas = [];
 const components = [];
 
-MetaInfos.forEach(({ name, lib, version, meta }) => {
+CustomMetaInfos.forEach(({ name, lib, version, meta }) => {
+  metas.push({
+    exportName: `${meta}`,
+    npm: {
+      package: lib,
+      version,
+    },
+    url: `${PREFIX}/resources/@ss-custom/${name}/build/lowcode/meta.js`,
+  });
+  components.push({
+    package: lib,
+    version,
+    urls: [
+      `${PREFIX}/resources/@ss-custom/${name}/build/lowcode/render/default/view.js`,
+      `${PREFIX}/resources/@ss-custom/${name}/build/lowcode/render/default/view.css`,
+    ],
+    library: lib,
+  });
+});
+
+AntdMetaInfos.forEach(({ name, lib, version, meta }) => {
   metas.push({
     exportName: `${meta}`,
     npm: {
@@ -132,146 +153,6 @@ const assets = {
     //     `${PREFIX}/resources/antd-lowcode-materials/build/lowcode/view.css`,
     //   ],
     // },
-    {
-      package: 'custom-table',
-      version: '0.1.0',
-      library: 'CustomTable',
-      urls: [
-        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/custom-table/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
-    {
-      package: 'custom-tooltip',
-      version: '0.1.0',
-      library: 'CustomTooltip',
-      urls: [
-        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/custom-tooltip/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
-    {
-      package: 'custom-popover',
-      version: '0.1.0',
-      library: 'CustomPopover',
-      urls: [
-        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/custom-popover/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
-    {
-      package: 'custom-transfer',
-      version: '0.1.0',
-      library: 'CustomTransfer',
-      urls: [
-        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/custom-transfer/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
-    {
-      package: 'wujie-container',
-      version: '0.1.0',
-      library: 'WujieContainer',
-      urls: [
-        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/wujie-container/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
-    {
-      package: 'custom-heatmap',
-      version: '0.1.0',
-      library: 'CustomHeatmap',
-      urls: [
-        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/custom-heatmap/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
-    {
-      package: 'custom-echarts',
-      version: '0.1.0',
-      library: 'CustomEcharts',
-      urls: [
-        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.css`,
-      ],
-      editUrls: [
-        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.css`,
-      ],
-      advancedUrls: {
-        default: [
-          `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.js`,
-          `${PREFIX}/resources/custom-echarts/build/lowcode/render/default/view.css`,
-        ],
-      },
-      advancedEditUrls: {},
-    },
     ...components,
   ],
   components: [
@@ -334,104 +215,6 @@ const assets = {
     //       'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/meta.design.js',
     //   },
     // },
-    {
-      exportName: 'CustomTableMeta',
-      npm: {
-        package: 'custom-table',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/custom-table/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/custom-table/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: `${PREFIX}/resources/custom-table/build/lowcode/meta.js`,
-      },
-    },
-    {
-      exportName: 'CustomTooltipMeta',
-      npm: {
-        package: 'custom-tooltip',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/custom-tooltip/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/custom-tooltip/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: `${PREFIX}/resources/custom-tooltip/build/lowcode/meta.js`,
-      },
-    },
-    {
-      exportName: 'CustomPopoverMeta',
-      npm: {
-        package: 'custom-popover',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/custom-popover/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/custom-popover/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: `${PREFIX}/resources/custom-popover/build/lowcode/meta.js`,
-      },
-    },
-    {
-      exportName: 'CustomTransferMeta',
-      npm: {
-        package: 'custom-transfer',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/custom-transfer/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/custom-transfer/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: `${PREFIX}/resources/custom-transfer/build/lowcode/meta.js`,
-      },
-    },
-    {
-      exportName: 'WujieContainerMeta',
-      npm: {
-        package: 'wujie-container',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/wujie-container/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/wujie-container/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: `${PREFIX}/resources/wujie-container/build/lowcode/meta.js`,
-      },
-    },
-    {
-      exportName: 'CustomHeatmapMeta',
-      npm: {
-        package: 'custom-heatmap',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/custom-heatmap/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/custom-heatmap/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: `${PREFIX}/resources/custom-heatmap/build/lowcode/meta.js`,
-      },
-    },
-    {
-      exportName: 'CustomEchartsMeta',
-      npm: {
-        package: 'custom-echarts',
-        version: '0.1.0',
-      },
-      url: `${PREFIX}/resources/custom-echarts/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/custom-echarts/build/lowcode/meta.js`,
-      },
-      advancedUrls: {
-        default: `${PREFIX}/resources/custom-echarts/build/lowcode/meta.js`,
-      },
-    },
     ...metas,
   ],
   sort: {

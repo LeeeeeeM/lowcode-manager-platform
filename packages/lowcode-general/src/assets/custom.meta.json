@@ -1,0 +1,32 @@
+[
+  {
+    "meta": "SsCustomCustomEchartsMeta",
+    "lib": "@ss-custom/custom-echarts",
+    "version": "0.1.0",
+    "name": "custom-echarts"
+  },
+  {
+    "meta": "SsCustomCustomHeatmapMeta",
+    "lib": "@ss-custom/custom-heatmap",
+    "version": "0.1.0",
+    "name": "custom-heatmap"
+  },
+  {
+    "meta": "SsCustomCustomTableMeta",
+    "lib": "@ss-custom/custom-table",
+    "version": "0.1.0",
+    "name": "custom-table"
+  },
+  {
+    "meta": "SsCustomCustomTransferMeta",
+    "lib": "@ss-custom/custom-transfer",
+    "version": "0.1.0",
+    "name": "custom-transfer"
+  },
+  {
+    "meta": "SsCustomCustomWujieContainerMeta",
+    "lib": "@ss-custom/custom-wujie-container",
+    "version": "0.1.0",
+    "name": "custom-wujie-container"
+  }
+]
