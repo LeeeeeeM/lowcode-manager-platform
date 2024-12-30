@@ -75,7 +75,7 @@ const assets = {
     {
       package: 'antd',
       version: '4.24.16',
-      urls: [`${PREFIX}/resources/antd/dist/antd.js`, `${PREFIX}/resources/antd/dist/antd.css`],
+      urls: [`${PREFIX}/resources/antd/dist/antd.min.js`, `${PREFIX}/resources/antd/dist/antd.css`],
       library: 'antd',
     },
     // {
@@ -101,19 +101,19 @@ const assets = {
     //     `${PREFIX}/resources/lowcode-materials/build/lowcode/view.css`,
     //   ],
     // },
-    // {
-    //   package: '@alifd/layout',
-    //   version: '2.4.1',
-    //   library: 'AlifdLayout',
-    //   urls: [
-    //     `${PREFIX}/resources/layout/dist/AlifdLayout.js`,
-    //     `${PREFIX}/resources/layout/dist/AlifdLayout.css`,
-    //   ],
-    //   editUrls: [
-    //     `${PREFIX}/resources/layout/build/lowcode/view.js`,
-    //     `${PREFIX}/resources/layout/build/lowcode/view.css`,
-    //   ],
-    // },
+    {
+      package: '@alifd/layout',
+      version: '2.4.1',
+      library: 'AlifdLayout',
+      urls: [
+        `${PREFIX}/resources/layout/dist/AlifdLayout.js`,
+        `${PREFIX}/resources/layout/dist/AlifdLayout.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/layout/build/lowcode/view.js`,
+        `${PREFIX}/resources/layout/build/lowcode/view.css`,
+      ],
+    },
     // {
     //   package: '@alifd/pro-layout',
     //   version: '1.0.1-beta.5',
@@ -167,17 +167,17 @@ const assets = {
     //     design: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.design.js`,
     //   },
     // },
-    // {
-    //   exportName: 'AlifdLayoutMeta',
-    //   npm: {
-    //     package: '@alifd/layout',
-    //     version: '2.4.1',
-    //   },
-    //   url: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
-    //   urls: {
-    //     default: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
-    //   },
-    // },
+    {
+      exportName: 'AlifdLayoutMeta',
+      npm: {
+        package: '@alifd/layout',
+        version: '2.4.1',
+      },
+      url: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
+      },
+    },
     // {
     //   exportName: 'AlifdFusionUiMeta',
     //   npm: {
