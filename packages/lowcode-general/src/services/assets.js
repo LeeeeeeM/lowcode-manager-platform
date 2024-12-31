@@ -102,16 +102,16 @@ const assets = {
     //   ],
     // },
     {
-      package: '@alifd/layout',
-      version: '2.4.1',
-      library: 'AlifdLayout',
+      package: '@ss-layout/ss-page',
+      version: '1.0.1',
+      library: '@ss-layout/ss-page',
       urls: [
-        `${PREFIX}/resources/layout/dist/AlifdLayout.js`,
-        `${PREFIX}/resources/layout/dist/AlifdLayout.css`,
+        `${PREFIX}/resources/@ss-layout/build/render/default/view.js`,
+        `${PREFIX}/resources/@ss-layout/build/render/default/view.css`,
       ],
       editUrls: [
-        `${PREFIX}/resources/layout/build/lowcode/view.js`,
-        `${PREFIX}/resources/layout/build/lowcode/view.css`,
+        `${PREFIX}/resources/@ss-layout/build/lowcode/view.js`,
+        `${PREFIX}/resources/@ss-layout/build/lowcode/view.css`,
       ],
     },
     // {
@@ -168,15 +168,12 @@ const assets = {
     //   },
     // },
     {
-      exportName: 'AlifdLayoutMeta',
+      exportName: 'SsLayoutSsPageMeta',
       npm: {
-        package: '@alifd/layout',
-        version: '2.4.1',
+        package: '@ss-layout/ss-page',
+        version: '1.0.0',
       },
-      url: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
-      urls: {
-        default: `${PREFIX}/resources/layout/build/lowcode/meta.js`,
-      },
+      url: `${PREFIX}/resources/@ss-layout/build/lowcode/meta.js`
     },
     // {
     //   exportName: 'AlifdFusionUiMeta',
