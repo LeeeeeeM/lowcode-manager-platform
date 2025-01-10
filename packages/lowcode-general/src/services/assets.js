@@ -88,26 +88,26 @@ const assets = {
     //   ],
     //   library: 'NextTable',
     // },
-    // {
-    //   package: '@alilc/lowcode-materials',
-    //   version: '1.2.1',
-    //   library: 'AlilcLowcodeMaterials',
-    //   urls: [
-    //     `${PREFIX}/resources/lowcode-materials/build/lowcode/view.js`,
-    //     `${PREFIX}/resources/lowcode-materials/build/lowcode/view.css`,
-    //   ],
-    //   editUrls: [
-    //     `${PREFIX}/resources/lowcode-materials/build/lowcode/view.js`,
-    //     `${PREFIX}/resources/lowcode-materials/build/lowcode/view.css`,
-    //   ],
-    // },
+    {
+      package: '@alilc/lowcode-materials',
+      version: '1.2.1',
+      library: 'AlilcLowcodeMaterials',
+      urls: [
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.js`,
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.js`,
+        `${PREFIX}/resources/lowcode-materials/build/lowcode/view.css`,
+      ],
+    },
     {
       package: '@ss-layout/ss-page',
       version: '1.0.1',
       library: '@ss-layout/ss-page',
       urls: [
-        `${PREFIX}/resources/@ss-layout/build/render/default/view.js`,
-        `${PREFIX}/resources/@ss-layout/build/render/default/view.css`,
+        `${PREFIX}/resources/@ss-layout/build/lowcode/render/default/view.js`,
+        `${PREFIX}/resources/@ss-layout/build/lowcode/render/default/view.css`,
       ],
       editUrls: [
         `${PREFIX}/resources/@ss-layout/build/lowcode/view.js`,
@@ -127,19 +127,19 @@ const assets = {
     //     'https://alifd.alicdn.com/npm/@alifd/pro-layout@1.0.1-beta.5/build/lowcode/view.css',
     //   ],
     // },
-    // {
-    //   package: '@alifd/fusion-ui',
-    //   version: '2.1.0',
-    //   library: 'AlifdFusionUi',
-    //   urls: [
-    //     `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
-    //     `${PREFIX}/resources/fusion-ui/build/lowcode/view.css`,
-    //   ],
-    //   editUrls: [
-    //     `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
-    //     `${PREFIX}/resources/fusion-ui/build/lowcode/view.css`,
-    //   ],
-    // },
+    {
+      package: '@alifd/fusion-ui',
+      version: '2.1.0',
+      library: 'AlifdFusionUi',
+      urls: [
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.css`,
+      ],
+      editUrls: [
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.js`,
+        `${PREFIX}/resources/fusion-ui/build/lowcode/view.css`,
+      ],
+    },
     // {
     //   package: '@alilc/antd-lowcode-materials',
     //   version: '1.2.1',
@@ -156,17 +156,17 @@ const assets = {
     ...components,
   ],
   components: [
-    // {
-    //   exportName: 'AlilcLowcodeMaterialsMeta',
-    //   npm: {
-    //     package: '@alilc/lowcode-materials',
-    //   },
-    //   url: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
-    //   urls: {
-    //     default: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
-    //     design: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.design.js`,
-    //   },
-    // },
+    {
+      exportName: 'AlilcLowcodeMaterialsMeta',
+      npm: {
+        package: '@alilc/lowcode-materials',
+      },
+      url: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.js`,
+        design: `${PREFIX}/resources/lowcode-materials/build/lowcode/meta.design.js`,
+      },
+    },
     {
       exportName: 'SsLayoutSsPageMeta',
       npm: {
@@ -175,17 +175,17 @@ const assets = {
       },
       url: `${PREFIX}/resources/@ss-layout/build/lowcode/meta.js`
     },
-    // {
-    //   exportName: 'AlifdFusionUiMeta',
-    //   npm: {
-    //     package: '@alifd/fusion-ui',
-    //   },
-    //   url: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.js`,
-    //   urls: {
-    //     default: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.js`,
-    //     design: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.design.js`,
-    //   },
-    // },
+    {
+      exportName: 'AlifdFusionUiMeta',
+      npm: {
+        package: '@alifd/fusion-ui',
+      },
+      url: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.js`,
+      urls: {
+        default: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.js`,
+        design: `${PREFIX}/resources/fusion-ui/build/lowcode/meta.design.js`,
+      },
+    },
     // {
     //   exportName: 'AlilcAntdLowcodeMaterialsMeta',
     //   npm: {
