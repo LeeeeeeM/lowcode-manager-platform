@@ -3,7 +3,7 @@
     {
       "package": "@ss-antd-material/dropdown",
       "version": "0.1.0",
-      "library": "@ss-antd-material/form",
+      "library": "@ss-antd-material/dropdown",
       "urls": [
         "./render/default/view.js",
         "./render/default/view.css"
