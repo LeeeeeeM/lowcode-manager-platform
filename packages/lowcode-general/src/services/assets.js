@@ -173,7 +173,7 @@ const assets = {
         package: '@ss-layout/ss-page',
         version: '1.0.0',
       },
-      url: `${PREFIX}/resources/@ss-layout/build/lowcode/meta.js`
+      url: `${PREFIX}/resources/@ss-layout/build/lowcode/meta.js`,
     },
     {
       exportName: 'AlifdFusionUiMeta',
@@ -215,7 +215,7 @@ const assets = {
     ...metas,
   ],
   sort: {
-    groupList: ['ANTD组件', 'FUSION基础组件', 'FUSION-UI组件', '布局组件'],
+    groupList: ['ANTD组件', '页面布局', '自定义组件', 'FUSION组件', '精选组件'],
     categoryList: [
       '基础元素',
       '布局容器类',
@@ -231,7 +231,7 @@ const assets = {
       '信息反馈',
     ],
   },
-  groupList: ['ANTD组件', 'FUSION基础组件', 'FUSION-UI组件', '布局组件'],
+  groupList: ['ANTD组件', '页面布局', '自定义组件', 'FUSION组件', '精选组件'],
   ignoreComponents: {},
 };
 
