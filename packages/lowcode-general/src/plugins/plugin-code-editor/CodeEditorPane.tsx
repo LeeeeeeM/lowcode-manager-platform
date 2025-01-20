@@ -17,9 +17,10 @@ interface CodeEditorPaneProps {
   project: any;
   event: any;
   skeleton: any;
+  savePage: () => void;
 }
 
-export const CodeEditorPane = memo(({ project, event, skeleton }: CodeEditorPaneProps) => {
+export const CodeEditorPane = memo(({ project, event, skeleton, savePage }: CodeEditorPaneProps) => {
   const [activeKey, setActiveKey] = useState(TAB_KEY.JS);
   const lowcodeProjectRef = useRef(project);
   const skeletonRef = useRef(skeleton);
@@ -170,6 +171,7 @@ export const CodeEditorPane = memo(({ project, event, skeleton }: CodeEditorPane
       <SaveIcon
         onClick={() => {
           saveSchemaRef.current?.();
+          savePage?.();
         }}
         // isDisabled={code === jsCode || hasError}
       />

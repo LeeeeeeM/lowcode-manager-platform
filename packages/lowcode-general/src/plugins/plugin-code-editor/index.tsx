@@ -3,6 +3,8 @@ import { CodeEditorPane } from './CodeEditorPane';
 import { project } from '@alilc/lowcode-engine';
 import icon from '@alilc/lowcode-plugin-code-editor/es/icon';
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { savePage } from '../../services';
+import { PAGE_SIG_ID } from 'common';
 
 const plugin = (ctx: IPublicModelPluginContext) => {
   return {
@@ -16,6 +18,8 @@ const plugin = (ctx: IPublicModelPluginContext) => {
     },
     // 插件的初始化函数，在引擎初始化之后会立刻调用
     init() {
+      const urlParams = new URLSearchParams(location.search.slice(1));
+      const pageId = urlParams.get(PAGE_SIG_ID);
       const codeEditorDock = ctx.skeleton.add({
         area: 'leftArea',
         name: 'codeEditor',
@@ -28,7 +32,11 @@ const plugin = (ctx: IPublicModelPluginContext) => {
           width: '600px',
           title: '源码面板',
         },
-        content: <CodeEditorPane event={ctx.event} skeleton={ctx.skeleton} project={ctx.project} />,
+        content: <CodeEditorPane event={ctx.event} skeleton={ctx.skeleton} project={ctx.project} savePage={() => {
+          if (pageId) {
+            savePage(pageId);
+          }
+        }}/>,
       });
 
       codeEditorDock && codeEditorDock.disable();
