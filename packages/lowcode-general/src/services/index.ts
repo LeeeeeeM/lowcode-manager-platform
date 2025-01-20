@@ -5,7 +5,8 @@ import { getUserName } from 'common';
 import { material, project } from '@alilc/lowcode-engine';
 import { filterPackages } from '../utils';
 import { IPublicTypeProjectSchema, IPublicEnumTransformStage } from '@alilc/lowcode-types';
-import DefaultPageSchema from './defaultPageSchema1.json';
+import DefaultCustomPageSchema from './defaultCustomPageSchema';
+import DefaultFormPageSchema from './defaultFormPageSchema';
 // import DefaultI18nSchema from './defaultI18nSchema.json';
 
 export const savePage = async (pageId: string | null): Promise<void> => {
@@ -45,7 +46,10 @@ export const getAllPageInfo = async (
 };
 
 export const getPageSchema = async (pageId: string | null): Promise<IPublicTypeProjectSchema> => {
-  let pageSchema = DefaultPageSchema;
+  // 默认的自定义页面schema，不是 form 表单类型
+  let pageSchema = DefaultCustomPageSchema;
+
+  console.log(pageSchema)
 
   if (pageId) {
     try {
@@ -60,6 +64,10 @@ export const getPageSchema = async (pageId: string | null): Promise<IPublicTypeP
       // console.log(schema);
       if (schema) {
         return allContent;
+      }
+      // 表单类型模板 @todo
+      if (true) {
+        pageSchema = DefaultFormPageSchema
       }
     } catch {
       Message.warning(`获取模版失败`);
@@ -95,7 +103,7 @@ export const resetSchema = async () => {
   } catch (err) {
     return;
   }
-  const defaultSchema = generateProjectSchema(DefaultPageSchema, {});
+  const defaultSchema = generateProjectSchema(DefaultCustomPageSchema, {});
 
   project.importSchema(defaultSchema as any);
   project.simulatorHost?.rerender();

@@ -138,6 +138,12 @@
     "name": "form"
   },
   {
+    "meta": "SsAntdMaterialFormPageContainerMeta",
+    "lib": "@ss-antd-material/form-page-container",
+    "version": "0.1.0",
+    "name": "form-page-container"
+  },
+  {
     "meta": "SsAntdMaterialGridMeta",
     "lib": "@ss-antd-material/grid",
     "version": "0.1.0",
