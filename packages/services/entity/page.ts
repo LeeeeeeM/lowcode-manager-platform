@@ -1,3 +1,5 @@
+import { PAGE_TYPE } from "../constants";
+
 export interface Page {
   id: number;
   //页面名称
@@ -16,4 +18,6 @@ export interface Page {
   updateBy: string;
   // 页面标识
   identifier: string;
+  // 页面类型
+  pageType: PAGE_TYPE;
 }

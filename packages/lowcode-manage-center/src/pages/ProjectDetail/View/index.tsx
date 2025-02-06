@@ -1,6 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Flex, message } from "antd";
+import { Button, Flex, message, Dropdown } from "antd";
+import { DownOutlined } from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { MenuItemType } from "antd/es/menu/interface";
 import { CreatePage, GetPageList, UpdatePage } from "services";
 import { getUserName } from "common";
 import {
@@ -8,6 +11,7 @@ import {
   DEFAULT_PAGE_INFO,
   DEFAULT_PAGE_NUMBER,
   DEFAULT_PAGE_SIZE,
+  PAGE_TYPE_TEXT_MAP,
 } from "/@/constants";
 import ViewBox from "/@/components/ViewBox";
 import FormInfo from "/@/components/FormInfo";
@@ -16,6 +20,22 @@ import CustomTable from "../components/table";
 import CreateModal, { type PageInfo } from "../components/modal";
 import PreviewModal from "../components/preview";
 import { Page } from "services/entity";
+import { PAGE_TYPE } from "services/constants";
+
+interface CustomMenuItemType extends MenuItemType {
+  key: PAGE_TYPE;
+}
+
+const items: CustomMenuItemType[] = [
+  {
+    label: PAGE_TYPE_TEXT_MAP[PAGE_TYPE.CUSTOM].text,
+    key: PAGE_TYPE.CUSTOM,
+  },
+  {
+    label: PAGE_TYPE_TEXT_MAP[PAGE_TYPE.FORM].text,
+    key: PAGE_TYPE.FORM,
+  },
+];
 
 export default function ProjectManage() {
   const { id } = useParams();
@@ -30,6 +50,18 @@ export default function ProjectManage() {
   const [currentPreviewItem, setCurrentPreviewItem] = useState<Page>();
   const [currentPageInfo, setCurrentPageInfo] =
     useState<PageInfo>(DEFAULT_PAGE_INFO);
+  const currentPageType = useRef<PAGE_TYPE>(PAGE_TYPE.CUSTOM);
+
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
+    openModal(DEFAULT_PAGE_INFO);
+    currentPageType.current = e.key as unknown as PAGE_TYPE;
+    console.log("click", e.key);
+  };
+
+  const menuProps = {
+    items,
+    onClick: handleMenuClick,
+  };
 
   const openModal = (info: PageInfo) => {
     setVisible(true);
@@ -99,7 +131,7 @@ export default function ProjectManage() {
 
   const createOrSaveNewPage = useCallback(
     async (info: PageInfo) => {
-      const { name, identifier } = info;
+      const { name, identifier, pageType } = info;
       try {
         if (currentPageInfo.id) {
           await UpdatePage({
@@ -108,6 +140,7 @@ export default function ProjectManage() {
             name,
             userName: getUserName(),
             identifier,
+            pageType: pageType!,
           });
         } else {
           await CreatePage({
@@ -115,6 +148,7 @@ export default function ProjectManage() {
             name,
             userName: getUserName(),
             identifier,
+            pageType: Number(currentPageType.current),
           });
         }
 
@@ -144,8 +178,13 @@ export default function ProjectManage() {
       <ViewBox>
         <FormInfo editable={false} formData={projectInfo} showSubmit={false} />
         <Flex align="center" gap={10} className="mb-2">
-          <Button onClick={() => returnProject()}>返回项目</Button>
-          <Button onClick={() => openModal(DEFAULT_PAGE_INFO)}>新建页面</Button>
+          <Button onClick={returnProject}>返回项目</Button>
+          <Dropdown menu={menuProps}>
+            <Button type="primary">
+              新建页面
+              <DownOutlined />
+            </Button>
+          </Dropdown>
         </Flex>
         <CustomTable
           {...{

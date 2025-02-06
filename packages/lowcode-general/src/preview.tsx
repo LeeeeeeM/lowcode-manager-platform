@@ -8,6 +8,7 @@ import { buildComponents, assetBundle, AssetLevel, AssetLoader } from '@alilc/lo
 import ReactRenderer from '@alilc/lowcode-react-renderer';
 // import { Slot, Leaf } from './built-in-comp';
 import { PAGE_SIG_ID } from 'common';
+import { PAGE_TYPE } from 'services/constants';
 // import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import appHelper from './appHelper';
 import { getAllPageInfo } from './services';
@@ -33,7 +34,7 @@ const Preview = () => {
 
     try {
       const schema = await getAllPageInfo(pageId);
-      const { assets, content } = schema || {};
+      const { assets, content, pageType } = schema || {};
       const projectSchema = JSON.parse(content) || {};
       const pack = JSON.parse(assets) || [];
       const packages = isEmpty(pack) ? [] : pack;
@@ -44,6 +45,16 @@ const Preview = () => {
         dataSource: projectDataSource = {},
       } = projectSchema;
       const pageSchema = componentsTree?.[0] || {};
+
+      // 渲染器针对 form 表单进行处理
+      if (pageType === PAGE_TYPE.FORM) {
+        const formPageContainer = pageSchema.children[0];
+        const formSchema = await import('./services/defaultFormPageSchema');
+        if (formPageContainer?.children) {
+          formPageContainer.children.push(formSchema.ButtonGroup);
+        }
+      }
+
       componentsMapArray.forEach((component: any) => {
         componentsMap[component.componentName] = component;
       });

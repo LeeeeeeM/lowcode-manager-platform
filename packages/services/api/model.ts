@@ -1,4 +1,5 @@
 import { Page } from "../entity";
+import { PAGE_TYPE } from '../constants';
 import { Project, SimpleProject } from "../entity/project";
 
 export interface CreateProjectRequest {
@@ -30,6 +31,7 @@ export interface CreatePageRequest {
   name: string;
   userName: string;
   identifier: string;
+  pageType: PAGE_TYPE;
 }
 
 export interface UpdatePageRequest {
@@ -43,6 +45,8 @@ export interface UpdatePageRequest {
   userName: string;
   //页面标识
   identifier: string;
+  // 页面类型
+  pageType: PAGE_TYPE;
 }
 
 export interface CreatePageResponse {

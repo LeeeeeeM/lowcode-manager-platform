@@ -1,11 +1,13 @@
 import { FC, useEffect, useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
 import { DEFAULT_PAGE_INFO, ID_REG } from "/@/constants";
+import { PAGE_TYPE } from "services/constants";
 
 export interface PageInfo {
   name: string;
   identifier: string;
   id?: number;
+  pageType?: PAGE_TYPE
 }
 
 interface AddPageModalProps<T> {

@@ -1,3 +1,12 @@
+import {
+  FORM_BUTTON_GROUP,
+  FORM_BUTTON_GROUP_CLASSNAME,
+  FORM_CONTAINER_ID,
+  FORM_REF_NAME,
+  FORM_RESET_BUTTON_ID,
+  FORM_SUBMIT_BUTTON_ID,
+} from '../constants';
+
 export function uuid() {
   return ((Math.random() * 1e6) >> 0).toString(36);
 }
@@ -79,7 +88,7 @@ export default {
   children: [
     {
       componentName: 'FormPageContainer',
-      id: 'node_ocm64u2opq1',
+      id: FORM_CONTAINER_ID,
       props: {
         labelCol: {
           span: 6,
@@ -102,8 +111,8 @@ export default {
           value:
             "function() {\n      const self = this;\n      try {\n        return (function onFinishFailed({ values, errorFields, outOfDate }) {\n  console.log('onFinishFailed', values, errorFields, outOfDate);\n}).apply(self, arguments);\n      } catch(e) {\n        console.warn('call function which parsed by lowcode failed: ', e);\n        return e.message;\n      }\n    }",
         },
-        name: 'basic',
-        ref: `form_container_${uuid()}`,
+        name: `form_container_${uuid()}`,
+        ref: FORM_REF_NAME,
         colon: false,
         hideRequiredMark: false,
         preserve: true,
@@ -135,7 +144,7 @@ export default {
               required: true,
               message: '必填',
             },
-            ref: 'form.item-17007b23',
+            ref: `form.item_first_field`,
           },
           hidden: false,
           title: '',
@@ -239,11 +248,30 @@ export default {
   ],
 };
 
+const submitCode = function () {
+  // @ts-ignore
+  const form = this.$('form_ref').formRef.current;
+  if (form) {
+    // @ts-ignore
+    form
+      .validateFields()
+      // @ts-ignore
+      .then((values) => {
+        console.log(values);
+      })
+      // @ts-ignore
+      .catch((e) => {
+        console.error(e);
+      });
+  }
+};
+
 // 最终在运行时插入
 export const ButtonGroup = {
   componentName: 'Form.Item',
-  id: 'node_ocm64u2opq8',
+  id: FORM_BUTTON_GROUP,
   props: {
+    className: FORM_BUTTON_GROUP_CLASSNAME,
     wrapperCol: {
       offset: 0,
     },
@@ -256,11 +284,15 @@ export const ButtonGroup = {
   children: [
     {
       componentName: 'Button',
-      id: 'node_ocm64u2opq9',
+      id: FORM_SUBMIT_BUTTON_ID,
       props: {
         type: 'primary',
         children: '提交',
-        htmlType: 'submit',
+        // htmlType: 'submit',
+        onClick: {
+          type: 'JSFunction',
+          value: `${submitCode.toString()}`,
+        },
       },
       hidden: false,
       title: '',
@@ -270,7 +302,7 @@ export const ButtonGroup = {
     },
     {
       componentName: 'Button',
-      id: 'node_ocm64u2opqa',
+      id: FORM_RESET_BUTTON_ID,
       props: {
         style: {
           marginLeft: 20,

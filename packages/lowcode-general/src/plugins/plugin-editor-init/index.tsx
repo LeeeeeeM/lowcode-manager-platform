@@ -18,7 +18,7 @@ const EditorInitPlugin = (ctx: IPublicModelPluginContext, options: any) => {
       config.set('scenarioInfo', scenarioInfo);
       const urlParams = new URLSearchParams(location.search.slice(1));
       const pageId = urlParams.get(PAGE_SIG_ID);
-      const schema = await getPageSchema(pageId);
+      const schema = await getPageSchema(pageId, config);
       // 设置物料描述
       await material.setAssets(await injectAssets(assets));
       // await material.setAssets(assets);

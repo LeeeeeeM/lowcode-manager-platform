@@ -9,7 +9,7 @@ export const filterPackages = async (packages: any[] = [], schema: any) => {
   // 需要预置的包
   const needPreloadPackages = ['@ant-design/icons', 'antd'];
   // 暂时需要整体加载的物料包，后续可能干掉。fusion，fusion-ui, layout
-  const tempMaterialPackages = ['@alilc/lowcode-materials', '@alifd/layout', '@alifd/fusion-ui'];
+  const tempMaterialPackages = ['@alilc/lowcode-materials', '@alifd/fusion-ui', '@alifd/layout'];
 
   const componentList = schema.componentsMap;
 

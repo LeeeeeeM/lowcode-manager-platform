@@ -11,7 +11,8 @@ import dayjs from "dayjs";
 import { Page } from "services/entity";
 import { DEVELOP_LOWCODE_URL, LOWCODE_PATH_PREFIX, PAGE_SIG_ID } from "common";
 import { DeletePage } from "services";
-import { Action, DEFAULT_PAGE_NUMBER } from "/@/constants";
+import { Action, DEFAULT_PAGE_NUMBER, PAGE_TYPE_TEXT_MAP } from "/@/constants";
+import { PAGE_TYPE } from "services/constants";
 
 interface CustomTableProps<T> {
   total?: number;
@@ -75,7 +76,12 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
     onClickAction(item, Action.MODIFY_INFO);
   };
 
+  const createManagePage = (item: Page) => {
+    console.log(item);
+  }
+
   const renderAction = (item: Page) => {
+    const { pageType } = item;
     return (
       <Flex>
         <Button type="link" onClick={() => previewPage(item)}>
@@ -87,6 +93,7 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
         <Button type="link" onClick={() => editPage(item)}>
           编辑页面
         </Button>
+        { pageType === PAGE_TYPE.FORM ? <Button type="link" onClick={() => createManagePage(item)}>生成管理页</Button> : null }
         <Popconfirm
           title={"删除当前页面"}
           okButtonProps={{ loading: confirmLoading }}
@@ -102,16 +109,25 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
 
   const columns: TableColumnsType<Page> = [
     {
+      title: "页面ID",
+      width: 100,
+      dataIndex: "id",
+      key: "id",
+    },
+    {
       title: "页面名称",
       width: 100,
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "页面ID",
+      title: "页面类型",
       width: 100,
-      dataIndex: "id",
-      key: "id",
+      dataIndex: "pageType",
+      key: "pageType",
+      render(item: PAGE_TYPE) {
+        return PAGE_TYPE_TEXT_MAP[item].text;
+      },
     },
     {
       title: "创建时间",
@@ -135,7 +151,7 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
       title: "操作列",
       key: "operation",
       fixed: "right",
-      width: 200,
+      width: 250,
       render: renderAction,
     },
   ];
@@ -147,7 +163,7 @@ const CustomTable: FC<CustomTableProps<Page>> = (props) => {
       dataSource={data}
       rowKey="id"
       loading={loading}
-      scroll={{ x: 1000, y: 600 }}
+      scroll={{ x: 1500, y: 600 }}
       pagination={{
         showSizeChanger: false,
         showQuickJumper: true,
