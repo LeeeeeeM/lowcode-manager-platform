@@ -144,7 +144,7 @@ export default {
               required: true,
               message: '必填',
             },
-            ref: `form.item_first_field`,
+            ref: `form.item_first-field`,
           },
           hidden: false,
           title: '',
@@ -250,7 +250,7 @@ export default {
 
 const submitCode = function () {
   // @ts-ignore
-  const form = this.$('form_ref').formRef.current;
+  const form = this.$('form_ref');
   if (form) {
     // @ts-ignore
     form

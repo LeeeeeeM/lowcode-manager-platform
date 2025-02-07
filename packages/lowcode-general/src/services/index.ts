@@ -9,7 +9,7 @@ import { CONFIG_PAGE_TYPE_KEY } from '../constants';
 import { IPublicTypeProjectSchema, IPublicEnumTransformStage, IPublicModelEngineConfig } from '@alilc/lowcode-types';
 import DefaultCustomPageSchema from './defaultCustomPageSchema';
 import DefaultFormPageSchema, { ButtonGroup } from './defaultFormPageSchema';
-import { getFormExtraAssets } from './assets';
+// import { getFormExtraAssets } from './assets';
 // import DefaultI18nSchema from './defaultI18nSchema.json';
 
 export const savePage = async (pageId: string | null): Promise<void> => {
@@ -25,15 +25,15 @@ export const savePage = async (pageId: string | null): Promise<void> => {
     const schema = JSON.stringify(rawSchema);
     const packages = await filterPackages(material.getAssets()!.packages, rawSchema);
 
-    // 表单添加额外组件
-    if (pageType === PAGE_TYPE.FORM) {
-      const formExtraAssets = getFormExtraAssets();
-      formExtraAssets.forEach((item) => {
-        if (!packages.some((pkg) => pkg.package === item.package)) {
-          packages.push(item);
-        }
-      });
-    }
+    // // 表单添加额外组件
+    // if (pageType === PAGE_TYPE.FORM) {
+    //   const formExtraAssets = getFormExtraAssets();
+    //   formExtraAssets.forEach((item) => {
+    //     if (!packages.some((pkg) => pkg.package === item.package)) {
+    //       packages.push(item);
+    //     }
+    //   });
+    // }
 
     const assets = JSON.stringify(packages);
     await SavePage({

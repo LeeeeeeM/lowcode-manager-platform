@@ -22,7 +22,7 @@ export const PAGE_TYPE_TEXT_MAP: Record<PAGE_TYPE, Record<string, string>> = {
 export const DEFAULT_PAGE_INFO = {
   name: "",
   identifier: "",
-  page_type: PAGE_TYPE.CUSTOM,
+  pageType: PAGE_TYPE.CUSTOM,
 };
 
 export enum Action {

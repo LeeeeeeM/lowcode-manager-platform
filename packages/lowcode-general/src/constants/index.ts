@@ -10,6 +10,7 @@ export const FORM_RESET_BUTTON_ID = `node_form_reset_button_V1`;
 // 容器表单按钮组类名
 export const FORM_BUTTON_GROUP_CLASSNAME = 'form-button-group';
 
+// 表单容器 ref
 export const FORM_REF_NAME = 'form_ref';
 
 // 容器表单配置页面类型

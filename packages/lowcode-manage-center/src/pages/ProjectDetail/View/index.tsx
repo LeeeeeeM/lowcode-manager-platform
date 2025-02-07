@@ -53,9 +53,12 @@ export default function ProjectManage() {
   const currentPageType = useRef<PAGE_TYPE>(PAGE_TYPE.CUSTOM);
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
-    openModal(DEFAULT_PAGE_INFO);
-    currentPageType.current = e.key as unknown as PAGE_TYPE;
-    console.log("click", e.key);
+    const pageType = Number(e.key) as PAGE_TYPE;
+    openModal({
+      ...DEFAULT_PAGE_INFO,
+      pageType
+    });
+    currentPageType.current = pageType;
   };
 
   const menuProps = {
@@ -88,6 +91,7 @@ export default function ProjectManage() {
           name: item.name,
           identifier: item.identifier,
           id: item.id,
+          pageType: item.pageType
         });
         break;
       default:

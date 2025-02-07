@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Loading, Message } from '@alifd/next';
 import mergeWith from 'lodash/mergeWith';
 import isArray from 'lodash/isArray';
@@ -12,6 +12,8 @@ import { PAGE_TYPE } from 'services/constants';
 // import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import appHelper from './appHelper';
 import { getAllPageInfo } from './services';
+import builtInComponentsList from './built-in/components';
+import { FORM_COMP_LIST, FORM_ITEM, FORM_ITEM_ADAPTOR_NAME } from './constants/components';
 import './landing.less';
 
 // const getScenarioName = function () {
@@ -89,6 +91,7 @@ const Preview = () => {
         components,
         i18n,
         projectDataSource,
+        pageType
       });
     } catch (e) {
       console.log(e);
@@ -96,7 +99,7 @@ const Preview = () => {
     }
   }
 
-  const { schema, components, i18n = {}, projectDataSource = {} } = data as any;
+  const { schema, components, i18n = {}, projectDataSource = {}, pageType } = data as any;
 
   if (!schema || !components) {
     init();
@@ -119,13 +122,69 @@ const Preview = () => {
     }
   }
 
+  const builtInComponents = builtInComponentsList.reduce((result: Record<string, FC>, next) => {
+    result[next.name] = next.component;
+    return result;
+  }, {});
+
+  const transform2FormItemText = (schema: any, formData: Record<string, any>) => {
+    const formContainer = schema.children[0];
+    if (formContainer) {
+      const formItems = formContainer.children || [];
+      const newChildren = formItems.map((item: any) => {
+        if (item.componentName === FORM_ITEM) {
+          item.children = item.children.map((childItem: any) => {
+            // @todo 几个枚举直接返回
+            if (!FORM_COMP_LIST.includes(childItem.componentName)) {
+              return childItem;
+            }
+            return {
+              componentName: FORM_ITEM_ADAPTOR_NAME,
+              props: {
+                parentProps: item.props || {},
+                currrentProps: childItem.props || {},
+                currentComponent: childItem.componentName,
+                formData,
+              },
+            };
+          });
+        }
+        return item;
+      });
+      formContainer.children = newChildren;
+    }
+  };
+
+  if (pageType === PAGE_TYPE.FORM) {
+    // 测试代码
+    transform2FormItemText(schema, {
+      form_item_jldf: 'zzz111',
+      form_item_kzp3: 'A',
+      form_item_ikwy: 'xxx',
+      form_item_efvd: 'C',
+      form_item_xxx1: ['B', 'A'],
+      form_item_l078: 'tt',
+    });
+  }
+
+
   return (
     <ReactRenderer
       schema={{
         ...schema,
         dataSource: mergeWith(schema.dataSource, projectDataSource, customizer),
       }}
-      components={components}
+      onCompGetCtx={(schema, ctx) => {
+        // @todo 移植过去
+        console.log(schema, ctx);
+        // setTimeout(() => {
+        //   ctx['form_ref'].submit();
+        // }, 1000);
+      }}
+      components={{
+        ...builtInComponents,
+        ...components,
+      }}
       // locale={currentLocale}
       messages={i18n}
       appHelper={appHelper}

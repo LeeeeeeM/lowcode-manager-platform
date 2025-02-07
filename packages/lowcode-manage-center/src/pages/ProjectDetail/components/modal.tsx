@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
-import { DEFAULT_PAGE_INFO, ID_REG } from "/@/constants";
+import { DEFAULT_PAGE_INFO, ID_REG, PAGE_TYPE_TEXT_MAP } from "/@/constants";
 import { PAGE_TYPE } from "services/constants";
 
 export interface PageInfo {
@@ -63,7 +63,7 @@ const AddPageModal: FC<AddPageModalProps<PageInfo>> = (props) => {
     <Modal
       open={visible}
       destroyOnClose={true}
-      title={info?.identifier ? "修改页面" : "新建页面"}
+      title={info.identifier ? `修改${PAGE_TYPE_TEXT_MAP[info.pageType || PAGE_TYPE.CUSTOM].text}` : `新建${PAGE_TYPE_TEXT_MAP[info.pageType || PAGE_TYPE.CUSTOM].text}`}
       onOk={handleOk}
       onCancel={handleCancel}
       footer={[

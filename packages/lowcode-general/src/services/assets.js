@@ -6,9 +6,9 @@ const PREFIX = MODE === 'development' ? DEVELOP_COMPONENT_URL : '';
 const metas = [];
 const components = [];
 
-const formExtraLibs = ['@ss-antd-material/button'];
+// const formExtraLibs = ['@ss-antd-material/button'];
 
-const formExtraAssets = [];
+// const formExtraAssets = [];
 
 CustomMetaInfos.forEach(({ name, lib, version, meta }) => {
   metas.push({
@@ -41,17 +41,17 @@ AntdMetaInfos.forEach(({ name, lib, version, meta }) => {
   });
 
   // 如果表单组件需要额外加载，特殊处理
-  if (formExtraLibs.includes(lib)) {
-    formExtraAssets.push({
-      package: lib,
-      version,
-      urls: [
-        `${PREFIX}/resources/@ss-antd-material/${name}/build/lowcode/render/default/view.js`,
-        `${PREFIX}/resources/@ss-antd-material/${name}/build/lowcode/render/default/view.css`,
-      ],
-      library: lib,
-    });
-  }
+  // if (formExtraLibs.includes(lib)) {
+  //   formExtraAssets.push({
+  //     package: lib,
+  //     version,
+  //     urls: [
+  //       `${PREFIX}/resources/@ss-antd-material/${name}/build/lowcode/render/default/view.js`,
+  //       `${PREFIX}/resources/@ss-antd-material/${name}/build/lowcode/render/default/view.css`,
+  //     ],
+  //     library: lib,
+  //   });
+  // }
 
   components.push({
     package: lib,
@@ -255,4 +255,4 @@ const assets = {
 
 export default assets;
 
-export const getFormExtraAssets = () => formExtraAssets;
+// export const getFormExtraAssets = () => formExtraAssets;
