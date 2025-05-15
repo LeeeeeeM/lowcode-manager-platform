@@ -2,7 +2,6 @@ bin=build
 
 BUILD_TIME=$$(date "+%FT%T%z")
 
-OUTPUT-PATH=./publish 
 SERVICE_NAME=ss_middle_platform/lowcode_platform_center
 IMAGES_NAME=hub.smartsteps.com/${SERVICE_NAME}
 
@@ -27,5 +26,3 @@ publish:
 	docker rmi ${IMAGES_NAME}:${TAG}
 	git tag -a ${TAG} -m ${TAG}-${MESSAGE}
 	git push origin ${TAG}
-clean:
-	rm -fr $(OUTPUT-PATH)/*

@@ -84,3 +84,5 @@ export const GetPageList = (
 export const GetLicenseTest = () => {
   return axios.get(GET_LICENSE_TEST);
 };
+
+export * from './report-menu';

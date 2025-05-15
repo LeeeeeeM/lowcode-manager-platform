@@ -458,6 +458,109 @@ importers:
         specifier: ^1.7.7
         version: 1.7.7
 
+  packages/smart-report:
+    dependencies:
+      '@ant-design/icons':
+        specifier: ^5.5.1
+        version: 5.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      ahooks:
+        specifier: ^3.8.1
+        version: 3.8.1(react@18.3.1)
+      antd:
+        specifier: ^5.21.4
+        version: 5.21.6(date-fns@2.30.0)(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      axios:
+        specifier: ^1.7.7
+        version: 1.7.7
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
+      common:
+        specifier: workspace:^
+        version: link:../common
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
+      monaco-editor:
+        specifier: ^0.52.0
+        version: 0.52.0
+      parse5:
+        specifier: ^7.2.0
+        version: 7.2.0
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+      react-monaco-editor:
+        specifier: ^0.58.0
+        version: 0.58.0(monaco-editor@0.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-router-dom:
+        specifier: ^6.27.0
+        version: 6.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      services:
+        specifier: workspace:^
+        version: link:../services
+      zustand:
+        specifier: ^5.0.0
+        version: 5.0.0(@types/react@18.3.11)(react@18.3.1)(use-sync-external-store@1.2.2(react@18.3.1))
+    devDependencies:
+      '@eslint/js':
+        specifier: ^9.11.1
+        version: 9.13.0
+      '@types/file-saver':
+        specifier: ^2.0.7
+        version: 2.0.7
+      '@types/node':
+        specifier: ^22.7.7
+        version: 22.7.7
+      '@types/react':
+        specifier: ^18.3.10
+        version: 18.3.11
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.1
+      '@vitejs/plugin-react-swc':
+        specifier: ^3.5.0
+        version: 3.7.1(vite@5.4.9(@types/node@22.7.7)(less@4.2.0)(sass@1.80.4)(terser@5.36.0))
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.4.47)
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      eslint:
+        specifier: ^9.11.1
+        version: 9.13.0(jiti@1.21.6)
+      eslint-plugin-react-hooks:
+        specifier: ^5.1.0-rc.0
+        version: 5.2.0(eslint@9.13.0(jiti@1.21.6))
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.12
+        version: 0.4.13(eslint@9.13.0(jiti@1.21.6))
+      globals:
+        specifier: ^15.9.0
+        version: 15.11.0
+      less:
+        specifier: ^4.2.0
+        version: 4.2.0
+      postcss-load-config:
+        specifier: ^6.0.1
+        version: 6.0.1(jiti@1.21.6)(postcss@8.4.47)(yaml@2.6.0)
+      tailwindcss:
+        specifier: ^3.4.14
+        version: 3.4.14
+      typescript:
+        specifier: ^5.5.3
+        version: 5.6.3
+      typescript-eslint:
+        specifier: ^8.7.0
+        version: 8.10.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)
+      vite:
+        specifier: ^5.4.8
+        version: 5.4.9(@types/node@22.7.7)(less@4.2.0)(sass@1.80.4)(terser@5.36.0)
+
 packages:
 
   '@alib/build-scripts@0.1.32':
@@ -4581,6 +4684,12 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
+  eslint-plugin-react-hooks@5.2.0:
+    resolution: {integrity: sha512-+f15FfK64YQwZdJNELETdn5ibXEUQmW1DZL6KXhNnc2heoy/sg9VJJeT7n8TlMWouzWqSWavFkIhHyIbIAEapg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
+
   eslint-plugin-react-refresh@0.4.13:
     resolution: {integrity: sha512-f1EppwrpJRWmqDTyvAyomFVDYRtrS7iTEqv3nokETnMiMzs2SSTmKRTACce4O2p4jYyowiSMvpdwC/RLcMFhuQ==}
     peerDependencies:
@@ -6322,9 +6431,11 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
 
   lodash.memoize@4.1.2:
     resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
@@ -8240,6 +8351,13 @@ packages:
 
   react-lifecycles-compat@3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+
+  react-monaco-editor@0.58.0:
+    resolution: {integrity: sha512-e8JH0TQEzO96Wd/EXgzc9M9tQK1pxBECD+8GNob9slMURcCM36TiVrgc4topWCDGYxRuMj8IEkaX+s3eQcUUqw==}
+    peerDependencies:
+      monaco-editor: ^0.52.0
+      react: '>=16.8.0 <20.0.0'
+      react-dom: '>=16.8.0 <20.0.0'
 
   react-responsive-iframe-viewer@1.1.4:
     resolution: {integrity: sha512-yN/OGETE+/V2j4wBSulUctjgTeW+hG+0e+KrKhtTI8eT1I3JNucRWOaS/UixKzGPVMIlwa32cdFmrxYwAJVp9g==}
@@ -15831,6 +15949,10 @@ snapshots:
     dependencies:
       eslint: 9.13.0(jiti@1.21.6)
 
+  eslint-plugin-react-hooks@5.2.0(eslint@9.13.0(jiti@1.21.6)):
+    dependencies:
+      eslint: 9.13.0(jiti@1.21.6)
+
   eslint-plugin-react-refresh@0.4.13(eslint@9.13.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.13.0(jiti@1.21.6)
@@ -20799,6 +20921,12 @@ snapshots:
   react-is@18.3.1: {}
 
   react-lifecycles-compat@3.0.4: {}
+
+  react-monaco-editor@0.58.0(monaco-editor@0.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      monaco-editor: 0.52.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-responsive-iframe-viewer@1.1.4:
     dependencies:
