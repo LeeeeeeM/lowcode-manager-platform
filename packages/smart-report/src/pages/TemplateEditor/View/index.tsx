@@ -12,7 +12,7 @@ import { MenuItem } from "services/entity/report-menu";
 
 const defaultValue = `
 func main() {
-  fmt.Printf("这是一个非常长的字符串，用于测试Monaco Editor的自动换行功能。这是一个非常长的字符串，用于测试Monaco Editor的自动换行功能。")
+  fmt.Printf("请输入 / 触发菜单")
 }
 `;
 

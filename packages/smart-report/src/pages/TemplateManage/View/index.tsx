@@ -98,26 +98,7 @@ export default function ProjectManage() {
   return (
     <>
       <ViewBox>
-        {contextHolder}
-        <Flex align="center" gap={10} className="mb-2">
-          <Button onClick={createNewProject}>新建项目</Button>
-        </Flex>
-        <CustomTable
-          {...{
-            total,
-            currentPage,
-            data,
-            onChangePageSize,
-            loading,
-            reloadData: loadData,
-            onClickAction: download,
-          }}
-        />
-        {/* <DownloadModal
-          visible={visible}
-          closeModal={closeModal}
-          onConfirm={downloadImpl}
-        /> */}
+        <div>[WIP]正在开发中，暂不开放</div>
       </ViewBox>
     </>
   );

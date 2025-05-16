@@ -15,7 +15,7 @@ export const navRoutes: Route[] = [
     label: "模板管理",
     path: ROUTES_ENUM.TEMPLATE_MANAGE,
     icon: <ProjectOutlined />,
-    lazy: () => import("../pages/ProjectManage").then(({ Entry }) => Entry),
+    lazy: () => import("../pages/TemplateManage").then(({ Entry }) => Entry),
   },
   {
     label: "生成报告",
@@ -24,7 +24,7 @@ export const navRoutes: Route[] = [
     lazy: () => import("../pages/UserManage").then(({ Entry }) => Entry),
   },
   {
-    label: "编辑器",
+    label: "模板编辑器",
     path: ROUTES_ENUM.TEMPLATE_EDITOR,
     icon: <ShopOutlined />,
     lazy: () => import("../pages/TemplateEditor").then(({ Entry }) => Entry),
