@@ -5,7 +5,7 @@ import Content from "../Content";
 
 interface LoadingContentProps {
   children?: ReactNode;
-  loadData?: Promise<unknown>;
+  loadData?: Promise<any>;
 }
 
 const Loading: FC<LoadingContentProps> = (props) => {
@@ -19,8 +19,8 @@ const Loading: FC<LoadingContentProps> = (props) => {
       } catch {
         message.warning(`数据请求异常`)
       }
+      setLoaded(false);
     }
-    setLoaded(false);
   }, [loadData]);
 
   return (

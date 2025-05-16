@@ -26,4 +26,4 @@ export const useStore = create<ProjectManageState & ProjectManageActions>((set) 
 }));
 
 
-registerStore(MODEL_NAMESPACE.PROJECT_MANAGE, useStore);
+registerStore(MODEL_NAMESPACE.TEMPLATE_MANAGE, useStore);

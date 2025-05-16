@@ -7,8 +7,7 @@ import styles from "./index.module.less";
 import useSizeObserver from "/@/hooks/useSizeHook";
 import "/@/utils/monaco";
 import MonacoBlockMenu from "/@/components/MonacoBlockMenu";
-import { getReportMenuList } from "services";
-import { MenuItem } from "services/entity/report-menu";
+import { useStore } from "../Model";
 
 const defaultValue = `
 func main() {
@@ -29,7 +28,7 @@ export default function TemplateEditor() {
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
   const [editorInstance, setEditorInstance] =
     useState<monaco.editor.IStandaloneCodeEditor | null>(null);
-  const [menuList, setMenuList] = useState<MenuItem[]>([]);
+  const { menuList } = useStore();
 
   const handleResize = useCallback(() => {
     editorRef.current?.layout();
@@ -44,12 +43,6 @@ export default function TemplateEditor() {
     editorRef.current = editor;
     setEditorInstance(editor);
   };
-
-  useEffect(() => {
-    getReportMenuList().then((res) => {
-      setMenuList(res || []);
-    });
-  }, []);
 
   return (
     <>
